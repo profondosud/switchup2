@@ -1,0 +1,17 @@
+<svg viewBox="0 0 2048 512" xmlns="http://www.w3.org/2000/svg" width="2048" height="512">
+  <!-- Sfondo trasparente -->
+  <defs>
+    <style>
+      .switch-text { font-family: 'Barlow Condensed', Arial, sans-serif; font-size: 280px; font-weight: 900; fill: white; letter-spacing: -8px; }
+    </style>
+  </defs>
+
+  <!-- Testo SWITCH UP -->
+  <text x="150" y="360" class="switch-text">SWITCH UP</text>
+
+  <!-- Freccia neon giallo-verde -->
+  <g transform="translate(1700, 300)">
+    <!-- Arrow polygon -->
+    <polygon points="0,0 250,-180 120,0 300,180" fill="#ADDE00" />
+  </g>
+</svg>
