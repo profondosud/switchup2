@@ -1,17 +1,15 @@
-<svg viewBox="0 0 2048 512" xmlns="http://www.w3.org/2000/svg" width="2048" height="512">
-  <!-- Sfondo trasparente -->
-  <defs>
-    <style>
-      .switch-text { font-family: 'Barlow Condensed', Arial, sans-serif; font-size: 280px; font-weight: 900; fill: white; letter-spacing: -8px; }
-    </style>
-  </defs>
+<svg viewBox="0 0 1448 1086" xmlns="http://www.w3.org/2000/svg" width="1448" height="1086" preserveAspectRatio="xMidYMid meet">
+  <!-- Sfondo trasparente - logo SWITCH UP con freccia neon -->
 
-  <!-- Testo SWITCH UP -->
-  <text x="150" y="360" class="switch-text">SWITCH UP</text>
-
-  <!-- Freccia neon giallo-verde -->
-  <g transform="translate(1700, 300)">
-    <!-- Arrow polygon -->
-    <polygon points="0,0 250,-180 120,0 300,180" fill="#ADDE00" />
+  <!-- Freccia geometrica giallo-neon (#ADDE00) - stilizzata come nell'originale -->
+  <g id="arrow">
+    <!-- Primo triangolo (sinistra) -->
+    <polygon points="977,325 1008,400 945,380" fill="#ADDE00"/>
+    <!-- Secondo triangolo (centro alto) -->
+    <polygon points="1008,400 1073,325 1048,393" fill="#ADDE00"/>
+    <!-- Terzo triangolo (centro basso) -->
+    <polygon points="1048,393 1073,486 1015,460" fill="#ADDE00"/>
+    <!-- Quarto triangolo (destra) -->
+    <polygon points="1073,486 1130,420 1100,450" fill="#ADDE00"/>
   </g>
 </svg>
