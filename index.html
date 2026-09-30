@@ -58,7 +58,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--p);outline-offset:3
 }
 #intro.out{animation:fadeOut .9s ease forwards}
 .intro-logo-wrap{
-  width:min(62vw,1440px);
+  width:min(62vw,360px);
   animation:fadeIn .7s ease .1s both;
 }
 .intro-logo-wrap img{width:100%;height:auto}
@@ -102,7 +102,7 @@ nav.s{
 }
 .nav-logo{display:inline-flex;align-items:center;transition:opacity .2s}
 .nav-logo:hover{opacity:.75}
-.nav-logo img{height:152px;width:auto;display:block;transition:height .3s}
+.nav-logo img{height:152px;width:auto;display:block;transition:height .3s;image-rendering:crisp-edges;filter:contrast(1.1) brightness(1.05)}
 nav.s .nav-logo img{height:30px}
 .nav-links{display:flex;gap:1.8rem;align-items:center}
 .nav-links a{
