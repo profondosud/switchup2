@@ -1,15 +1,15 @@
-<svg viewBox="0 0 1448 1086" xmlns="http://www.w3.org/2000/svg" width="1448" height="1086" preserveAspectRatio="xMidYMid meet">
-  <!-- Sfondo trasparente - logo SWITCH UP con freccia neon -->
+<svg viewBox="0 0 1448 1086" xmlns="http://www.w3.org/2000/svg" width="1448" height="1086">
+  <!-- Logo SWITCH UP - Freccia neon giallo-verde geometrica -->
 
-  <!-- Freccia geometrica giallo-neon (#ADDE00) - stilizzata come nell'originale -->
-  <g id="arrow">
-    <!-- Primo triangolo (sinistra) -->
-    <polygon points="977,325 1008,400 945,380" fill="#ADDE00"/>
-    <!-- Secondo triangolo (centro alto) -->
-    <polygon points="1008,400 1073,325 1048,393" fill="#ADDE00"/>
-    <!-- Terzo triangolo (centro basso) -->
-    <polygon points="1048,393 1073,486 1015,460" fill="#ADDE00"/>
-    <!-- Quarto triangolo (destra) -->
-    <polygon points="1073,486 1130,420 1100,450" fill="#ADDE00"/>
+  <!-- Freccia a tre punte stilizzata - giallo neon #ADDE00 -->
+  <g id="switch-arrow">
+    <!-- Triangolo sinistro (punta sinistra) -->
+    <polygon points="800,400 950,550 950,250" fill="#ADDE00"/>
+
+    <!-- Triangolo destro in alto (punta destra-alto) -->
+    <polygon points="950,250 1100,350 1000,200" fill="#ADDE00"/>
+
+    <!-- Triangolo destro in basso (punta destra-basso) -->
+    <polygon points="950,550 1100,650 1050,750" fill="#ADDE00"/>
   </g>
 </svg>
