@@ -508,10 +508,11 @@ nav.s .nav-logo img{height:30px}
   padding:8rem 2.5rem;
   border-top:1px solid var(--line);
 }
-.projects-inner{max-width:1200px;margin:0 auto}
+.projects-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,4vw,3.5rem)}
 .projects-top{
   display:flex;justify-content:space-between;align-items:flex-end;
   margin-bottom:4rem;gap:2rem;flex-wrap:wrap;
+  grid-column:1 / -1;
 }
 .projects-top h2{
   font-family:'Barlow Condensed',sans-serif;
@@ -523,11 +524,13 @@ nav.s .nav-logo img{height:30px}
 /* each project row */
 .proj-row{
   display:grid;
-  grid-template-columns:minmax(90px,130px) 1fr minmax(240px,380px);
-  gap:0 clamp(20px,3vw,48px);
+  grid-template-columns:1fr;
+  gap:clamp(1rem,2vw,1.5rem);
   align-items:start;
-  padding:clamp(1.8rem,3vw,2.8rem) 0;
-  border-bottom:1px solid var(--line);
+  padding:clamp(1.5rem,3vw,2rem);
+  border-bottom:none;
+  border:1px solid var(--line);
+  border-radius:8px;
   text-decoration:none;color:inherit;
   position:relative;
   transition:background .3s;border-radius:6px;
@@ -600,6 +603,7 @@ nav.s .nav-logo img{height:30px}
   font-size:1.1rem;letter-spacing:.04em;color:var(--dim2);text-transform:uppercase;
 }
 .proj-row:hover .proj-thumb-link{opacity:1}
+.proj-row.add{grid-column:1 / -1;grid-template-columns:1fr auto;align-items:center;justify-content:space-between;border-radius:8px}
 .proj-thumb-link span{
   font-size:.65rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
   color:var(--p);padding:.3rem .7rem;
@@ -1132,32 +1136,6 @@ footer{
       </div>
       <div class="proj-thumb">
         <img src="images/paolomarletto-screenshot.png" alt="Paolo Marletto" loading="lazy">
-        <div class="proj-thumb-link"><span>Visita <i class="fas fa-arrow-right"></i></span></div>
-      </div>
-    </a>
-
-    <a class="proj-row r d2" href="https://www.adattivia.it" target="_blank" rel="noopener">
-      <div class="proj-num">05</div>
-      <div class="proj-info">
-        <div class="proj-cat">Agenzia Digitale</div>
-        <div class="proj-name">Adattivia</div>
-        <p class="proj-desc">Partner tecnologico. Agenzia digitale specializzata in siti AI-powered. Il motore dietro Switch Up.</p>
-      </div>
-      <div class="proj-thumb">
-        <img src="images/adattivia-screenshot.png" alt="Adattivia" loading="lazy">
-        <div class="proj-thumb-link"><span>Visita <i class="fas fa-arrow-right"></i></span></div>
-      </div>
-    </a>
-
-    <a class="proj-row r d3" href="https://it.ayuniko.shop/" target="_blank" rel="noopener">
-      <div class="proj-num">06</div>
-      <div class="proj-info">
-        <div class="proj-cat">Brand · Wellness</div>
-        <div class="proj-name">Ayuniko</div>
-        <p class="proj-desc">Brand wellness. E-commerce e presenza digitale per pubblico sportivo premium.</p>
-      </div>
-      <div class="proj-thumb">
-        <img src="images/ayuniko-screenshot.png" alt="Ayuniko" loading="lazy">
         <div class="proj-thumb-link"><span>Visita <i class="fas fa-arrow-right"></i></span></div>
       </div>
     </a>
