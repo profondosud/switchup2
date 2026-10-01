@@ -4,5 +4,6 @@
   ],
   "redirects": [
     { "source": "/qr", "destination": "/", "permanent": false }
-  ]
+  ],
+  "buildCommand": "echo 'Building final version'"
 }
