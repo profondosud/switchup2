@@ -687,8 +687,13 @@ nav.s .nav-logo img{height:30px}
   border-left:2px solid var(--p);padding-left:1.2rem;
 }
 .service-grid{
-  display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;
+  display:grid;grid-template-columns:repeat(5,1fr);gap:1.2rem;
 }
+.serv-card:nth-child(1){grid-column:1/2}
+.serv-card:nth-child(2){grid-column:2/3}
+.serv-card:nth-child(3){grid-column:3/4}
+.serv-card:nth-child(4){grid-column:2/3}
+.serv-card:nth-child(5){grid-column:4/5}
 @media(max-width:900px){.service-grid{grid-template-columns:1fr 1fr}}
 @media(max-width:560px){.service-grid{grid-template-columns:1fr}}
 .serv-card{
