@@ -983,23 +983,23 @@ footer{
 <!-- ─── PROCESS ────────────────────────────────── -->
 <section class="process" id="process">
   <div class="process-inner">
-    <div class="s-tag r">Come Funziona</div>
-    <h2 class="r">Tre step.<br>Veloce e solido.</h2>
+    <div class="s-tag r" data-i18n="process_tag">Cosa Offriamo</div>
+    <h2 class="r" data-i18n="process_h">Cosa Offriamo</h2>
     <div class="steps r d1">
       <div class="step">
         <div class="step-n">01</div>
-        <h3>Una Conversazione</h3>
-        <p>Call di 30 minuti. Ci racconti chi siete, come gareggiate, quali sponsor cercate. Da lì iniziamo il progetto.</p>
+        <h3 data-i18n="service_01_h">La Vetrina</h3>
+        <p data-i18n="service_01_p">[TESTO DA SCRIVERE: descrizione della vetrina/sito web]</p>
       </div>
       <div class="step">
         <div class="step-n">02</div>
-        <h3>Costruiamo</h3>
-        <p>AI e strategia Adattivia per il vostro sito. Non è design, è uno strumento di acquisizione sponsorship: ogni pixel lavora per farvi firmare.</p>
+        <h3 data-i18n="service_02_h">Presentazione per gli Sponsor</h3>
+        <p data-i18n="service_02_p">[TESTO DA SCRIVERE: cosa offriamo agli sponsor]</p>
       </div>
       <div class="step">
         <div class="step-n">03</div>
-        <h3>Siete Online</h3>
-        <p>Il sito è vostro per sempre. Lo gestite voi. Gli sponsor vi trovano facilmente. Noi vi supportiamo durante il primo mese, poi siete autonomi.</p>
+        <h3 data-i18n="service_03_h">Supporto nella Gestione dei Social</h3>
+        <p data-i18n="service_03_p">[TESTO DA SCRIVERE: descrizione del supporto social]</p>
       </div>
     </div>
   </div>
@@ -1195,7 +1195,7 @@ footer{
       <h4>Navigazione</h4>
       <a href="#why">Perché Noi</a>
       <a href="#projects">Progetti</a>
-      <a href="#process">Come Funziona</a>
+      <a href="#process" data-i18n="nav_process">Cosa Offriamo</a>
       <a href="#service">Servizio</a>
     </div>
     <div class="f-col">
@@ -1271,8 +1271,8 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
 /* ── TRANSLATIONS ───────────────────────────── */
 const T={
   it:{
-    nav_problem:'Perché Noi',nav_projects:'Progetti',nav_process:'Come Funziona',
-    nav_service:'Servizio',nav_cta:'Demo Gratuita',
+    nav_problem:'Perché Noi',nav_projects:'Progetti',nav_process:'Cosa Offriamo',
+    nav_service:'Servizio',nav_cta:'Parliamone',
     pilots_h:'Da chi<br>ha gareggiato.<br>',pilots_em:'Per chi compete.',
     pilots_p1:'Siamo Andrea Bettin e Marco Paonessa, piloti. Conosciamo la pressione della gara, la ricerca degli sponsor, le email che non ricevono risposta. Sappiamo esattamente cosa vuole vedere un brand prima di firmare.',
     pilots_p2:'Per questo <strong>SWITCH UP funziona</strong>: non è teoria. Facciamo siti per team di qualsiasi sport (moto, auto, calcio, ciclismo, arti marziali) con la mentalità di chi ha vissuto la competizione dall\'interno.',
@@ -1282,8 +1282,12 @@ const T={
     serv_lead:'I Tuoi Sforzi Meritano Una Vetrina Vera. Non parole: un sistema completo che trasforma la tua presenza online in uno strumento di acquisizione sponsorship per qualsiasi sport.',
     closing_tag:'Il Tuo Avversario È Già Online.',
     closing_h1:'I Tuoi Sforzi',closing_h2:'Meritano',closing_h3:'Una Vetrina Vera',
-    btn_demo:'Richiedi Demo Gratuita',btn_proj:'Vedi i Progetti',
+    btn_demo:'Parliamone',btn_proj:'Vedi i Progetti',
     badge:'I Tuoi Sforzi Meritano Una Vetrina Vera',
+    process_tag:'Cosa Offriamo',process_h:'Cosa Offriamo',
+    service_01_h:'La Vetrina',service_01_p:'[TESTO DA SCRIVERE: descrizione della vetrina/sito web]',
+    service_02_h:'Presentazione per gli Sponsor',service_02_p:'[TESTO DA SCRIVERE: cosa offriamo agli sponsor]',
+    service_03_h:'Supporto nella Gestione dei Social',service_03_p:'[TESTO DA SCRIVERE: descrizione del supporto social]',
     h1_1:'Noi creiamo',
     h1_2:'la tua <em>vetrina</em>,',
     h1_3:'tu moltiplichi',
@@ -1321,8 +1325,8 @@ const T={
     intro_payoff:'I Tuoi Sforzi Meritano',intro_payoff2:'Una Vetrina Vera',
   },
   es:{
-    nav_problem:'Por Qué',nav_projects:'Proyectos',nav_process:'Cómo Funciona',
-    nav_service:'Servicio',nav_cta:'Demo Gratis',
+    nav_problem:'Por Qué',nav_projects:'Proyectos',nav_process:'Qué Ofrecemos',
+    nav_service:'Servicio',nav_cta:'Hablemos',
     pilots_h:'De quien<br>ha competido.<br>',pilots_em:'Para quien compite.',
     pilots_p1:'Somos Andrea Bettin y Marco Paonessa, pilotos. Conocemos la presión de la competición, la búsqueda de patrocinadores, los emails sin respuesta. Sabemos exactamente qué quiere ver una marca antes de firmar.',
     pilots_p2:'Por eso <strong>SWITCH UP funciona</strong>: no es teoría. Creamos sitios para equipos de cualquier deporte (moto, auto, fútbol, ciclismo, artes marciales) con la mentalidad de quien ha vivido la competición por dentro.',
@@ -1332,8 +1336,12 @@ const T={
     serv_lead:'Tu Esfuerzo Merece Un Escaparate Real. No palabras: un sistema completo que transforma tu presencia online en una herramienta de captación de sponsors para cualquier deporte.',
     closing_tag:'Tu Competidor Ya Está Online.',
     closing_h1:'Tu Esfuerzo',closing_h2:'Merece',closing_h3:'Un Escaparate Real',
-    btn_demo:'Solicitar Demo Gratis',btn_proj:'Ver Proyectos',
+    btn_demo:'Hablemos',btn_proj:'Ver Proyectos',
     badge:'Tu Esfuerzo Merece Un Escaparate Real',
+    process_tag:'Qué Ofrecemos',process_h:'Qué Ofrecemos',
+    service_01_h:'El Escaparate',service_01_p:'[TEXTO A ESCRIBIR: descripción del escaparate/sitio web]',
+    service_02_h:'Presentación para los Patrocinadores',service_02_p:'[TEXTO A ESCRIBIR: qué ofrecemos a los patrocinadores]',
+    service_03_h:'Apoyo en la Gestión de Redes Sociales',service_03_p:'[TEXTO A ESCRIBIR: descripción del apoyo en redes sociales]',
     h1_1:'Nosotros creamos',
     h1_2:'tu <em>escaparate</em>,',
     h1_3:'tú multiplicas',
@@ -1371,8 +1379,8 @@ const T={
     intro_payoff:'Tu Esfuerzo Merece',intro_payoff2:'Un Escaparate Real',
   },
   en:{
-    nav_problem:'Why Us',nav_projects:'Projects',nav_process:'How It Works',
-    nav_service:'Service',nav_cta:'Free Demo',
+    nav_problem:'Why Us',nav_projects:'Projects',nav_process:'What We Offer',
+    nav_service:'Service',nav_cta:'Let\'s Talk',
     pilots_h:'Built by those<br>who competed.<br>',pilots_em:'For those who compete.',
     pilots_p1:'We are Andrea Bettin and Marco Paonessa, riders. We know the pressure of competition, the hunt for sponsors, the emails that never get replies. We know exactly what a brand needs to see before signing.',
     pilots_p2:'That\'s why <strong>SWITCH UP works</strong>: it\'s not theory. We build sites for teams in any sport (motorbikes, cars, football, cycling, martial arts) with the mindset of those who\'ve lived competition from the inside.',
@@ -1382,8 +1390,12 @@ const T={
     serv_lead:'Your Effort Deserves A Real Showcase. Not words: a complete system that turns your online presence into a concrete, measurable sponsorship acquisition tool for any sport.',
     closing_tag:'Your Rival Is Already Online.',
     closing_h1:'Your Effort',closing_h2:'Deserves',closing_h3:'A Real Showcase',
-    btn_demo:'Request Free Demo',btn_proj:'See Projects',
+    btn_demo:'Let\'s Talk',btn_proj:'See Projects',
     badge:'Your Effort Deserves A Real Showcase',
+    process_tag:'What We Offer',process_h:'What We Offer',
+    service_01_h:'The Showcase',service_01_p:'[TEXT TO WRITE: description of the showcase/website]',
+    service_02_h:'Presentation for Sponsors',service_02_p:'[TEXT TO WRITE: what we offer to sponsors]',
+    service_03_h:'Support in Social Media Management',service_03_p:'[TEXT TO WRITE: description of social media support]',
     h1_1:'We build',
     h1_2:'your <em>showcase</em>,',
     h1_3:'you multiply',
