@@ -842,7 +842,13 @@ nav.s .nav-logo img{height:30px}
 .top-hero .hero-sub{margin-left:auto;margin-right:auto;border-left:none;padding-left:0;max-width:560px}
 .top-hero .hero-actions{justify-content:center}
 .top-hero .hero-scroll{left:0;right:0;margin:0 auto;width:max-content;z-index:3}
-.end-hero{min-height:85vh;border-top:1px solid var(--line)}
+.end-hero{
+  min-height:85vh;border-top:1px solid var(--line);
+  background-image:url('images/end-hero-full-bg.png');
+  background-size:cover;background-position:center;background-repeat:no-repeat;
+  background-attachment:fixed;
+}
+.end-hero .hero-photo{display:none}
 .end-hero h2{
   font-family:'Barlow Condensed',sans-serif;
   font-size:clamp(2.6rem,6.2vw,7rem);
