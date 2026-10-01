@@ -849,7 +849,7 @@ nav.s .nav-logo img{height:30px}
     linear-gradient(to right,rgba(6,6,10,.92) 0%,rgba(6,6,10,.85) 50%,rgba(6,6,10,.7) 100%),
     url('images/end-hero-motorbike-bg.png');
   background-size:cover;background-position:center;background-repeat:no-repeat;
-  background-attachment:fixed;
+  background-attachment:scroll;
   position:relative;
 }
 .end-hero .hero-photo{display:none}
@@ -1245,18 +1245,6 @@ const hpImg=document.getElementById('heroPhotoImg');
 window.addEventListener('scroll',()=>{
   if(hpImg&&scrollY<window.innerHeight){hpImg.style.transform=`scale(1.05) translateY(${scrollY*.12}px)`}
 },{passive:true});
-
-/* ── END-HERO PARALLAX ──────────────────────── */
-const ehSection=document.querySelector('.end-hero');
-if(ehSection){
-  window.addEventListener('scroll',()=>{
-    const rect=ehSection.getBoundingClientRect();
-    if(rect.top<window.innerHeight&&rect.top+rect.height>0){
-      const offset=(window.innerHeight-rect.top)*.4;
-      ehSection.style.backgroundPosition=`center ${-offset}px`;
-    }
-  },{passive:true});
-}
 
 /* ── HERO TEXT REVEAL ───────────────────────── */
 document.querySelectorAll('.hero-h1 .line').forEach((s,i)=>setTimeout(()=>s.classList.add('v'),i*130+2900));
