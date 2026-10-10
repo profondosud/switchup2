@@ -91,6 +91,45 @@ nav.s .nav-logo img{height:30px}
   max-width:600px;line-height:1.8;margin:0 auto;font-weight:300;
 }
 
+/* SOCIAL MEDIA MANAGEMENT */
+.social-mgmt{
+  padding:8rem 2.5rem;
+  border-top:1px solid var(--line);
+  background:linear-gradient(180deg,var(--ink2) 0%,var(--ink) 100%);
+  position:relative;overflow:hidden;
+}
+.social-mgmt::before{
+  content:'';position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(ellipse 50% 40% at 50% 38%,rgba(173,222,0,.04),transparent 70%);
+}
+.social-inner{max-width:1200px;margin:0 auto;position:relative}
+.social-mgmt h2{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:clamp(2.6rem,6vw,5.2rem);font-weight:900;
+  text-transform:uppercase;line-height:.92;margin-bottom:2rem;
+}
+.s-tag{
+  font-size:.62rem;font-weight:700;letter-spacing:.3em;text-transform:uppercase;
+  color:var(--p);margin-bottom:2rem;display:flex;align-items:center;gap:.8rem;
+}
+.s-tag::before{content:'';width:24px;height:1px;background:var(--p)}
+.social-lead{color:var(--dim2);font-size:1rem;line-height:1.85;max-width:700px;margin-bottom:4rem;border-left:2px solid var(--p);padding-left:1.2rem}
+.social-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;margin-top:3rem}
+.social-card{
+  padding:2rem;border-radius:12px;
+  border:1px solid rgba(173,222,0,.15);background:rgba(255,255,255,.01);
+  text-align:center;transition:transform .35s,border-color .35s,background .35s;
+}
+.social-card:hover{transform:translateY(-8px);border-color:rgba(173,222,0,.35);background:rgba(173,222,0,.04)}
+.social-card i{font-size:2.2rem;color:var(--p);margin-bottom:1rem;display:block}
+.social-card h3{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:1.4rem;font-weight:800;text-transform:uppercase;margin-bottom:.8rem;line-height:1.1;
+}
+.social-card p{color:var(--dim2);font-size:.88rem;line-height:1.65}
+@media(max-width:900px){.social-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.social-grid{grid-template-columns:1fr}}
+
 /* SERVICES GRID */
 .services-section{
   padding:8rem 2.5rem;
@@ -182,6 +221,38 @@ footer{
   <div class="hero-content">
     <h1>I Nostri <em>Servizi</em></h1>
     <p>Una strategia completa per trasformare la tua presenza online in uno strumento di acquisizione sponsorship.</p>
+  </div>
+</section>
+
+<!-- SOCIAL MEDIA MANAGEMENT -->
+<section class="social-mgmt">
+  <div class="social-inner">
+    <div class="s-tag">Social Media Management</div>
+    <h2>Fai crescere la tua presenza online</h2>
+    <p class="social-lead">Il sito da solo non basta. Gli sponsor ti cercano sui social. Integriamo la tua vetrina web con una strategia social coordinata: coerenza, visibilità, engagement costante.</p>
+
+    <div class="social-grid">
+      <div class="social-card">
+        <i class="fas fa-chart-line"></i>
+        <h3>Visibilità Coordinata</h3>
+        <p>Sito + Instagram + TikTok + YouTube sincronizzati. Uno parla dell'altro. Lo sponsor ti vede ovunque.</p>
+      </div>
+      <div class="social-card">
+        <i class="fas fa-users"></i>
+        <h3>Engagement Reale</h3>
+        <p>Post studiati, interazioni frequenti, community building. Non è spam: è relazione con gli sponsor.</p>
+      </div>
+      <div class="social-card">
+        <i class="fas fa-trending-up"></i>
+        <h3>Metriche Trasparenti</h3>
+        <p>Dashboard con numeri reali: followers, engagement rate, reach. Lo sponsor sa esattamente cosa riceve.</p>
+      </div>
+      <div class="social-card">
+        <i class="fas fa-sync"></i>
+        <h3>Aggiornamenti Costanti</h3>
+        <p>Calendario editoriale pianificato. Dal circuit all'albergo, dalla gara al raduno: tutti i momenti raccontati.</p>
+      </div>
+    </div>
   </div>
 </section>
 
