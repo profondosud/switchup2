@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Servizi | SWITCH UP</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,300;0,700;0,800;0,900;1,700;1,800;1,900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="icon" href="images/logo-switchup.png">
+<style>
+:root{
+  --p:#ADDE00;--p-lo:rgba(173,222,0,.08);--p-stroke:.022em;
+  --ink:#06060A;--ink2:#0D0D14;--snow:#F2EFF8;
+  --dim:#7A7888;--dim2:#B0AEBF;--line:rgba(255,255,255,.07);
+  color-scheme:dark;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{background:var(--ink);scroll-behavior:smooth}
+body{background:var(--ink);color:var(--snow);font-family:'Inter',sans-serif;overflow-x:hidden;line-height:1.6}
+::selection{background:var(--p);color:#0a0a0a}
+img{max-width:100%;display:block}
+a{text-decoration:none;color:inherit}
+button{font-family:inherit}
+
+/* NAV */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:1000;
+  padding:1.2rem 2.5rem;
+  display:flex;justify-content:space-between;align-items:center;gap:1rem;
+  transition:background .4s,backdrop-filter .4s,padding .3s,border-color .4s;
+  border-bottom:1px solid transparent;
+}
+nav.s{
+  background:rgba(6,6,10,.92);
+  backdrop-filter:blur(24px);
+  border-color:rgba(173,222,0,.14);
+  padding:.85rem 2.5rem;
+}
+.nav-logo{display:inline-flex;align-items:center;transition:opacity .2s}
+.nav-logo:hover{opacity:.75}
+.nav-logo img{height:152px;width:auto;display:block;transition:height .3s;image-rendering:crisp-edges}
+nav.s .nav-logo img{height:30px}
+.nav-links{display:flex;gap:1.8rem;align-items:center}
+.nav-links a{
+  font-size:.76rem;font-weight:500;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--dim2);
+  position:relative;transition:color .25s;
+}
+.nav-links a::after{
+  content:'';position:absolute;left:0;bottom:-4px;
+  width:0;height:1px;background:var(--p);transition:width .3s;
+}
+.nav-links a:hover{color:var(--snow)}
+.nav-links a:hover::after{width:100%}
+.nav-cta{
+  padding:.6rem 1.4rem;background:var(--p);color:#0a0a0a;
+  border:none;border-radius:3px;cursor:pointer;
+  font-size:.73rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;
+  box-shadow:0 4px 20px rgba(173,222,0,.2);
+  transition:box-shadow .25s,transform .2s;
+}
+.nav-cta:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(173,222,0,.4)}
+
+/* HERO */
+.hero{
+  min-height:60vh;
+  display:flex;align-items:center;justify-content:center;
+  text-align:center;padding:8rem 2.5rem 6rem;
+  position:relative;overflow:hidden;
+}
+.hero::before{
+  content:'';position:absolute;inset:0;z-index:0;
+  background:radial-gradient(ellipse 50% 60% at 5% 50%,rgba(173,222,0,.07),transparent 65%);
+  pointer-events:none;
+}
+.hero-content{position:relative;z-index:1;max-width:900px}
+.hero h1{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:clamp(2.4rem,6vw,6rem);
+  font-weight:900;line-height:.86;
+  text-transform:uppercase;letter-spacing:.01em;
+  margin-bottom:2rem;
+}
+.hero h1 em{
+  color:transparent;
+  -webkit-text-stroke:.022em var(--p);
+  font-style:italic;
+}
+.hero p{
+  font-size:clamp(.95rem,1.4vw,1.05rem);color:var(--dim2);
+  max-width:600px;line-height:1.8;margin:0 auto;font-weight:300;
+}
+
+/* SERVICES GRID */
+.services-section{
+  padding:8rem 2.5rem;
+  border-top:1px solid var(--line);
+}
+.services-inner{max-width:1200px;margin:0 auto}
+.services-grid{
+  display:grid;grid-template-columns:repeat(5,1fr);gap:2rem;
+  margin-top:4rem;
+}
+.service-card{
+  padding:3rem 2rem;border-radius:12px;
+  border:1px solid rgba(173,222,0,.15);background:rgba(255,255,255,.01);
+  text-align:center;transition:transform .35s,border-color .35s,background .35s;
+  position:relative;
+}
+.service-card::before{
+  content:'';position:absolute;left:0;top:0;height:3px;width:0;
+  background:var(--p);transition:width .5s cubic-bezier(.16,1,.3,1);
+}
+.service-card:hover{
+  transform:translateY(-12px);border-color:rgba(173,222,0,.35);background:rgba(173,222,0,.03);
+}
+.service-card:hover::before{width:100%}
+.service-card i{
+  font-size:3rem;color:var(--p);margin-bottom:1.5rem;display:block;
+}
+.service-card h3{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:1.6rem;font-weight:900;text-transform:uppercase;
+  margin-bottom:1rem;line-height:1.1;
+}
+.service-card p{color:var(--dim2);font-size:.95rem;line-height:1.7}
+
+/* FOOTER */
+footer{
+  padding:5rem 2.5rem 3rem;
+  border-top:1px solid var(--line);
+  background:#030306;
+}
+.footer-inner{
+  max-width:1200px;margin:0 auto;
+  display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:4rem;margin-bottom:4rem;
+}
+.f-brand-logo{display:inline-flex;margin-bottom:1.4rem}
+.f-brand-logo img{height:36px;width:auto;display:block}
+.f-brand p{font-size:.8rem;color:var(--dim);line-height:1.75;max-width:240px}
+.f-col h4{font-size:.6rem;letter-spacing:.24em;text-transform:uppercase;color:var(--dim);margin-bottom:1.3rem;font-weight:600}
+.f-col a{display:block;font-size:.83rem;color:var(--dim2);margin-bottom:.65rem;transition:color .2s}
+.f-col a:hover{color:var(--p)}
+.footer-bottom{
+  max-width:1200px;margin:0 auto;
+  padding-top:2rem;border-top:1px solid var(--line);
+  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;
+}
+.f-copy{font-size:.73rem;color:var(--dim)}
+
+@media(max-width:900px){
+  .services-grid{grid-template-columns:1fr 1fr}
+  .footer-inner{grid-template-columns:1fr}
+}
+@media(max-width:560px){
+  .services-grid{grid-template-columns:1fr}
+  .footer-inner{grid-template-columns:1fr}
+  .footer-bottom{flex-direction:column;text-align:center}
+  nav{padding:0 1.2rem}
+  .nav-links a:not(.nav-cta){display:none}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="index.html" class="nav-logo">
+    <img src="images/logo-switchup.svg" alt="SWITCH UP">
+  </a>
+  <div class="nav-links">
+    <a href="index.html#why">Perché Noi</a>
+    <a href="index.html#projects">Progetti</a>
+    <a href="servizi.html" style="color:var(--p)">Servizi</a>
+    <a href="index.html#service">Pacchetti</a>
+    <button class="nav-cta" onclick="window.location.href='index.html#service'">Parliamone</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <h1>I Nostri <em>Servizi</em></h1>
+    <p>Una strategia completa per trasformare la tua presenza online in uno strumento di acquisizione sponsorship.</p>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services-section">
+  <div class="services-inner">
+    <div class="services-grid">
+      <div class="service-card">
+        <i class="fas fa-newspaper"></i>
+        <h3>Ufficio Stampa</h3>
+        <p>Creiamo interesse intorno a te. Siamo noi a creare la notizia che gli sponsor vuole leggere.</p>
+      </div>
+
+      <div class="service-card">
+        <i class="fas fa-chart-bar"></i>
+        <h3>Pianificazione della Comunicazione & Marketing</h3>
+        <p>Il motorsport è un business. Lo trattiamo con professionalità strategica, non con improvvisazione.</p>
+      </div>
+
+      <div class="service-card">
+        <i class="fas fa-handshake"></i>
+        <h3>Rapporti con gli Sponsor</h3>
+        <p>Niente soldi, niente gara. Ti insegniamo come gestire sponsorship da professionista, non da aspirante.</p>
+      </div>
+
+      <div class="service-card">
+        <i class="fas fa-palette"></i>
+        <h3>Comunicazione Visiva</h3>
+        <p>L'estetica è una scienza. Ogni pixel, ogni colore, ogni elemento racconta chi sei davvero.</p>
+      </div>
+
+      <div class="service-card">
+        <i class="fas fa-globe"></i>
+        <h3>Web & Social Media</h3>
+        <p>Fai crescere la tua presenza online mentre sei in pista. Sito + social + engagement coordinati.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="f-brand">
+      <div class="f-brand-logo">
+        <img src="images/logo-switchup.png" alt="SWITCH UP">
+      </div>
+      <p>Siti professionali per tutti gli sport che attirano sponsor. Costruiti da atleti, per gli atleti.</p>
+    </div>
+    <div class="f-col">
+      <h4>Navigazione</h4>
+      <a href="index.html#why">Perché Noi</a>
+      <a href="index.html#projects">Progetti</a>
+      <a href="servizi.html">Servizi</a>
+      <a href="index.html#service">Pacchetti</a>
+    </div>
+    <div class="f-col">
+      <h4>Partner</h4>
+      <a href="https://www.adattivia.it" target="_blank" rel="noopener">Adattivia</a>
+      <a href="https://ab39.it" target="_blank" rel="noopener">Andrea Bettin · 39</a>
+      <a href="#">Privacy Policy</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="f-copy">© 2026 SWITCH UP. Your sport. Your brand. Your next level.</span>
+    <span class="f-copy">Powered by <a href="https://www.adattivia.it" target="_blank" rel="noopener" style="color:var(--p)">Adattivia</a></span>
+  </div>
+</footer>
+
+<script>
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>nav.classList.toggle('s',scrollY>80),{passive:true});
+</script>
+</body>
+</html>
