@@ -919,19 +919,27 @@ footer{
   max-width:1200px;margin:0 auto;
   display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:4rem;margin-bottom:4rem;
 }
-.f-brand-logo{display:inline-flex;margin-bottom:1.4rem}
-.f-brand-logo img{height:36px;width:auto;display:block;}
-.f-brand p{font-size:.8rem;color:var(--dim);line-height:1.75;max-width:240px}
+.f-brand{align-self:start}
+.f-brand-logo{display:none}
+.f-tagline{font-family:"Barlow Condensed",sans-serif;font-size:clamp(1.65rem,2.3vw,2.15rem);font-weight:800;line-height:1.02;letter-spacing:.01em;text-transform:uppercase;color:var(--snow);max-width:340px;margin:0 0 1rem}
+.f-tagline span{display:block;color:var(--p)}
+.f-brand p{font-size:.84rem;color:var(--dim);line-height:1.75;max-width:300px;margin:0}
 .f-col h4{font-size:.6rem;letter-spacing:.24em;text-transform:uppercase;color:var(--dim);margin-bottom:1.3rem;font-weight:600}
 .f-col a{display:block;font-size:.83rem;color:var(--dim2);margin-bottom:.65rem;transition:color .2s}
 .f-col a:hover{color:var(--p)}
+.partner-link{width:fit-content;min-width:190px;min-height:58px;padding:.7rem 1rem;border:1px solid var(--line);border-radius:12px;background:linear-gradient(135deg,rgba(255,255,255,.045),rgba(255,255,255,.012));display:flex!important;align-items:center;justify-content:flex-start;margin:0 0 .7rem!important;transition:border-color .2s,transform .2s,background .2s!important}
+.partner-link:hover{border-color:rgba(173,222,0,.55);transform:translateY(-2px);background:rgba(173,222,0,.055)}
+.partner-link img{display:block;max-width:150px;width:auto;height:auto;max-height:32px;object-fit:contain;object-position:left center}
+.partner-link img[alt="Adattivia"]{max-width:152px;max-height:30px}
+.partner-link img[alt="LAIP"]{max-width:136px;max-height:29px}
+.partner-text-link{margin-top:.4rem!important}
 .footer-bottom{
   max-width:1200px;margin:0 auto;
   padding-top:2rem;border-top:1px solid var(--line);
   display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;
 }
 .f-copy{font-size:.73rem;color:var(--dim)}
-@media(max-width:768px){.footer-inner{grid-template-columns:1fr}.footer-bottom{flex-direction:column;text-align:center}}
+@media(max-width:768px){.footer-inner{grid-template-columns:1fr;gap:2.5rem;margin-bottom:3rem}.f-tagline{max-width:430px}.footer-bottom{flex-direction:column;text-align:center}}
 
 /* ─── SCROLL REVEAL ───────────────────────────── */
 .r{opacity:0;transform:translateY(40px);transition:opacity .9s cubic-bezier(.16,1,.3,1),transform .9s cubic-bezier(.16,1,.3,1)}
@@ -1199,22 +1207,25 @@ footer{
 <footer>
   <div class="footer-inner">
     <div class="f-brand">
-      <div class="f-brand-logo">
-        <img src="images/logo-switchup.png" alt="SWITCH UP" loading="lazy">
-      </div>
-      <p>Siti professionali per tutti gli sport che attirano sponsor. Costruiti da atleti, per gli atleti.</p>
+      <p class="f-tagline">La tua storia merita <span>il palcoscenico giusto.</span></p>
+      <p>Una vetrina digitale pensata per trasformare il tuo talento in opportunità concrete con gli sponsor.</p>
     </div>
     <div class="f-col">
       <h4>Navigazione</h4>
       <a href="#why">Perché Noi</a>
       <a href="#projects">Progetti</a>
       <a href="#process" data-i18n="nav_process">Cosa Offriamo</a>
-      <a href="servizi.html">Servizi</a>
+      <a href="#service">Servizi</a>
     </div>
     <div class="f-col">
       <h4>Partner</h4>
-      <a href="https://www.adattivia.it" target="_blank" rel="noopener">Adattivia</a>
-      <a href="https://ab39.it" target="_blank" rel="noopener">Andrea Bettin · 39</a>
+      <a class="partner-link" href="https://www.adattivia.it" target="_blank" rel="noopener noreferrer" aria-label="Visita il sito Adattivia">
+        <img src="images/adattivia.png" alt="Adattivia" loading="lazy">
+      </a>
+      <a class="partner-link" href="https://profondosud.github.io/laip-website/index.html" target="_blank" rel="noopener noreferrer" aria-label="Visita il sito LAIP">
+        <img src="images/laip-logo.png" alt="LAIP" loading="lazy">
+      </a>
+      <a class="partner-text-link" href="https://ab39.it" target="_blank" rel="noopener noreferrer">Andrea Bettin · 39</a>
       <a href="#">Privacy Policy</a>
     </div>
   </div>
