@@ -284,6 +284,13 @@ nav.s .nav-logo img{height:40px}
   transition:border-color .25s,color .25s,background .25s;
 }
 .btn-line:hover{border-color:rgba(173,222,0,.5);color:var(--p);background:rgba(173,222,0,.06)}
+
+/* ─── SERVICES CTA ────────────────────────────── */
+.services-cta{padding:5rem 2.5rem;text-align:center;background:linear-gradient(180deg,var(--ink) 0%,var(--ink2) 100%);border-top:1px solid var(--line)}
+.services-cta-inner{max-width:1200px;margin:0 auto}
+.btn-services{display:inline-block;padding:1.2rem 3.5rem;border:2px solid var(--p);color:var(--p);background:transparent;font-family:'Barlow Condensed',sans-serif;font-size:1.1rem;font-weight:800;text-transform:uppercase;letter-spacing:.15em;border-radius:3px;transition:all .3s ease;text-decoration:none;cursor:pointer}
+.btn-services:hover{background:var(--p);color:#0a0a0a;box-shadow:0 10px 40px rgba(173,222,0,.3)}
+
 @media(max-width:900px){
   .hero{grid-template-columns:1fr;padding:7rem 2rem 5rem}
   .hero-photo{display:none}
@@ -1181,6 +1188,12 @@ footer{
   <div class="hero-photo"></div>
 </section>
 
+<!-- ─── SERVICES BUTTON ─────────────────────────── -->
+<section class="services-cta">
+  <div class="services-cta-inner">
+    <a href="servizi.html" class="btn-services">Scopri i Nostri Servizi</a>
+  </div>
+</section>
 
 <!-- ─── FOOTER ─────────────────────────────────── -->
 <footer>
