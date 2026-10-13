@@ -233,6 +233,32 @@ nav.s .nav-logo img{height:40px}
 @media(max-width:760px){.visual-comparison{grid-template-columns:1fr}.visual-example-image{height:clamp(28rem,88vw,40rem)}}
 @media(max-width:560px){.visual-case-study{margin:3rem 0;padding:1rem}.visual-example-image{height:min(36rem,155vw);min-height:24rem}.visual-example-label{min-height:3.1rem;padding:.7rem .8rem;font-size:.92rem}}
 @media(prefers-reduced-motion:reduce){.visual-example{transition:none}}
+/* CTA FINALE SERVIZI */
+.services-cta{
+  position:relative;isolation:isolate;overflow:hidden;
+  padding:clamp(4.5rem,9vw,8rem) 2rem;
+  border-top:1px solid rgba(173,222,0,.16);
+  background:radial-gradient(ellipse 55% 90% at 50% 100%,rgba(173,222,0,.12),transparent 70%),linear-gradient(180deg,#0D0D14 0%,#06060A 100%);
+  text-align:center;
+}
+.services-cta::before{
+  content:'';position:absolute;z-index:-1;left:50%;top:50%;width:min(58vw,620px);aspect-ratio:1;
+  transform:translate(-50%,-50%);border:1px solid rgba(173,222,0,.09);border-radius:50%;
+  box-shadow:0 0 0 42px rgba(173,222,0,.018),0 0 0 92px rgba(173,222,0,.012);
+  pointer-events:none;
+}
+.services-cta-inner{position:relative;max-width:850px;margin:0 auto}
+.services-cta-kicker{display:inline-flex;align-items:center;gap:.65rem;margin-bottom:1.25rem;color:var(--p);font-size:.68rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase}
+.services-cta-kicker::before,.services-cta-kicker::after{content:'';width:1.5rem;height:1px;background:var(--p);opacity:.8}
+.services-cta h2{font-family:'Barlow Condensed',sans-serif;font-size:clamp(2.8rem,7vw,6rem);font-weight:900;line-height:.95;text-transform:uppercase;color:var(--snow)}
+.services-cta h2 em{display:block;margin-top:.15em;color:transparent;-webkit-text-stroke:.022em var(--p);font-style:italic}
+.services-cta p{max-width:590px;margin:1.4rem auto 2rem;color:var(--dim2);font-size:1rem;line-height:1.8}
+.services-cta-button{display:inline-flex;align-items:center;justify-content:center;gap:.7rem;min-height:3.25rem;padding:.85rem 1.6rem;border:1px solid var(--p);border-radius:3px;background:var(--p);color:#08090a;font-size:.76rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;box-shadow:0 8px 28px rgba(173,222,0,.18);transition:transform .25s,box-shadow .25s,background .25s}
+.services-cta-button:hover{transform:translateY(-3px);background:#c5ff18;box-shadow:0 12px 36px rgba(173,222,0,.32)}
+.services-cta-button i{font-size:.9rem}
+@media(max-width:560px){.services-cta{padding:4.5rem 1.25rem}.services-cta p{font-size:.94rem}}
+@media(prefers-reduced-motion:reduce){.services-cta-button{transition:none}}
+
 /* FOOTER */
 footer{
   position:relative;overflow:hidden;
@@ -469,6 +495,16 @@ footer::before{
         <p>Dashboard integrato: followers, engagement rate, reach reale, analytics per piattaforma. Lo sponsor vede esattamente quanto marchio viene visto.</p>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- CTA FINALE -->
+<section class="services-cta">
+  <div class="services-cta-inner">
+    <span class="services-cta-kicker">Il prossimo passo</span>
+    <h2>Pronto a fare il salto?<em>Facciamo il tuo switch.</em></h2>
+    <p>Raccontaci dove vuoi arrivare. Costruiamo insieme la strada per far emergere il tuo potenziale.</p>
+    <a class="services-cta-button" href="index.html#service"><i class="fas fa-bolt" aria-hidden="true"></i> Parliamone</a>
   </div>
 </section>
 
