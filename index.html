@@ -639,45 +639,77 @@ nav.s .nav-logo img{height:40px}
 
 /* ─── PROCESS ─────────────────────────────────── */
 .process{
+  position:relative;overflow:hidden;
   padding:8rem 2.5rem;
   border-top:1px solid var(--line);
-  background:var(--ink2);
+  background:
+    radial-gradient(ellipse 55% 50% at 50% 0%,rgba(173,222,0,.055),transparent 72%),
+    var(--ink2);
 }
-.process-inner{max-width:1100px;margin:0 auto}
+.process-inner{max-width:1200px;margin:0 auto;position:relative}
+.process-heading{
+  display:flex;align-items:flex-end;justify-content:space-between;
+  gap:2rem;margin-bottom:3rem;
+}
 .process h2{
+  max-width:760px;
   font-family:'Barlow Condensed',sans-serif;
   font-size:clamp(2.8rem,5.5vw,4.5rem);
-  font-weight:900;text-transform:uppercase;margin-bottom:5rem;line-height:.9;
+  font-weight:900;text-transform:uppercase;line-height:.9;
 }
-.steps{
-  display:grid;grid-template-columns:repeat(3,1fr);
-  border:1px solid var(--line);border-radius:12px;overflow:hidden;gap:0;
+.process-note{
+  max-width:280px;margin-bottom:.35rem;
+  padding:.25rem 0 .25rem 1rem;
+  border-left:2px solid var(--p);
+  color:var(--dim2);font-size:.9rem;line-height:1.7;
 }
+.steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}
 .step{
-  padding:3.2rem 2.5rem;background:var(--ink2);
-  position:relative;overflow:hidden;transition:background .35s;
-  border-right:1px solid var(--line);
+  min-height:340px;padding:2rem;
+  display:flex;flex-direction:column;align-items:flex-start;
+  position:relative;overflow:hidden;
+  border:1px solid rgba(255,255,255,.08);border-radius:12px;
+  background:linear-gradient(145deg,rgba(255,255,255,.035),rgba(255,255,255,.012));
+  transition:transform .3s,border-color .3s,background .3s;
 }
-.step:last-child{border-right:none}
-.step::after{
-  content:'';position:absolute;bottom:0;left:0;right:0;height:2px;
-  background:var(--p);transform:scaleX(0);transform-origin:left;
-  transition:transform .5s cubic-bezier(.16,1,.3,1);
+.step::before{
+  content:'';position:absolute;left:0;right:0;top:0;height:2px;
+  background:linear-gradient(90deg,var(--p),rgba(173,222,0,.08));
+  transform:scaleX(.28);transform-origin:left;transition:transform .4s;
 }
-.step:hover::after{transform:scaleX(1)}
-.step:hover{background:rgba(173,222,0,.04)}
+.step:hover{transform:translateY(-4px);border-color:rgba(173,222,0,.32);background:rgba(173,222,0,.035)}
+.step:hover::before{transform:scaleX(1)}
+.step-top{width:100%;display:flex;align-items:center;justify-content:space-between;margin-bottom:2.4rem}
 .step-n{
   font-family:'Barlow Condensed',sans-serif;
-  font-size:5.5rem;font-weight:900;line-height:1;margin-bottom:1.8rem;
-  color:transparent;-webkit-text-stroke:.018em rgba(173,222,0,.2);
-  transition:-webkit-text-stroke .35s,color .35s;
+  font-size:clamp(3.5rem,5vw,4.8rem);font-weight:900;line-height:.82;
+  color:rgba(173,222,0,.2);transition:color .3s;
 }
-.step:hover .step-n{color:rgba(173,222,0,.4);-webkit-text-stroke:0}
-.step h3{font-family:'Barlow Condensed',sans-serif;font-size:1.5rem;font-weight:800;text-transform:uppercase;margin-bottom:.6rem}
-.step p{color:var(--dim2);font-size:.87rem;line-height:1.7}
-@media(max-width:700px){.steps{grid-template-columns:1fr}.step{border-right:none;border-bottom:1px solid var(--line)}.step:last-child{border-bottom:none}}
+.step:hover .step-n{color:var(--p)}
+.step-icon{
+  width:3.2rem;height:3.2rem;display:grid;place-items:center;
+  border:1px solid rgba(173,222,0,.3);border-radius:.9rem;
+  background:rgba(173,222,0,.08);color:var(--p);font-size:1.1rem;
+}
+.step h3{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:clamp(1.35rem,2vw,1.7rem);font-weight:800;
+  text-transform:uppercase;line-height:1.05;margin-bottom:.8rem;
+}
+.step p{color:var(--dim2);font-size:.9rem;line-height:1.75}
+@media(max-width:850px){
+  .process{padding:6rem 2rem}
+  .process-heading{align-items:flex-start;flex-direction:column;gap:1.2rem}
+  .process-note{max-width:480px}
+  .steps{grid-template-columns:1fr}
+  .step{min-height:0}
+  .step-top{margin-bottom:1.6rem}
+}
+@media(max-width:560px){.process{padding:5rem 1.25rem}.step{padding:1.5rem}}
+@media(prefers-reduced-motion:reduce){.step,.step::before,.step-n{transition:none}}
 
 /* ─── SERVICE (replaces pricing) ─────────────── */
+
 .service{
   padding:8rem 2.5rem;
   border-top:1px solid var(--line);
@@ -1023,13 +1055,13 @@ footer{
     <div class="s-tag r" data-i18n="stmt_tag">Chi siamo</div>
     <h2 class="r">
       <span data-i18n="stmt_h1">Viviamo lo sport.</span>
-      <em data-i18n="stmt_h2">Sappiamo cosa serve.</em>
+      <em data-i18n="stmt_h2">Lo conosciamo da dentro.</em>
     </h2>
-    <p class="r d1" data-i18n="pilots_p1">Siamo Andrea Bettin e Marco Paonessa, piloti. Conosciamo la pressione della gara, la ricerca degli sponsor, le email che non ricevono risposta. Sappiamo esattamente cosa vuole vedere un brand prima di firmare.</p>
+    <p class="r d1" data-i18n="pilots_p1">Siamo Andrea Bettin e Marco Paonessa, piloti. Conosciamo la vita in pista e sappiamo quanto sia impegnativo trovare sponsor e raccontare il proprio percorso. Con Switch Up aiutiamo gli atleti a presentarsi in modo curato e a dare spazio al lavoro che c’è dietro ogni risultato.</p>
     <div class="mini-pillars">
-      <div class="mp r"><div class="pn">01</div><div><h3 data-i18n="pl1_h">Siamo nello sport</h3><p data-i18n="pl1_p">Piloti CIV. Conosciamo il paddock da dentro, la pressione della gara e cosa serve davvero agli sponsor. <strong>Parliamo la tua lingua.</strong></p></div></div>
-      <div class="mp r d1"><div class="pn">02</div><div><h3 data-i18n="pl2_h">Abbiamo costruito la nostra vetrina</h3><p data-i18n="pl2_p">La nostra sarà il tuo caso di studio. Da ab39.it sappiamo cosa attrae sponsor seri e come trasformare un sito in una macchina di acquisizione sponsorship.</p></div></div>
-      <div class="mp r d2"><div class="pn">03</div><div><h3 data-i18n="pl3_h">Velocità e solidità</h3><p data-i18n="pl3_p">Dal brief al live, veloce e professionale. Non è una promessa generica: è quello che facciamo ogni giorno. <strong>Costruiamo la tua vetrina vera.</strong></p></div></div>
+      <div class="mp r"><div class="pn">01</div><div><h3 data-i18n="pl1_h">Conosciamo il paddock</h3><p data-i18n="pl1_p">Siamo piloti CIV: sappiamo quanto impegno richiede una stagione e quanto conta trovare il supporto giusto per continuare a correre.</p></div></div>
+      <div class="mp r d1"><div class="pn">02</div><div><h3 data-i18n="pl2_h">Abbiamo iniziato da noi</h3><p data-i18n="pl2_p">Con ab39.it abbiamo messo in pratica le stesse idee: raccontare un percorso, mettere in evidenza i risultati e presentarsi bene agli sponsor.</p></div></div>
+      <div class="mp r d2"><div class="pn">03</div><div><h3 data-i18n="pl3_h">Lavoriamo insieme, passo dopo passo</h3><p data-i18n="pl3_p">Partiamo dai tuoi obiettivi, prepariamo i contenuti e curiamo il sito fino alla pubblicazione. Ogni progetto prende forma intorno all’atleta e al suo sport.</p></div></div>
     </div>
   </div>
 </section>
@@ -1037,24 +1069,38 @@ footer{
 <!-- ─── PROCESS ────────────────────────────────── -->
 <section class="process" id="process">
   <div class="process-inner">
-    <div class="s-tag r" data-i18n="process_tag">Cosa Offriamo</div>
-    <h2 class="r" data-i18n="process_h">Cosa Offriamo</h2>
+    <div class="process-heading">
+      <div>
+        <div class="s-tag r" data-i18n="process_tag">Come lavoriamo</div>
+        <h2 class="r" data-i18n="process_h">Dal primo confronto al sito online</h2>
+      </div>
+      <p class="process-note r d1" data-i18n="process_intro">Tre passaggi chiari, costruiti intorno al tuo progetto.</p>
+    </div>
     <div class="steps r d1">
-      <div class="step">
-        <div class="step-n">01</div>
-        <h3 data-i18n="service_01_h">Una Conversazione</h3>
-        <p data-i18n="service_01_p">Call di 30 minuti. Ci racconti chi siete, come gareggiate, quali sponsor cercate. Da lì iniziamo il progetto.</p>
-      </div>
-      <div class="step">
-        <div class="step-n">02</div>
-        <h3 data-i18n="service_02_h">Costruiamo</h3>
-        <p data-i18n="service_02_p">AI e strategia Adattivia per il vostro sito. Non è design, è uno strumento di acquisizione sponsor: ogni pixel lavora per farvi firmare.</p>
-      </div>
-      <div class="step">
-        <div class="step-n">03</div>
-        <h3 data-i18n="service_03_h">Siete Online</h3>
-        <p data-i18n="service_03_p">Il sito è vostro per sempre. Lo gestite voi. Gli sponsor vi trovano facilmente. Noi vi supportiamo durante il primo mese, poi siete autonomi.</p>
-      </div>
+      <article class="step">
+        <div class="step-top">
+          <span class="step-n">01</span>
+          <span class="step-icon" aria-hidden="true"><i class="fas fa-comments"></i></span>
+        </div>
+        <h3 data-i18n="service_01_h">Ci conosciamo</h3>
+        <p data-i18n="service_01_p">Partiamo da una call di 30 minuti. Ci racconti il tuo percorso, i tuoi obiettivi e gli sponsor che vorresti raggiungere. Poi definiamo insieme le priorità.</p>
+      </article>
+      <article class="step">
+        <div class="step-top">
+          <span class="step-n">02</span>
+          <span class="step-icon" aria-hidden="true"><i class="fas fa-pen-ruler"></i></span>
+        </div>
+        <h3 data-i18n="service_02_h">Progettiamo la tua vetrina</h3>
+        <p data-i18n="service_02_p">Costruiamo la struttura del sito e scegliamo contenuti e stile insieme a te. Prima di iniziare, avrai chiaro cosa realizzeremo e come.</p>
+      </article>
+      <article class="step">
+        <div class="step-top">
+          <span class="step-n">03</span>
+          <span class="step-icon" aria-hidden="true"><i class="fas fa-rocket"></i></span>
+        </div>
+        <h3 data-i18n="service_03_h">La pubblichiamo insieme</h3>
+        <p data-i18n="service_03_p">Quando tutto è pronto, mettiamo il sito online e ti mostriamo come aggiornarlo. Ti affianchiamo nel primo mese; poi potrai gestirlo in autonomia.</p>
+      </article>
     </div>
   </div>
 </section>
@@ -1294,7 +1340,7 @@ const T={
     nav_problem:'Perché Noi',nav_projects:'Progetti',nav_process:'Cosa Offriamo',
     nav_service:'Servizi',nav_cta:'Parliamone',
     pilots_h:'Da chi<br>ha gareggiato.<br>',pilots_em:'Per chi compete.',
-    pilots_p1:'Siamo Andrea Bettin e Marco Paonessa, piloti. Conosciamo la pressione della gara, la ricerca degli sponsor, le email che non ricevono risposta. Sappiamo esattamente cosa vuole vedere un brand prima di firmare.',
+    pilots_p1:'Siamo Andrea Bettin e Marco Paonessa, piloti. Conosciamo la vita in pista e sappiamo quanto sia impegnativo trovare sponsor e raccontare il proprio percorso. Con Switch Up aiutiamo gli atleti a presentarsi in modo curato e a dare spazio al lavoro che c’è dietro ogni risultato.',
     pilots_p2:'Per questo <strong>SWITCH UP funziona</strong>: non è teoria. Facciamo siti per team di qualsiasi sport (moto, auto, calcio, ciclismo, arti marziali) con la mentalità di chi ha vissuto la competizione dall\'interno.',
     proj_tag:'Portfolio',proj_h:'Team Vincenti',
     proj_sub:'"Piloti, atleti, scuole e professionisti dello sport che hanno scelto di essere trovati dagli sponsor giusti."',
@@ -1304,10 +1350,11 @@ const T={
     closing_h1:'I Tuoi Sforzi',closing_h2:'Meritano',closing_h3:'Una Vetrina Vera',
     btn_demo:'Parliamone',btn_proj:'Vedi i Progetti',
     badge:'I Tuoi Sforzi Meritano Una Vetrina Vera',
-    process_tag:'Come Funziona',process_h:'Tre step.<br>Veloce e solido.',
-    service_01_h:'Una Conversazione',service_01_p:'Call di 30 minuti. Ci racconti chi siete, come gareggiate, quali sponsor cercate. Da lì iniziamo il progetto.',
-    service_02_h:'Costruiamo',service_02_p:'AI e strategia Adattivia per il vostro sito. Non è design, è uno strumento di acquisizione sponsor: ogni pixel lavora per farvi firmare.',
-    service_03_h:'Siete Online',service_03_p:'Il sito è vostro per sempre. Lo gestite voi. Gli sponsor vi trovano facilmente. Noi vi supportiamo durante il primo mese, poi siete autonomi.',
+    process_tag:'Come lavoriamo',process_h:'Dal primo confronto al sito online',
+    process_intro:'Tre passaggi chiari, costruiti intorno al tuo progetto.',
+    service_01_h:'Ci conosciamo',service_01_p:'Partiamo da una call di 30 minuti. Ci racconti il tuo percorso, i tuoi obiettivi e gli sponsor che vorresti raggiungere. Poi definiamo insieme le priorità.',
+    service_02_h:'Progettiamo la tua vetrina',service_02_p:'Costruiamo la struttura del sito e scegliamo contenuti e stile insieme a te. Prima di iniziare, avrai chiaro cosa realizzeremo e come.',
+    service_03_h:'La pubblichiamo insieme',service_03_p:'Quando tutto è pronto, mettiamo il sito online e ti mostriamo come aggiornarlo. Ti affianchiamo nel primo mese; poi potrai gestirlo in autonomia.',
     h1_1:'Noi creiamo',
     h1_2:'la tua <em>vetrina</em>,',
     h1_3:'tu moltiplichi',
@@ -1341,20 +1388,20 @@ const T={
     social_s4_h:'Aggiornamenti Costanti',social_s4_p:'Calendario editoriale pianificato. Dal circuit all\'albergo, dalla gara al raduno: tutti i momenti raccontati.',
     stmt_tag:'Chi siamo',
     stmt_h1:'Viviamo lo sport.',
-    stmt_h2:'Sappiamo cosa serve.',
-    pl1_h:'Siamo nello sport',
-    pl1_p:'Piloti prima ancora che creativi. Conosciamo la gara, il paddock e i sacrifici. <strong>Parliamo la tua lingua.</strong>',
-    pl2_h:'Capiamo l\'importanza',
-    pl2_p:'Gli sponsor li abbiamo cercati per noi stessi. Sappiamo cosa guarda un brand prima di firmare e <strong>cosa lo convince.</strong>',
-    pl3_h:'L\'abbiamo già fatto',
-    pl3_p:'Con la nostra vetrina abbiamo raggiunto l\'obiettivo. <strong>Ora costruiamo la tua</strong>, per qualsiasi sport.',
+    stmt_h2:'Lo conosciamo da dentro.',
+    pl1_h:'Conosciamo il paddock',
+    pl1_p:'Siamo piloti CIV: sappiamo quanto impegno richiede una stagione e quanto conta trovare il supporto giusto per continuare a correre.',
+    pl2_h:'Abbiamo iniziato da noi',
+    pl2_p:'Con ab39.it abbiamo messo in pratica le stesse idee: raccontare un percorso, mettere in evidenza i risultati e presentarsi bene agli sponsor.',
+    pl3_h:'Lavoriamo insieme, passo dopo passo',
+    pl3_p:'Partiamo dai tuoi obiettivi, prepariamo i contenuti e curiamo il sito fino alla pubblicazione. Ogni progetto prende forma intorno all’atleta e al suo sport.',
     intro_payoff:'I Tuoi Sforzi Meritano',intro_payoff2:'Una Vetrina Vera',
   },
   es:{
     nav_problem:'Por Qué',nav_projects:'Proyectos',nav_process:'Cómo Funciona',
     nav_service:'Servicios',nav_cta:'Hablemos',
     pilots_h:'De quien<br>ha competido.<br>',pilots_em:'Para quien compite.',
-    pilots_p1:'Somos Andrea Bettin y Marco Paonessa, pilotos. Conocemos la presión de la competición, la búsqueda de patrocinadores, los emails sin respuesta. Sabemos exactamente qué quiere ver una marca antes de firmar.',
+    pilots_p1:'Somos Andrea Bettin y Marco Paonessa, pilotos. Conocemos la vida en el circuito y sabemos lo difícil que puede ser encontrar patrocinadores y contar bien la propia trayectoria. Con Switch Up ayudamos a los deportistas a presentarse con cuidado y a mostrar el trabajo que hay detrás de cada resultado.',
     pilots_p2:'Por eso <strong>SWITCH UP funciona</strong>: no es teoría. Creamos sitios para equipos de cualquier deporte (moto, auto, fútbol, ciclismo, artes marciales) con la mentalidad de quien ha vivido la competición por dentro.',
     proj_tag:'Portfolio',proj_h:'Equipos Ganadores',
     proj_sub:'"Pilotos, atletas, escuelas y profesionales del deporte que eligieron ser encontrados por los patrocinadores correctos."',
@@ -1364,10 +1411,11 @@ const T={
     closing_h1:'Tu Esfuerzo',closing_h2:'Merece',closing_h3:'Un Escaparate Real',
     btn_demo:'Hablemos',btn_proj:'Ver Proyectos',
     badge:'Tu Esfuerzo Merece Un Escaparate Real',
-    process_tag:'Cómo Funciona',process_h:'Tres pasos.<br>Rápido y sólido.',
-    service_01_h:'Una Conversación',service_01_p:'Llamada de 30 minutos. Cuéntanos quiénes sois, cómo competís, qué patrocinadores buscáis. Desde ahí empezamos el proyecto.',
-    service_02_h:'Construimos',service_02_p:'IA y estrategia Adattivia para vuestro sitio. No es diseño, es una herramienta de adquisición de patrocinadores: cada píxel trabaja para que firmemos.',
-    service_03_h:'Estáis Online',service_03_p:'El sitio es vuestro para siempre. Lo gestionáis vosotros. Los patrocinadores os encuentran fácilmente. Os apoyamos durante el primer mes, luego sois autónomos.',
+    process_tag:'Así trabajamos',process_h:'De la primera charla al lanzamiento',
+    process_intro:'Tres pasos claros, pensados para tu proyecto.',
+    service_01_h:'Nos conocemos',service_01_p:'Empezamos con una llamada de 30 minutos. Nos cuentas tu trayectoria, tus objetivos y qué patrocinadores quieres contactar. Después acordamos las prioridades.',
+    service_02_h:'Diseñamos tu escaparate',service_02_p:'Definimos la estructura, los contenidos y el estilo del sitio a partir de tu historia y tus objetivos. Antes de empezar, tendrás claro qué vamos a crear y cómo.',
+    service_03_h:'Lo publicamos contigo',service_03_p:'Cuando esté listo, ponemos el sitio online y te enseñamos a actualizarlo. Te acompañamos durante el primer mes; después podrás gestionarlo por tu cuenta.',
     h1_1:'Nosotros creamos',
     h1_2:'tu <em>escaparate</em>,',
     h1_3:'tú multiplicas',
@@ -1401,20 +1449,20 @@ const T={
     social_s4_h:'Actualizaciones Constantes',social_s4_p:'Calendario editorial planificado. Del circuito al hotel, de la carrera al evento: todos los momentos narrados.',
     stmt_tag:'Quiénes somos',
     stmt_h1:'Vivimos el deporte.',
-    stmt_h2:'Sabemos lo que hace falta.',
-    pl1_h:'Estamos en el deporte',
-    pl1_p:'Pilotos antes que creativos. Conocemos la carrera, el paddock y los sacrificios. <strong>Hablamos tu idioma.</strong>',
-    pl2_h:'Entendemos la importancia',
-    pl2_p:'Buscamos patrocinadores para nosotros mismos. Sabemos qué mira una marca antes de firmar y <strong>qué la convence.</strong>',
-    pl3_h:'Ya lo hemos hecho',
-    pl3_p:'Con nuestro escaparate alcanzamos el objetivo. <strong>Ahora creamos el tuyo</strong>, para cualquier deporte.',
+    stmt_h2:'Lo conocemos desde dentro.',
+    pl1_h:'Conocemos el paddock',
+    pl1_p:'Competimos en el CIV: sabemos cuánto esfuerzo exige una temporada y lo importante que es encontrar el apoyo adecuado para seguir corriendo.',
+    pl2_h:'Empezamos con nuestro proyecto',
+    pl2_p:'Con ab39.it pusimos en práctica las mismas ideas: contar una trayectoria, destacar los resultados y presentarse bien ante los patrocinadores.',
+    pl3_h:'Trabajamos juntos, paso a paso',
+    pl3_p:'Partimos de tus objetivos, preparamos los contenidos y cuidamos el sitio hasta su publicación. Cada proyecto se adapta al deportista y a su disciplina.',
     intro_payoff:'Tu Esfuerzo Merece',intro_payoff2:'Un Escaparate Real',
   },
   en:{
     nav_problem:'Why Us',nav_projects:'Projects',nav_process:'How It Works',
     nav_service:'Services',nav_cta:'Let\'s Talk',
     pilots_h:'Built by those<br>who competed.<br>',pilots_em:'For those who compete.',
-    pilots_p1:'We are Andrea Bettin and Marco Paonessa, riders. We know the pressure of competition, the hunt for sponsors, the emails that never get replies. We know exactly what a brand needs to see before signing.',
+    pilots_p1:'We are Andrea Bettin and Marco Paonessa, both riders. We know life at the track and how challenging it can be to find sponsors and tell your story well. We started Switch Up to help athletes present themselves clearly and show the work behind every result.',
     pilots_p2:'That\'s why <strong>SWITCH UP works</strong>: it\'s not theory. We build sites for teams in any sport (motorbikes, cars, football, cycling, martial arts) with the mindset of those who\'ve lived competition from the inside.',
     proj_tag:'Portfolio',proj_h:'Winning Teams',
     proj_sub:'"Riders, athletes, schools and sports professionals who chose to be found by the right sponsors."',
@@ -1424,10 +1472,11 @@ const T={
     closing_h1:'Your Effort',closing_h2:'Deserves',closing_h3:'A Real Showcase',
     btn_demo:'Let\'s Talk',btn_proj:'See Projects',
     badge:'Your Effort Deserves A Real Showcase',
-    process_tag:'How It Works',process_h:'Three Steps.<br>Fast and Solid.',
-    service_01_h:'A Conversation',service_01_p:'30-minute call. Tell us who you are, how you compete, which sponsors you\'re looking for. From there we start the project.',
-    service_02_h:'We Build',service_02_p:'AI and Adattivia strategy for your site. It\'s not just design, it\'s a sponsor acquisition tool: every pixel works to get you signed.',
-    service_03_h:'You\'re Online',service_03_p:'The site is yours forever. You manage it. Sponsors find you easily. We support you for the first month, then you\'re independent.',
+    process_tag:'How we work',process_h:'From first conversation to launch',
+    process_intro:'Three clear steps, shaped around your project.',
+    service_01_h:'We get to know your goals',service_01_p:'We start with a 30-minute call. Tell us about your journey, your goals, and the sponsors you’d like to reach. Then we agree on the priorities.',
+    service_02_h:'We shape your showcase',service_02_p:'We plan the site structure, content, and style around your story and goals. Before we begin, you’ll know what we’re building and why.',
+    service_03_h:'We launch it together',service_03_p:'Once everything is ready, we publish the site and show you how to make updates. We support you during the first month, then you can manage it independently.',
     h1_1:'We build',
     h1_2:'your <em>showcase</em>,',
     h1_3:'you multiply',
@@ -1461,13 +1510,13 @@ const T={
     social_s4_h:'Constant Updates',social_s4_p:'Planned editorial calendar. From the circuit to the hotel, from the race to the event: every moment told.',
     stmt_tag:'Who we are',
     stmt_h1:'We live sport.',
-    stmt_h2:'We know what it takes.',
-    pl1_h:'We are in sport',
-    pl1_p:'Riders before creatives. We know racing, the paddock and the sacrifices. <strong>We speak your language.</strong>',
-    pl2_h:'We get why it matters',
-    pl2_p:'We looked for sponsors for ourselves. We know what a brand checks before signing and <strong>what convinces it.</strong>',
-    pl3_h:'We have done it',
-    pl3_p:'With our own showcase we reached the goal. <strong>Now we build yours</strong>, for any sport.',
+    stmt_h2:'We know it from the inside.',
+    pl1_h:'We know the paddock',
+    pl1_p:'We race in the CIV, so we understand the work a season takes and how much the right support can matter.',
+    pl2_h:'We started with our own project',
+    pl2_p:'With ab39.it, we put the same ideas into practice: tell a rider’s story, make results easy to find, and present the project clearly to sponsors.',
+    pl3_h:'We work with you, step by step',
+    pl3_p:'We start with your goals, shape the content, and look after the site through launch. Every project is built around the athlete and their sport.',
     intro_payoff:'Your Effort Deserves',intro_payoff2:'A Real Showcase',
   }
 };
