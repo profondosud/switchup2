@@ -356,8 +356,6 @@ footer::before{
   .f-brand{grid-column:auto}
   .f-tagline{font-size:2.25rem}
   .footer-bottom{flex-direction:column;align-items:flex-start;text-align:left}
-  nav{padding:0 1.2rem}
-  .nav-links a:not(.nav-cta){display:none}
 }
 
 /* MODULO CONTATTI */
@@ -415,6 +413,24 @@ footer::before{
 @media(max-width:480px){.contact-modal-content{width:calc(100vw - 1rem);right:.5rem;bottom:.5rem;max-height:min(90svh,760px);border-radius:16px;padding:1.35rem}}
 @media(prefers-reduced-motion:reduce){.contact-modal-content,.contact-modal{transition:none}}
 
+.nav-cta-mobile,.mobile-menu-toggle{display:none}
+@media(max-width:680px){
+  nav{display:grid;grid-template-columns:minmax(0,1fr) auto auto;gap:.45rem;padding:.55rem .75rem}
+  nav.s{padding:.45rem .75rem}
+  .nav-logo{min-width:0}
+  .nav-logo img{height:28px;width:auto}
+  .nav-cta-mobile{display:inline-flex;justify-content:center;white-space:nowrap;padding:.48rem .62rem;font-size:.6rem;letter-spacing:.07em}
+  .mobile-menu-toggle{display:flex;width:36px;height:36px;flex-direction:column;align-items:center;justify-content:center;gap:4px;border:1px solid rgba(255,255,255,.2);border-radius:6px;background:rgba(255,255,255,.035);cursor:pointer}
+  .mobile-menu-toggle span{width:16px;height:2px;border-radius:2px;background:var(--snow);transition:transform .2s,opacity .2s}
+  .mobile-menu-toggle[aria-expanded="true"] span:first-child{transform:translateY(6px) rotate(45deg)}
+  .mobile-menu-toggle[aria-expanded="true"] span:nth-child(2){opacity:0}
+  .mobile-menu-toggle[aria-expanded="true"] span:last-child{transform:translateY(-6px) rotate(-45deg)}
+  .nav-links{display:none;position:absolute;top:calc(100% + 8px);left:.75rem;right:.75rem;z-index:1001;flex-direction:column;align-items:stretch;gap:.2rem;padding:.65rem;border:1px solid rgba(173,222,0,.22);border-radius:12px;background:rgba(7,8,12,.98);backdrop-filter:blur(18px);box-shadow:0 18px 48px rgba(0,0,0,.55)}
+  .nav-links.open{display:flex}
+  .nav-links a:not(.nav-cta){display:flex;padding:.72rem .8rem;border-radius:6px;font-size:.78rem}
+  .nav-links a:hover{background:rgba(255,255,255,.055)}
+  .nav-links .nav-cta-desktop{display:none}
+}
 </style>
 </head>
 <body>
@@ -424,11 +440,13 @@ footer::before{
   <a href="index.html" class="nav-logo">
     <img src="images/logo-switchup-full.webp" width="1200" height="317" alt="SWITCH UP">
   </a>
-  <div class="nav-links">
+  <button class="nav-cta nav-cta-mobile" type="button" data-open-contact>Parliamone</button>
+  <button class="mobile-menu-toggle" type="button" aria-label="Apri il menu" aria-expanded="false" aria-controls="primary-navigation"><span></span><span></span><span></span></button>
+  <div class="nav-links" id="primary-navigation">
     <a href="index.html">Home</a>
     <a href="index.html#projects">Progetti</a>
     <a href="servizi.html" style="color:var(--p)">Servizi</a>
-    <button class="nav-cta" type="button" data-open-contact>Parliamone</button>
+    <button class="nav-cta nav-cta-desktop" type="button" data-open-contact>Parliamone</button>
   </div>
 </nav>
 
@@ -658,11 +676,17 @@ window.addEventListener('scroll',()=>nav.classList.toggle('s',scrollY>80),{passi
 </script>
 <script>
 (()=> {
+  const menuToggle=document.querySelector('.mobile-menu-toggle');
+  const menu=document.getElementById('primary-navigation');
+  const closeMenu=()=>{if(menuToggle&&menu){menuToggle.setAttribute('aria-expanded','false');menu.classList.remove('open')}};
+  menuToggle?.addEventListener('click',()=>{const open=menuToggle.getAttribute('aria-expanded')!=='true';menuToggle.setAttribute('aria-expanded',String(open));menu?.classList.toggle('open',open)});
+  menu?.querySelectorAll('a').forEach(link=>link.addEventListener('click',closeMenu));
+  document.addEventListener('click',event=>{if(!document.getElementById('nav')?.contains(event.target))closeMenu()});
   const modal=document.getElementById('contact-modal');
   const form=document.getElementById('contact-form');
   if(!modal||!form)return;
   const status=document.getElementById('form-status');
-  const open=()=>{modal.classList.add('open');form.reset();status.textContent='';document.getElementById('name').focus()};
+  const open=()=>{closeMenu();modal.classList.add('open');form.reset();status.textContent='';document.getElementById('name').focus()};
   const close=()=>modal.classList.remove('open');
   document.querySelectorAll('[data-open-contact]').forEach(button=>button.addEventListener('click',open));
   modal.querySelector('.contact-close').addEventListener('click',close);
