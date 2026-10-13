@@ -273,7 +273,7 @@ footer::before{
 }
 .footer-inner{
   position:relative;max-width:1200px;margin:0 auto;
-  display:grid;grid-template-columns:minmax(0,1.45fr) minmax(150px,.7fr) minmax(200px,.85fr);
+  display:grid;grid-template-columns:minmax(0,1.35fr) minmax(135px,.62fr) minmax(185px,.78fr) minmax(205px,.9fr);
   gap:clamp(2rem,6vw,6rem);padding-bottom:3.5rem;
 }
 .f-brand{align-self:start}
@@ -321,6 +321,15 @@ footer::before{
 }
 .partner-link img[alt="Adattivia"]{max-width:185px;max-height:38px}
 .partner-text-link{margin-top:.5rem!important}
+.footer-contact-list{display:grid;gap:.72rem}
+.footer-contact-list a{
+  display:flex!important;align-items:flex-start;gap:.65rem;width:auto!important;
+  margin:0!important;color:var(--dim2);font-size:.84rem;line-height:1.55;
+  overflow-wrap:anywhere;transition:color .2s,transform .2s;
+}
+.footer-contact-list a:hover{color:var(--p)!important;transform:translateX(3px)}
+.footer-contact-list i{width:1rem;flex:0 0 1rem;margin-top:.18rem;text-align:center;color:var(--p);font-size:.82rem}
+
 .footer-bottom{
   position:relative;max-width:1200px;margin:0 auto;
   padding:1.35rem 0 .25rem;border-top:1px solid rgba(255,255,255,.09);
@@ -367,7 +376,7 @@ footer::before{
     <h2 class="service-title">Creiamo interesse intorno a te.<br><em>Siamo noi a creare la notizia</em></h2>
     <p class="service-intro">Non è il tuo nome sui giornali che attira gli sponsor. È la storia dietro quel nome. Costruiamo narrativa credibile intorno a te: da semplice pilota a figura mediatica rilevante.</p>
     <div class="service-center service-center-image">
-      <img class="service-story-image" src="https://r.testifier.nl/Acbs8526SDKI/resizing_type%3Afit/watermark%3AFoto%3A%20Daniele%20Guazzetti/width%3A1920/height%3A1280/plain/https%3A//s3-newsifier.ams3.digitaloceanspaces.com/corsedimoto.com/images/2026-10/kc2a1235-result-6aca451d5b33b.jpg%40webp" alt="Alessandro Delbianco esulta in pista con la Yamaha dopo la vittoria del CIV Superbike 2026" width="1920" height="1280" loading="lazy" decoding="async">
+      <img class="service-story-image" src="images/delbianco-race-photo.webp" alt="Alessandro Delbianco esulta in pista con la Yamaha dopo la vittoria del CIV Superbike 2026" width="1744" height="1171" loading="lazy" decoding="async">
     </div>
     <div class="service-points">
       <div class="point">
@@ -474,7 +483,7 @@ footer::before{
     <p class="service-intro">Il sito da solo non basta. Gli sponsor ti cercano sui social. Non è solo avere account: è coordinare. Integriamo sito, Instagram, TikTok, YouTube in una strategia unica. Una voce, tre canali, engagement costante e misurato.</p>
     <div class="service-center service-center-social">
       <div class="service-social-frame">
-        <img class="service-social-image" src="images/ktm-garage-social.webp" alt="Meccanici al lavoro nel box KTM durante una gara" width="1920" height="1278" loading="lazy" decoding="async">
+        <img class="service-social-image" src="images/ktm-garage-social.webp" alt="Meccanici al lavoro nel box KTM durante una gara" width="1600" height="1065" loading="lazy" decoding="async">
       </div>
     </div>
     <div class="service-points">
@@ -504,7 +513,7 @@ footer::before{
     <span class="services-cta-kicker">Il prossimo passo</span>
     <h2>Pronto a fare il salto?<em>Facciamo il tuo switch.</em></h2>
     <p>Raccontaci dove vuoi arrivare. Costruiamo insieme la strada per far emergere il tuo potenziale.</p>
-    <a class="services-cta-button" href="index.html#service"><i class="fas fa-bolt" aria-hidden="true"></i> Parliamone</a>
+    <a class="services-cta-button" href="mailto:switchup.gass@gmail.com"><i class="fas fa-envelope" aria-hidden="true"></i> Contattaci!</a>
   </div>
 </section>
 
@@ -529,6 +538,15 @@ footer::before{
       </a>
             <a class="partner-text-link" href="https://ab39.it" target="_blank" rel="noopener noreferrer">Andrea Bettin · 39</a>
       <a href="#">Privacy Policy</a>
+    </div>
+    <div class="f-col">
+      <h4>Contatti</h4>
+      <div class="footer-contact-list">
+        <a href="tel:+393802192386"><i class="fas fa-phone" aria-hidden="true"></i><span>+39 380 219 2386</span></a>
+        <a href="tel:+34625273257"><i class="fas fa-phone" aria-hidden="true"></i><span>+34 625 273 257</span></a>
+        <a href="tel:+393519508771"><i class="fas fa-phone" aria-hidden="true"></i><span>+39 351 950 8771</span></a>
+        <a href="mailto:switchup.gass@gmail.com"><i class="fas fa-envelope" aria-hidden="true"></i><span>switchup.gass@gmail.com</span></a>
+      </div>
     </div>
   </div>
   <div class="footer-bottom">
