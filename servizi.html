@@ -430,6 +430,13 @@ footer::before{
   .nav-links a:not(.nav-cta){display:flex;padding:.72rem .8rem;border-radius:6px;font-size:.78rem}
   .nav-links a:hover{background:rgba(255,255,255,.055)}
   .nav-links .nav-cta-desktop{display:none}
+  .service-inner,.service-grid,.service-story-frame,.service-image-gallery,.visual-case-study,.visual-comparison,.visual-example{min-width:0;max-width:100%}
+  .service-grid{grid-template-columns:minmax(0,1fr)}
+  .service-grid>.serv-card:nth-child(n){grid-column:auto!important}
+  .service-story-frame{width:100%;padding:6px}
+  .service-story-image,.service-social-image,.visual-example-image{max-width:100%}
+  .service-image-gallery{width:100%}
+  .services-cta-button{width:min(100%,24rem);min-height:48px;justify-content:center;white-space:normal}
 }
 </style>
 </head>
