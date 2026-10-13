@@ -8,6 +8,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,300;0,700;0,800;0,900;1,700;1,800;1,900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <link rel="icon" href="images/logo-switchup.png">
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/index.min.js"></script>
 <style>
 
 /* ─── TOKENS ──────────────────────────────────── */
@@ -984,6 +985,30 @@ footer{
   background:radial-gradient(circle,rgba(173,222,0,.055) 0%,transparent 70%);
   transform:translate(-50%,-50%);will-change:transform;
 }
+
+/* ─── CONTACT MODAL ────────────────────────────── */
+.contact-modal{position:fixed;inset:0;z-index:9999;pointer-events:none;opacity:0;transition:opacity .35s;background:rgba(0,0,0,0)}
+.contact-modal.open{pointer-events:auto;opacity:1;background:rgba(0,0,0,.4)}
+.contact-modal.open .contact-modal-content{transform:translateY(0)}
+.contact-modal-content{position:fixed;bottom:0;right:0;background:var(--ink2);border:1px solid var(--line);border-radius:12px 12px 0 0;padding:2rem;width:360px;max-height:85vh;overflow-y:auto;box-shadow:0 -20px 60px rgba(0,0,0,.5);transform:translateY(100%);transition:transform .35s cubic-bezier(.16,1,.3,1);z-index:10000}
+.contact-close{position:absolute;top:1rem;right:1rem;background:none;border:none;color:var(--dim2);font-size:1.8rem;cursor:pointer;transition:color .2s;padding:0;width:32px;height:32px;display:flex;align-items:center;justify-content:center}
+.contact-close:hover{color:var(--p)}
+.contact-form{display:flex;flex-direction:column;gap:1rem;margin-top:1.2rem}
+.form-group{display:flex;flex-direction:column}
+.form-group input,.form-group textarea{background:rgba(255,255,255,.08);border:1px solid var(--line);border-radius:6px;padding:.7rem .9rem;color:var(--snow);font-family:inherit;font-size:.9rem;transition:border-color .25s,background .25s}
+.form-group input::placeholder,.form-group textarea::placeholder{color:var(--dim)}
+.form-group input:focus,.form-group textarea:focus{outline:none;border-color:var(--p);background:rgba(173,222,0,.06)}
+.form-group.checkbox{flex-direction:row;align-items:center;gap:.6rem;margin-top:.3rem}
+.form-group.checkbox input{margin:0;width:18px;height:18px;cursor:pointer}
+.form-group.checkbox label{font-size:.85rem;color:var(--dim2);cursor:pointer;margin:0}
+.form-group.checkbox label a{color:var(--p);text-decoration:underline}
+.btn-send{padding:.8rem 1.4rem;background:var(--p);color:#0a0a0a;border:none;border-radius:6px;font-weight:800;font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;transition:transform .25s,box-shadow .25s;box-shadow:0 4px 16px rgba(173,222,0,.2);margin-top:.5rem;display:flex;align-items:center;justify-content:center;gap:.5rem}
+.btn-send:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(173,222,0,.35)}
+.btn-send:active{transform:translateY(0)}
+.form-status{font-size:.8rem;text-align:center;margin-top:.6rem;min-height:20px;color:var(--dim);transition:color .3s}
+.form-status.success{color:#4ade80}
+.form-status.error{color:#f87171}
+@media(max-width:480px){.contact-modal-content{width:100%;max-width:100%;border-radius:16px 16px 0 0;padding:1.5rem}}
 </style>
 </head>
 <body>
@@ -1247,6 +1272,34 @@ footer{
   </div>
   <div class="hero-photo"></div>
 </section>
+
+<!-- ─── CONTACT MODAL ───────────────────────────── -->
+<div id="contact-modal" class="contact-modal">
+  <div class="contact-modal-content">
+    <button class="contact-close" aria-label="Chiudi">&times;</button>
+    <h3 style="font-family:'Barlow Condensed',sans-serif;font-size:1.4rem;font-weight:800;text-transform:uppercase;margin-bottom:1rem;color:var(--snow)">Parliamone</h3>
+    <form id="contact-form" class="contact-form">
+      <div class="form-group">
+        <input type="text" id="name" name="name" placeholder="Nome" required>
+      </div>
+      <div class="form-group">
+        <input type="email" id="email" name="email" placeholder="Email" required>
+      </div>
+      <div class="form-group">
+        <input type="text" id="sport" name="sport" placeholder="Sport / Disciplina">
+      </div>
+      <div class="form-group">
+        <textarea id="message" name="message" placeholder="Messaggio" rows="4"></textarea>
+      </div>
+      <div class="form-group checkbox">
+        <input type="checkbox" id="privacy" name="privacy" required>
+        <label for="privacy">Ho letto e accetto la <a href="#" style="color:var(--p);text-decoration:underline">privacy policy</a></label>
+      </div>
+      <button type="submit" class="btn-send"><i class="fas fa-paper-plane"></i> Invia</button>
+      <div id="form-status" class="form-status"></div>
+    </form>
+  </div>
+</div>
 
 <!-- ─── FOOTER ─────────────────────────────────── -->
 <footer>
@@ -1536,6 +1589,51 @@ function applyLang(l){
 }
 document.querySelectorAll('.lang-btn').forEach(b=>{
   b.addEventListener('click',()=>applyLang(b.dataset.lang));
+});
+
+/* ── CONTACT MODAL ──────────────────────────── */
+const modal=document.getElementById('contact-modal');
+const contactForm=document.getElementById('contact-form');
+const formStatus=document.getElementById('form-status');
+const closeBtn=document.querySelector('.contact-close');
+
+// EmailJS initialization
+emailjs.init('YOUR_PUBLIC_KEY');
+
+const EMAILJS_SERVICE_ID='YOUR_SERVICE_ID';
+const EMAILJS_TEMPLATE_ID='YOUR_TEMPLATE_ID';
+
+function openModal(){modal.classList.add('open');contactForm.reset();formStatus.textContent=''}
+function closeModal(){modal.classList.remove('open');formStatus.textContent=''}
+
+document.querySelector('.nav-cta').addEventListener('click',e=>{e.preventDefault();openModal()});
+document.querySelectorAll('.btn-fire').forEach(btn=>{
+  const text=btn.textContent.toLowerCase();
+  if(text.includes('parliamone')||text.includes('inizia')||text.includes('hablemos')||text.includes('talk')){
+    btn.addEventListener('click',e=>{e.preventDefault();openModal()});
+  }
+});
+
+closeBtn.addEventListener('click',closeModal);
+modal.addEventListener('click',e=>{if(e.target===modal)closeModal()});
+
+contactForm.addEventListener('submit',async e=>{
+  e.preventDefault();
+  const name=document.getElementById('name').value;
+  const email=document.getElementById('email').value;
+  const sport=document.getElementById('sport').value;
+  const message=document.getElementById('message').value;
+  const privacy=document.getElementById('privacy').checked;
+
+  if(!privacy){formStatus.textContent='Accetta la privacy policy';formStatus.classList.add('error');return}
+
+  formStatus.textContent='Invio in corso...';
+  formStatus.classList.remove('success','error');
+
+  try{
+    const response=await emailjs.send(EMAILJS_SERVICE_ID,EMAILJS_TEMPLATE_ID,{name:name,email:email,sport:sport,message:message,reply_to:email});
+    if(response.status===200){formStatus.textContent='✓ Messaggio inviato! Ti contatteremo presto.';formStatus.classList.add('success');contactForm.reset();setTimeout(closeModal,2500)}
+  }catch(err){console.error('EmailJS error:',err);formStatus.textContent='✗ Errore nell\'invio. Riprova.';formStatus.classList.add('error')}
 });
 </script>
 </body>
