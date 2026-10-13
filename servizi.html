@@ -185,6 +185,61 @@ nav.s .nav-logo img{height:40px}
   .press-copy{border-left:0;border-top:1px solid rgba(255,255,255,.09)}
 }
 @media(prefers-reduced-motion:reduce){.press-visual img,.press-article-link{transition:none}}
+
+.sponsor-case-studies{
+  margin-top:clamp(3.5rem,7vw,5.5rem);padding:clamp(1.25rem,3vw,2rem);
+  border:1px solid rgba(173,222,0,.18);border-radius:1.1rem;
+  background:radial-gradient(ellipse at 5% 0%,rgba(173,222,0,.07),transparent 45%),linear-gradient(145deg,rgba(255,255,255,.025),rgba(255,255,255,.008));
+}
+.sponsor-case-heading{max-width:780px;margin:0 0 1.75rem}
+.sponsor-case-kicker{
+  display:flex;align-items:center;gap:.6rem;margin-bottom:.7rem;
+  color:var(--p);font-size:.65rem;font-weight:700;letter-spacing:.17em;text-transform:uppercase;
+}
+.sponsor-case-kicker::before{content:'';width:1.2rem;height:1px;background:var(--p)}
+.sponsor-case-heading h3{
+  margin:0 0 .65rem;color:var(--snow);
+  font-family:'Barlow Condensed',sans-serif;font-size:clamp(1.7rem,3vw,2.5rem);
+  font-weight:800;line-height:1;text-transform:uppercase;
+}
+.sponsor-case-heading p{max-width:680px;color:var(--dim2);font-size:.9rem;line-height:1.75}
+.sponsor-case-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(1rem,2.2vw,1.75rem);align-items:stretch}
+.sponsor-case-card{
+  min-width:0;overflow:hidden;display:flex;flex-direction:column;
+  border:1px solid rgba(255,255,255,.1);border-radius:.9rem;
+  background:linear-gradient(180deg,rgba(13,13,20,.96),rgba(7,7,11,.98));
+  box-shadow:0 14px 36px rgba(0,0,0,.22);
+  transition:transform .3s,border-color .3s,box-shadow .3s;
+}
+.sponsor-case-card:hover{
+  transform:translateY(-4px);border-color:rgba(173,222,0,.42);
+  box-shadow:0 20px 42px rgba(0,0,0,.3),0 0 22px rgba(173,222,0,.07);
+}
+.sponsor-case-media{
+  display:grid;place-items:center;aspect-ratio:16/7;overflow:hidden;
+  padding:.4rem;background:radial-gradient(ellipse at center,rgba(173,222,0,.08),transparent 70%),#080b18;
+  border-bottom:1px solid rgba(173,222,0,.2);
+}
+.sponsor-case-media img{
+  display:block;width:100%;height:100%;object-fit:contain;
+  transition:transform .45s cubic-bezier(.2,.75,.25,1);
+}
+.sponsor-case-card:hover .sponsor-case-media img{transform:scale(1.018)}
+.sponsor-case-caption{display:flex;align-items:flex-start;gap:.9rem;padding:1rem 1.15rem 1.2rem}
+.sponsor-case-number{
+  display:grid;place-items:center;flex:0 0 2rem;width:2rem;height:2rem;
+  border:1px solid rgba(173,222,0,.4);border-radius:50%;color:var(--p);
+  font-size:.68rem;font-weight:700;letter-spacing:.04em;
+}
+.sponsor-case-copy h4{
+  margin:.08rem 0 .3rem;color:var(--snow);
+  font-family:'Barlow Condensed',sans-serif;font-size:1.15rem;font-weight:800;
+  line-height:1.1;text-transform:uppercase;
+}
+.sponsor-case-copy p{color:var(--dim2);font-size:.8rem;line-height:1.6}
+@media(max-width:760px){.sponsor-case-grid{grid-template-columns:1fr}.sponsor-case-media{aspect-ratio:16/8}}
+@media(prefers-reduced-motion:reduce){.sponsor-case-card,.sponsor-case-media img{transition:none}}
+
 @media(prefers-reduced-motion:reduce){.service-icon,.service-center::before,.service-icon::after,.point-icon,.point-icon::after{transition:none}}
 @media(max-width:560px){.service-center{margin:3rem 0}.service-icon{width:5.5rem;height:5.5rem;font-size:2.5rem}.point-icon{width:3.75rem;height:3.75rem;font-size:1.45rem}}
 .visual-case-study{margin:4rem 0;padding:clamp(1.25rem,3vw,3rem);background:linear-gradient(135deg,rgba(173,222,0,.055),rgba(173,222,0,.015));border-left:3px solid var(--p);border-radius:0 1rem 1rem 0}
@@ -375,6 +430,33 @@ footer::before{
         <p>Follow-up design: infografiche, case studies, report. Tutto ciò che serve dopo la firma per mantenerlo felice.</p>
       </div>
     </div>
+    <section class="sponsor-case-studies" aria-labelledby="sponsor-cases-title">
+      <div class="sponsor-case-heading">
+        <span class="sponsor-case-kicker">Esempi di presentazione</span>
+        <h3 id="sponsor-cases-title">Il progetto, raccontato in due immagini.</h3>
+        <p>Dal contesto sportivo ai dati di visibilità: informazioni e opportunità diventano una presentazione chiara per chi valuta una partnership.</p>
+      </div>
+      <div class="sponsor-case-grid">
+        <figure class="sponsor-case-card">
+          <div class="sponsor-case-media">
+            <img src="images/civ-superbike-2027.webp" alt="Presentazione CIV Superbike 2027 con dati su piloti, case costruttrici e copertura mediatica" width="1762" height="747" loading="lazy" decoding="async">
+          </div>
+          <figcaption class="sponsor-case-caption">
+            <span class="sponsor-case-number">01</span>
+            <div class="sponsor-case-copy"><h4>Il contesto sportivo</h4><p>Campionato, protagonisti e opportunità per i partner.</p></div>
+          </figcaption>
+        </figure>
+        <figure class="sponsor-case-card">
+          <div class="sponsor-case-media">
+            <img src="images/civ-sponsorship-impact.webp" alt="Presentazione del valore per gli sponsor del Dunlop CIV 2025 con dati su media, spettatori e copertura digitale" width="1762" height="631" loading="lazy" decoding="async">
+          </div>
+          <figcaption class="sponsor-case-caption">
+            <span class="sponsor-case-number">02</span>
+            <div class="sponsor-case-copy"><h4>I numeri per i partner</h4><p>Audience, copertura media e valore digitale organizzati in un quadro immediato.</p></div>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
   </div>
 </section>
 
