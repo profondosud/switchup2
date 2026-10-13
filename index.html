@@ -167,6 +167,11 @@ nav.s .nav-logo img{height:40px}
   .hero-actions>*{max-width:100%;justify-content:center}
 }
 
+@media(max-width:900px){
+  .service-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .service-grid>.serv-card:nth-child(n){grid-column:auto!important}
+}
+
 /* ─── LANG SWITCHER ───────────────────────────── */
 .lang-sw{display:flex;gap:.3rem;align-items:center;margin-left:.5rem}
 .lang-btn{
@@ -1483,7 +1488,7 @@ const mobileMenuToggle=document.querySelector('.mobile-menu-toggle');
 const primaryNavigation=document.getElementById('primary-navigation');
 const closeMobileMenu=()=>{if(mobileMenuToggle&&primaryNavigation){mobileMenuToggle.setAttribute('aria-expanded','false');primaryNavigation.classList.remove('open')}};
 mobileMenuToggle?.addEventListener('click',()=>{const open=mobileMenuToggle.getAttribute('aria-expanded')!=='true';mobileMenuToggle.setAttribute('aria-expanded',String(open));primaryNavigation?.classList.toggle('open',open)});
-primaryNavigation?.querySelectorAll('a').forEach(link=>link.addEventListener('click',closeMobileMenu));
+primaryNavigation?.querySelectorAll('a, .nav-cta').forEach(link=>link.addEventListener('click',closeMobileMenu));
 document.addEventListener('click',event=>{if(!nav.contains(event.target))closeMobileMenu()});
 
 /* ── HERO PARALLAX ──────────────────────────── */
