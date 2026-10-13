@@ -125,33 +125,53 @@ nav.s .nav-logo img{height:40px}
 .service-center-image,.service-center-gallery{margin:clamp(2.5rem,5vw,4rem) 0}
 .service-center-image::before,.service-center-gallery::before{display:none}
 .service-story-image{
-  display:block;width:min(100%,580px);height:auto;flex:0 1 auto;
-  border:1px solid rgba(173,222,0,.38);border-radius:1rem;background:#fff;
-  box-shadow:0 24px 64px rgba(0,0,0,.38),0 0 34px rgba(173,222,0,.11);
+  display:block;width:min(100%,780px);height:auto;flex:0 1 auto;
+  border:1px solid rgba(173,222,0,.42);border-radius:1.15rem;
+  box-shadow:0 26px 70px rgba(0,0,0,.42),0 0 40px rgba(173,222,0,.12);
   transition:transform .35s,box-shadow .35s;
 }
 .service-center-image:hover .service-story-image{
-  transform:translateY(-3px);box-shadow:0 28px 68px rgba(0,0,0,.46),0 0 40px rgba(173,222,0,.17);
+  transform:translateY(-3px);box-shadow:0 30px 76px rgba(0,0,0,.5),0 0 48px rgba(173,222,0,.18);
 }
 .service-image-gallery{
-  display:grid;width:min(100%,1100px);grid-template-columns:repeat(2,minmax(0,1fr));
-  gap:clamp(.8rem,2vw,1.5rem);align-items:stretch;
+  position:relative;isolation:isolate;display:grid;width:min(100%,1100px);
+  grid-template-columns:repeat(2,minmax(0,1fr));gap:0;overflow:hidden;
+  border:1px solid rgba(173,222,0,.48);border-radius:1.15rem;
+  background:#080b18;
+  box-shadow:0 28px 72px rgba(0,0,0,.42),0 0 40px rgba(173,222,0,.13);
+}
+.service-image-gallery::before{
+  content:'';position:absolute;z-index:3;top:-10%;bottom:-10%;left:50%;width:3px;
+  transform:rotate(5deg);pointer-events:none;
+  background:linear-gradient(180deg,transparent,rgba(173,222,0,.72),#efffa9,rgba(173,222,0,.72),transparent);
+  box-shadow:0 0 14px rgba(173,222,0,.9),0 0 34px rgba(173,222,0,.42);
+}
+.service-image-gallery::after{
+  content:'';position:absolute;z-index:2;inset:0;pointer-events:none;
+  background:radial-gradient(ellipse at 50% 50%,rgba(173,222,0,.11),transparent 24%),linear-gradient(90deg,transparent 43%,rgba(173,222,0,.045) 50%,transparent 57%);
 }
 .service-image-frame{
   display:grid;place-items:center;min-width:0;aspect-ratio:16/7;overflow:hidden;
-  padding:.45rem;border:1px solid rgba(173,222,0,.32);border-radius:1rem;
-  background:radial-gradient(ellipse at center,rgba(173,222,0,.075),transparent 70%),#080b18;
-  box-shadow:0 18px 42px rgba(0,0,0,.26),0 0 26px rgba(173,222,0,.045);
-  transition:transform .3s,border-color .3s,box-shadow .3s;
+  padding:.45rem;border:0;border-radius:0;
+  background:radial-gradient(ellipse at center,rgba(173,222,0,.065),transparent 72%),#080b18;
 }
-.service-image-frame:hover{
-  transform:translateY(-3px);border-color:rgba(173,222,0,.65);
-  box-shadow:0 22px 48px rgba(0,0,0,.34),0 0 28px rgba(173,222,0,.11);
+.service-image-frame+.service-image-frame{border-left:1px solid rgba(173,222,0,.22)}
+.service-image-frame img{
+  display:block;width:100%;height:100%;object-fit:contain;border-radius:0;
+  transition:transform .45s cubic-bezier(.2,.75,.25,1);
 }
-.service-image-frame img{display:block;width:100%;height:100%;object-fit:contain;border-radius:.6rem}
-@media(max-width:760px){.service-image-gallery{grid-template-columns:1fr}.service-image-frame{aspect-ratio:16/8}}
-@media(max-width:560px){.service-story-image{width:min(100%,480px);border-radius:.75rem}.service-image-frame{border-radius:.75rem}}
-@media(prefers-reduced-motion:reduce){.service-story-image,.service-image-frame{transition:none}}
+.service-image-gallery:hover .service-image-frame img{transform:scale(1.012)}
+@media(max-width:760px){
+  .service-image-gallery{grid-template-columns:1fr}
+  .service-image-frame{aspect-ratio:16/8}
+  .service-image-frame+.service-image-frame{border-left:0;border-top:1px solid rgba(173,222,0,.22)}
+  .service-image-gallery::before{
+    top:50%;right:-8%;bottom:auto;left:-8%;width:auto;height:3px;transform:none;
+    background:linear-gradient(90deg,transparent,rgba(173,222,0,.72),#efffa9,rgba(173,222,0,.72),transparent);
+  }
+}
+@media(max-width:560px){.service-story-image{width:min(100%,480px);border-radius:.85rem}.service-image-gallery{border-radius:.85rem}}
+@media(prefers-reduced-motion:reduce){.service-story-image,.service-image-frame img{transition:none}}
 .service-icon{display:grid;place-items:center;position:relative;width:6.5rem;height:6.5rem;border:1px solid rgba(173,222,0,.45);border-radius:1.8rem;background:linear-gradient(145deg,rgba(173,222,0,.2),rgba(173,222,0,.025) 62%);color:var(--p);font-size:3rem;filter:drop-shadow(0 0 18px rgba(173,222,0,.42));transform:rotate(-5deg);transition:transform .35s,filter .35s,background .35s}
 .service-icon::before{content:'';position:absolute;inset:0;border-radius:inherit;background:linear-gradient(135deg,rgba(255,255,255,.14),transparent 45%);pointer-events:none;z-index:-1}
 .service-icon::after{content:'';position:absolute;inset:-.55rem;border:1px solid rgba(173,222,0,.18);border-radius:2rem;transform:rotate(9deg);pointer-events:none;z-index:-1;transition:transform .35s,border-color .35s}
@@ -298,7 +318,7 @@ footer::before{
     <h2 class="service-title">Creiamo interesse intorno a te.<br><em>Siamo noi a creare la notizia</em></h2>
     <p class="service-intro">Non è il tuo nome sui giornali che attira gli sponsor. È la storia dietro quel nome. Costruiamo narrativa credibile intorno a te: da semplice pilota a figura mediatica rilevante.</p>
     <div class="service-center service-center-image">
-      <img class="service-story-image" src="images/delbianco-civ-article.webp" alt="Articolo di Corse di Moto sulla vittoria di Alessandro Delbianco nel CIV Superbike 2026" width="1744" height="1496" loading="lazy" decoding="async">
+      <img class="service-story-image" src="https://r.testifier.nl/Acbs8526SDKI/resizing_type%3Afit/watermark%3AFoto%3A%20Daniele%20Guazzetti/width%3A1920/height%3A1280/plain/https%3A//s3-newsifier.ams3.digitaloceanspaces.com/corsedimoto.com/images/2026-10/kc2a1235-result-6aca451d5b33b.jpg%40webp" alt="Alessandro Delbianco esulta in pista con la Yamaha dopo la vittoria del CIV Superbike 2026" width="1920" height="1280" loading="lazy" decoding="async">
     </div>
     <div class="service-points">
       <div class="point">
