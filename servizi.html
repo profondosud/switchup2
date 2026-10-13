@@ -121,6 +121,37 @@ nav.s .nav-logo img{height:40px}
 
 .service-center{display:flex;align-items:center;justify-content:center;margin:4rem 0;position:relative;isolation:isolate}
 .service-center::before{content:'';position:absolute;width:8.5rem;height:8.5rem;border-radius:50%;background:radial-gradient(circle,rgba(173,222,0,.2),rgba(173,222,0,.07) 42%,transparent 72%);box-shadow:0 0 56px rgba(173,222,0,.12);z-index:-1;pointer-events:none;transition:transform .35s,opacity .35s}
+
+.service-center-image,.service-center-gallery{margin:clamp(2.5rem,5vw,4rem) 0}
+.service-center-image::before,.service-center-gallery::before{display:none}
+.service-story-image{
+  display:block;width:min(100%,580px);height:auto;flex:0 1 auto;
+  border:1px solid rgba(173,222,0,.38);border-radius:1rem;background:#fff;
+  box-shadow:0 24px 64px rgba(0,0,0,.38),0 0 34px rgba(173,222,0,.11);
+  transition:transform .35s,box-shadow .35s;
+}
+.service-center-image:hover .service-story-image{
+  transform:translateY(-3px);box-shadow:0 28px 68px rgba(0,0,0,.46),0 0 40px rgba(173,222,0,.17);
+}
+.service-image-gallery{
+  display:grid;width:min(100%,1100px);grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:clamp(.8rem,2vw,1.5rem);align-items:stretch;
+}
+.service-image-frame{
+  display:grid;place-items:center;min-width:0;aspect-ratio:16/7;overflow:hidden;
+  padding:.45rem;border:1px solid rgba(173,222,0,.32);border-radius:1rem;
+  background:radial-gradient(ellipse at center,rgba(173,222,0,.075),transparent 70%),#080b18;
+  box-shadow:0 18px 42px rgba(0,0,0,.26),0 0 26px rgba(173,222,0,.045);
+  transition:transform .3s,border-color .3s,box-shadow .3s;
+}
+.service-image-frame:hover{
+  transform:translateY(-3px);border-color:rgba(173,222,0,.65);
+  box-shadow:0 22px 48px rgba(0,0,0,.34),0 0 28px rgba(173,222,0,.11);
+}
+.service-image-frame img{display:block;width:100%;height:100%;object-fit:contain;border-radius:.6rem}
+@media(max-width:760px){.service-image-gallery{grid-template-columns:1fr}.service-image-frame{aspect-ratio:16/8}}
+@media(max-width:560px){.service-story-image{width:min(100%,480px);border-radius:.75rem}.service-image-frame{border-radius:.75rem}}
+@media(prefers-reduced-motion:reduce){.service-story-image,.service-image-frame{transition:none}}
 .service-icon{display:grid;place-items:center;position:relative;width:6.5rem;height:6.5rem;border:1px solid rgba(173,222,0,.45);border-radius:1.8rem;background:linear-gradient(145deg,rgba(173,222,0,.2),rgba(173,222,0,.025) 62%);color:var(--p);font-size:3rem;filter:drop-shadow(0 0 18px rgba(173,222,0,.42));transform:rotate(-5deg);transition:transform .35s,filter .35s,background .35s}
 .service-icon::before{content:'';position:absolute;inset:0;border-radius:inherit;background:linear-gradient(135deg,rgba(255,255,255,.14),transparent 45%);pointer-events:none;z-index:-1}
 .service-icon::after{content:'';position:absolute;inset:-.55rem;border:1px solid rgba(173,222,0,.18);border-radius:2rem;transform:rotate(9deg);pointer-events:none;z-index:-1;transition:transform .35s,border-color .35s}
@@ -139,106 +170,6 @@ nav.s .nav-logo img{height:40px}
 .point:hover h4{color:#C5FF18}
 .point p{font-size:.9rem;color:var(--dim2);line-height:1.6}
 
-.press-feature{
-  display:grid;grid-template-columns:minmax(0,1.12fr) minmax(280px,.88fr);
-  margin-top:clamp(3rem,6vw,5rem);overflow:hidden;
-  border:1px solid rgba(255,255,255,.1);border-radius:1.1rem;
-  background:linear-gradient(130deg,rgba(173,222,0,.07),rgba(13,13,20,.96) 38%,#09090E);
-  box-shadow:0 24px 64px rgba(0,0,0,.3),0 0 36px rgba(173,222,0,.045);
-}
-.press-visual{min-width:0;margin:0;background:#f7f7f7}
-.press-visual>a{display:block;overflow:hidden}
-.press-visual img{
-  display:block;width:100%;height:auto;aspect-ratio:1.14;object-fit:cover;
-  transition:transform .55s cubic-bezier(.2,.75,.25,1);
-}
-.press-visual>a:hover img{transform:scale(1.018)}
-.press-caption{
-  display:flex;justify-content:space-between;gap:1rem;padding:.8rem 1rem;
-  color:#5D5B66;background:#fff;font-size:.7rem;font-weight:600;letter-spacing:.06em;
-  text-transform:uppercase;
-}
-.press-copy{
-  display:flex;flex-direction:column;justify-content:center;align-items:flex-start;
-  padding:clamp(1.6rem,4vw,3.5rem);border-left:1px solid rgba(255,255,255,.09);
-}
-.press-eyebrow{
-  display:inline-flex;align-items:center;gap:.55rem;margin-bottom:1.25rem;
-  color:var(--p);font-size:.65rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
-}
-.press-copy h3{
-  max-width:520px;margin:0 0 1rem;color:var(--snow);
-  font-family:'Barlow Condensed',sans-serif;font-size:clamp(1.8rem,3.2vw,3rem);
-  font-weight:800;line-height:.98;text-transform:uppercase;
-}
-.press-copy p{max-width:470px;margin:0 0 1.65rem;color:var(--dim2);font-size:.92rem;line-height:1.8}
-.press-article-link{
-  display:inline-flex;align-items:center;gap:.65rem;padding:.8rem 0;
-  border-bottom:1px solid rgba(173,222,0,.5);color:var(--snow);
-  font-size:.75rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
-  transition:color .2s,border-color .2s,gap .2s;
-}
-.press-article-link i{color:var(--p);font-size:.72rem}
-.press-article-link:hover{gap:.85rem;color:var(--p);border-color:var(--p)}
-@media(max-width:760px){
-  .press-feature{grid-template-columns:1fr}
-  .press-copy{border-left:0;border-top:1px solid rgba(255,255,255,.09)}
-}
-@media(prefers-reduced-motion:reduce){.press-visual img,.press-article-link{transition:none}}
-
-.sponsor-case-studies{
-  margin-top:clamp(3.5rem,7vw,5.5rem);padding:clamp(1.25rem,3vw,2rem);
-  border:1px solid rgba(173,222,0,.18);border-radius:1.1rem;
-  background:radial-gradient(ellipse at 5% 0%,rgba(173,222,0,.07),transparent 45%),linear-gradient(145deg,rgba(255,255,255,.025),rgba(255,255,255,.008));
-}
-.sponsor-case-heading{max-width:780px;margin:0 0 1.75rem}
-.sponsor-case-kicker{
-  display:flex;align-items:center;gap:.6rem;margin-bottom:.7rem;
-  color:var(--p);font-size:.65rem;font-weight:700;letter-spacing:.17em;text-transform:uppercase;
-}
-.sponsor-case-kicker::before{content:'';width:1.2rem;height:1px;background:var(--p)}
-.sponsor-case-heading h3{
-  margin:0 0 .65rem;color:var(--snow);
-  font-family:'Barlow Condensed',sans-serif;font-size:clamp(1.7rem,3vw,2.5rem);
-  font-weight:800;line-height:1;text-transform:uppercase;
-}
-.sponsor-case-heading p{max-width:680px;color:var(--dim2);font-size:.9rem;line-height:1.75}
-.sponsor-case-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(1rem,2.2vw,1.75rem);align-items:stretch}
-.sponsor-case-card{
-  min-width:0;overflow:hidden;display:flex;flex-direction:column;
-  border:1px solid rgba(255,255,255,.1);border-radius:.9rem;
-  background:linear-gradient(180deg,rgba(13,13,20,.96),rgba(7,7,11,.98));
-  box-shadow:0 14px 36px rgba(0,0,0,.22);
-  transition:transform .3s,border-color .3s,box-shadow .3s;
-}
-.sponsor-case-card:hover{
-  transform:translateY(-4px);border-color:rgba(173,222,0,.42);
-  box-shadow:0 20px 42px rgba(0,0,0,.3),0 0 22px rgba(173,222,0,.07);
-}
-.sponsor-case-media{
-  display:grid;place-items:center;aspect-ratio:16/7;overflow:hidden;
-  padding:.4rem;background:radial-gradient(ellipse at center,rgba(173,222,0,.08),transparent 70%),#080b18;
-  border-bottom:1px solid rgba(173,222,0,.2);
-}
-.sponsor-case-media img{
-  display:block;width:100%;height:100%;object-fit:contain;
-  transition:transform .45s cubic-bezier(.2,.75,.25,1);
-}
-.sponsor-case-card:hover .sponsor-case-media img{transform:scale(1.018)}
-.sponsor-case-caption{display:flex;align-items:flex-start;gap:.9rem;padding:1rem 1.15rem 1.2rem}
-.sponsor-case-number{
-  display:grid;place-items:center;flex:0 0 2rem;width:2rem;height:2rem;
-  border:1px solid rgba(173,222,0,.4);border-radius:50%;color:var(--p);
-  font-size:.68rem;font-weight:700;letter-spacing:.04em;
-}
-.sponsor-case-copy h4{
-  margin:.08rem 0 .3rem;color:var(--snow);
-  font-family:'Barlow Condensed',sans-serif;font-size:1.15rem;font-weight:800;
-  line-height:1.1;text-transform:uppercase;
-}
-.sponsor-case-copy p{color:var(--dim2);font-size:.8rem;line-height:1.6}
-@media(max-width:760px){.sponsor-case-grid{grid-template-columns:1fr}.sponsor-case-media{aspect-ratio:16/8}}
-@media(prefers-reduced-motion:reduce){.sponsor-case-card,.sponsor-case-media img{transition:none}}
 
 @media(prefers-reduced-motion:reduce){.service-icon,.service-center::before,.service-icon::after,.point-icon,.point-icon::after{transition:none}}
 @media(max-width:560px){.service-center{margin:3rem 0}.service-icon{width:5.5rem;height:5.5rem;font-size:2.5rem}.point-icon{width:3.75rem;height:3.75rem;font-size:1.45rem}}
@@ -366,8 +297,8 @@ footer::before{
   <div class="service-inner">
     <h2 class="service-title">Creiamo interesse intorno a te.<br><em>Siamo noi a creare la notizia</em></h2>
     <p class="service-intro">Non è il tuo nome sui giornali che attira gli sponsor. È la storia dietro quel nome. Costruiamo narrativa credibile intorno a te: da semplice pilota a figura mediatica rilevante.</p>
-    <div class="service-center">
-      <i class="fas fa-newspaper service-icon"></i>
+    <div class="service-center service-center-image">
+      <img class="service-story-image" src="images/delbianco-civ-article.webp" alt="Articolo di Corse di Moto sulla vittoria di Alessandro Delbianco nel CIV Superbike 2026" width="1744" height="1496" loading="lazy" decoding="async">
     </div>
     <div class="service-points">
       <div class="point">
@@ -387,20 +318,7 @@ footer::before{
         <p>Strategia di posizionamento. Diventi personaggio, non solo pilota.</p>
       </div>
     </div>
-    <article class="press-feature" aria-labelledby="press-feature-title">
-      <figure class="press-visual">
-        <a href="https://www.corsedimoto.com/in-pista/bis-di-alessandro-delbianco-campione-civ-superbike-2026" target="_blank" rel="noopener noreferrer" aria-label="Apri l'articolo originale su Corse di Moto">
-          <img src="images/delbianco-civ-article.webp" alt="Articolo di Corse di Moto: Bis di Alessandro Delbianco, Campione CIV Superbike 2026, con la foto del pilota in pista" width="1782" height="1560" loading="lazy" decoding="async">
-        </a>
-        <figcaption class="press-caption"><span>Corse di Moto</span><span>10 ottobre 2026</span></figcaption>
-      </figure>
-      <div class="press-copy">
-        <span class="press-eyebrow"><i class="fas fa-bolt" aria-hidden="true"></i> Rassegna stampa · CIV Superbike</span>
-        <h3 id="press-feature-title">Un risultato in pista diventa una storia da raccontare.</h3>
-        <p>Il bis tricolore di Alessandro Delbianco raccontato da Corse di Moto: una notizia concreta che dà spazio al percorso, al team e ai partner che lo sostengono.</p>
-        <a class="press-article-link" href="https://www.corsedimoto.com/in-pista/bis-di-alessandro-delbianco-campione-civ-superbike-2026" target="_blank" rel="noopener noreferrer">Leggi l’articolo originale <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
-      </div>
-    </article>
+    
   </div>
 </section>
 
@@ -409,8 +327,11 @@ footer::before{
   <div class="service-inner">
     <h2 class="service-title">Creiamo la presentazione giusta<br><em>Per ogni sponsor</em></h2>
     <p class="service-intro">Ogni sponsor è diverso. Chi cerca visibilità, chi experience, chi ROI. Noi creiamo presentazioni, brochure e materiali ad hoc: su misura alle sue esigenze, nel suo linguaggio, con i numeri che lo convincono.</p>
-    <div class="service-center">
-      <i class="fas fa-handshake service-icon"></i>
+    <div class="service-center service-center-gallery">
+      <div class="service-image-gallery">
+        <div class="service-image-frame"><img src="images/civ-superbike-2027.webp" alt="Presentazione CIV Superbike con piloti, case costruttrici e opportunità per i partner" width="1762" height="747" loading="lazy" decoding="async"></div>
+        <div class="service-image-frame"><img src="images/civ-sponsorship-impact.webp" alt="Presentazione del valore per gli sponsor del Dunlop CIV con dati di audience e copertura media" width="1762" height="631" loading="lazy" decoding="async"></div>
+      </div>
     </div>
     <div class="service-points">
       <div class="point">
@@ -430,33 +351,7 @@ footer::before{
         <p>Follow-up design: infografiche, case studies, report. Tutto ciò che serve dopo la firma per mantenerlo felice.</p>
       </div>
     </div>
-    <section class="sponsor-case-studies" aria-labelledby="sponsor-cases-title">
-      <div class="sponsor-case-heading">
-        <span class="sponsor-case-kicker">Esempi di presentazione</span>
-        <h3 id="sponsor-cases-title">Il progetto, raccontato in due immagini.</h3>
-        <p>Dal contesto sportivo ai dati di visibilità: informazioni e opportunità diventano una presentazione chiara per chi valuta una partnership.</p>
-      </div>
-      <div class="sponsor-case-grid">
-        <figure class="sponsor-case-card">
-          <div class="sponsor-case-media">
-            <img src="images/civ-superbike-2027.webp" alt="Presentazione CIV Superbike 2027 con dati su piloti, case costruttrici e copertura mediatica" width="1762" height="747" loading="lazy" decoding="async">
-          </div>
-          <figcaption class="sponsor-case-caption">
-            <span class="sponsor-case-number">01</span>
-            <div class="sponsor-case-copy"><h4>Il contesto sportivo</h4><p>Campionato, protagonisti e opportunità per i partner.</p></div>
-          </figcaption>
-        </figure>
-        <figure class="sponsor-case-card">
-          <div class="sponsor-case-media">
-            <img src="images/civ-sponsorship-impact.webp" alt="Presentazione del valore per gli sponsor del Dunlop CIV 2025 con dati su media, spettatori e copertura digitale" width="1762" height="631" loading="lazy" decoding="async">
-          </div>
-          <figcaption class="sponsor-case-caption">
-            <span class="sponsor-case-number">02</span>
-            <div class="sponsor-case-copy"><h4>I numeri per i partner</h4><p>Audience, copertura media e valore digitale organizzati in un quadro immediato.</p></div>
-          </figcaption>
-        </figure>
-      </div>
-    </section>
+    
   </div>
 </section>
 
