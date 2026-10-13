@@ -155,46 +155,89 @@ nav.s .nav-logo img{height:40px}
 .visual-case-copy p:last-child{font-size:.95rem;color:var(--dim2);line-height:1.8}
 @media(max-width:760px){.visual-comparison{grid-template-columns:1fr}.visual-example-image{height:clamp(28rem,88vw,40rem)}}
 @media(max-width:560px){.visual-case-study{margin:3rem 0;padding:1rem}.visual-example-image{height:min(36rem,155vw);min-height:24rem}.visual-example-label{min-height:3.1rem;padding:.7rem .8rem;font-size:.92rem}}
-@media(prefers-reduced-motion:reduce){.visual-example{transition:none}
+@media(prefers-reduced-motion:reduce){.visual-example{transition:none}}
 /* FOOTER */
 footer{
-  padding:5rem 2.5rem 3rem;
-  border-top:1px solid var(--line);
-  background:#030306;
+  position:relative;overflow:hidden;
+  padding:clamp(3.5rem,7vw,6rem) 2.5rem 1.5rem;
+  border-top:1px solid rgba(173,222,0,.2);
+  background:radial-gradient(ellipse 42% 70% at 8% 0%,rgba(173,222,0,.09),transparent 72%),linear-gradient(180deg,#09090E 0%,#030306 100%);
+}
+footer::before{
+  content:'';position:absolute;inset:0 0 auto;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(173,222,0,.62) 18%,rgba(173,222,0,.12) 72%,transparent);
+  pointer-events:none;
 }
 .footer-inner{
-  max-width:1200px;margin:0 auto;
-  display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:4rem;margin-bottom:4rem;
+  position:relative;max-width:1200px;margin:0 auto;
+  display:grid;grid-template-columns:minmax(0,1.45fr) minmax(150px,.7fr) minmax(200px,.85fr);
+  gap:clamp(2rem,6vw,6rem);padding-bottom:3.5rem;
 }
 .f-brand{align-self:start}
-.f-brand-logo{display:none}
-.f-tagline{font-family:'Barlow Condensed',sans-serif;font-size:clamp(1.65rem,2.3vw,2.15rem);font-weight:800;line-height:1.02;letter-spacing:.01em;text-transform:uppercase;color:var(--snow);max-width:340px;margin:0 0 1rem}
-.f-tagline span{display:block;color:var(--p)}
-.f-brand p{font-size:.84rem;color:var(--dim);line-height:1.75;max-width:300px;margin:0}
-.f-col h4{font-size:.6rem;letter-spacing:.24em;text-transform:uppercase;color:var(--dim);margin-bottom:1.3rem;font-weight:600}
-.f-col a{display:block;font-size:.83rem;color:var(--dim2);margin-bottom:.65rem;transition:color .2s}
-.f-col a:hover{color:var(--p)}
-.partner-link{width:fit-content;min-width:190px;min-height:58px;padding:.7rem 1rem;border:1px solid var(--line);border-radius:12px;background:linear-gradient(135deg,rgba(255,255,255,.045),rgba(255,255,255,.012));display:flex!important;align-items:center;justify-content:flex-start;margin:0 0 .7rem!important;transition:border-color .2s,transform .2s,background .2s!important}
-.partner-link:hover{border-color:rgba(173,222,0,.55);transform:translateY(-2px);background:rgba(173,222,0,.055)}
-.partner-link img{display:block;max-width:150px;width:auto;height:auto;max-height:32px;object-fit:contain;object-position:left center}
-.partner-link img[alt="Adattivia"]{max-width:152px;max-height:30px}
-.partner-text-link{margin-top:.4rem!important}
-.footer-bottom{
-  max-width:1200px;margin:0 auto;
-  padding-top:2rem;border-top:1px solid var(--line);
-  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;
+.f-brand::before{
+  content:'SWITCH UP  /  DIGITAL PRESENCE';display:block;
+  margin-bottom:1.25rem;color:var(--p);
+  font-size:.62rem;font-weight:700;letter-spacing:.22em;
 }
-.f-copy{font-size:.73rem;color:var(--dim)}
-
+.f-tagline{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:clamp(2rem,3.2vw,3rem);font-weight:800;line-height:.98;
+  letter-spacing:.005em;text-transform:uppercase;color:var(--snow);
+  max-width:390px;margin:0 0 1.25rem;
+}
+.f-tagline span{display:block;color:var(--p)}
+.f-brand p:not(.f-tagline){font-size:.9rem;color:var(--dim2);line-height:1.8;max-width:360px;margin:0}
+.f-col{padding-top:.3rem}
+.f-col h4{
+  display:flex;align-items:center;gap:.65rem;
+  font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--snow);margin-bottom:1.35rem;font-weight:700;
+}
+.f-col h4::before{content:'';width:1.1rem;height:1px;background:var(--p)}
+.f-col>a:not(.partner-link){
+  display:table;width:fit-content;font-size:.88rem;color:var(--dim2);
+  margin-bottom:.8rem;transition:color .2s,transform .2s;
+}
+.f-col>a:not(.partner-link):hover{color:var(--p);transform:translateX(4px)}
+.partner-link{
+  width:min(100%,250px);min-height:72px;padding:1rem 1.2rem;
+  border:1px solid rgba(255,255,255,.1);border-radius:14px;
+  background:linear-gradient(135deg,rgba(255,255,255,.065),rgba(255,255,255,.018));
+  display:flex!important;align-items:center;justify-content:flex-start;
+  margin:0 0 .9rem!important;
+  transition:border-color .25s,transform .25s,background .25s,box-shadow .25s!important;
+}
+.partner-link:hover{
+  border-color:rgba(173,222,0,.55);transform:translateY(-3px);
+  background:linear-gradient(135deg,rgba(173,222,0,.1),rgba(255,255,255,.02));
+  box-shadow:0 12px 32px rgba(0,0,0,.24),0 0 28px rgba(173,222,0,.08);
+}
+.partner-link img{
+  display:block;max-width:185px;width:auto;height:auto;max-height:40px;
+  object-fit:contain;object-position:left center;
+}
+.partner-link img[alt="Adattivia"]{max-width:185px;max-height:38px}
+.partner-text-link{margin-top:.5rem!important}
+.footer-bottom{
+  position:relative;max-width:1200px;margin:0 auto;
+  padding:1.35rem 0 .25rem;border-top:1px solid rgba(255,255,255,.09);
+  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.75rem 1.5rem;
+}
+.f-copy{font-size:.74rem;color:var(--dim);line-height:1.6}
+.f-copy a{transition:color .2s}
+.f-copy a:hover{color:#fff!important}
 @media(max-width:900px){
   .service-points{grid-template-columns:1fr 1fr}
-  .footer-inner{grid-template-columns:1fr;gap:2.5rem;margin-bottom:3rem}
-  .f-tagline{max-width:430px}
+  .footer-inner{grid-template-columns:minmax(0,1.3fr) minmax(145px,.7fr);gap:2.75rem 3rem;padding-bottom:2.75rem}
+  .f-brand{grid-column:1/-1}
 }
 @media(max-width:560px){
   .service-points{grid-template-columns:1fr}
-  .footer-inner{grid-template-columns:1fr}
-  .footer-bottom{flex-direction:column;text-align:center}
+  footer{padding:3.5rem 1.25rem 1.25rem}
+  .footer-inner{grid-template-columns:1fr;gap:2rem;padding-bottom:2.25rem}
+  .f-brand{grid-column:auto}
+  .f-tagline{font-size:2.25rem}
+  .footer-bottom{flex-direction:column;align-items:flex-start;text-align:left}
   nav{padding:0 1.2rem}
   .nav-links a:not(.nav-cta){display:none}
 }
