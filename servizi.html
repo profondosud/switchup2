@@ -160,10 +160,8 @@ nav.s .nav-logo img{height:40px}
 }
 .service-story-image{
   display:block;width:100%;height:auto;object-fit:contain;border-radius:0;
-  -webkit-mask-image:linear-gradient(to right,transparent 0%,#000 1.5%,#000 98.5%,transparent 100%),linear-gradient(to bottom,transparent 0%,#000 1.5%,#000 98.5%,transparent 100%);
-  -webkit-mask-composite:source-in;
-  mask-image:linear-gradient(to right,transparent 0%,#000 1.5%,#000 98.5%,transparent 100%),linear-gradient(to bottom,transparent 0%,#000 1.5%,#000 98.5%,transparent 100%);
-  mask-composite:intersect;
+  -webkit-mask-image:radial-gradient(ellipse 50% 135% at 50% 50%,#000 90%,rgba(0,0,0,.96) 94%,rgba(0,0,0,.68) 97%,transparent 100%);
+  mask-image:radial-gradient(ellipse 50% 135% at 50% 50%,#000 90%,rgba(0,0,0,.96) 94%,rgba(0,0,0,.68) 97%,transparent 100%);
 }
 @media(max-width:560px){.service-story-frame::before{inset:-5%;filter:blur(22px)}}
 
