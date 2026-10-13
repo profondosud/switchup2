@@ -123,6 +123,30 @@ nav.s .nav-logo img{height:40px}
 .service-center::before{content:'';position:absolute;width:8.5rem;height:8.5rem;border-radius:50%;background:radial-gradient(circle,rgba(173,222,0,.2),rgba(173,222,0,.07) 42%,transparent 72%);box-shadow:0 0 56px rgba(173,222,0,.12);z-index:-1;pointer-events:none;transition:transform .35s,opacity .35s}
 
 .service-center-image,.service-center-gallery{margin:clamp(2.5rem,5vw,4rem) 0}
+.service-center-social{margin:clamp(2.5rem,5vw,4rem) 0}
+.service-center-social::before{display:none}
+.service-social-frame{
+  position:relative;isolation:isolate;width:min(100%,1000px);overflow:hidden;
+  padding:clamp(.3rem,.7vw,.55rem);border:1px solid rgba(173,222,0,.48);
+  border-radius:1.2rem;background:linear-gradient(135deg,rgba(173,222,0,.12),rgba(255,255,255,.015) 42%,rgba(173,222,0,.08));
+  box-shadow:0 28px 72px rgba(0,0,0,.48),0 0 46px rgba(173,222,0,.15),inset 0 1px rgba(255,255,255,.1);
+  transition:transform .35s,box-shadow .35s,border-color .35s;
+}
+.service-social-frame::after{
+  content:'';position:absolute;inset:.3rem;z-index:1;border-radius:.95rem;pointer-events:none;
+  background:linear-gradient(125deg,rgba(255,255,255,.12),transparent 28%,transparent 72%,rgba(173,222,0,.07));
+  mix-blend-mode:screen;
+}
+.service-social-image{
+  display:block;width:100%;height:auto;object-fit:contain;border-radius:.9rem;
+}
+.service-center-social:hover .service-social-frame{
+  transform:translateY(-3px);border-color:rgba(173,222,0,.72);
+  box-shadow:0 32px 78px rgba(0,0,0,.52),0 0 58px rgba(173,222,0,.22),inset 0 1px rgba(255,255,255,.14);
+}
+@media(max-width:560px){.service-social-frame{border-radius:.9rem;padding:.25rem}.service-social-image{border-radius:.68rem}.service-social-frame::after{inset:.22rem;border-radius:.72rem}}
+@media(prefers-reduced-motion:reduce){.service-social-frame{transition:none}}
+
 .service-center-image::before,.service-center-gallery::before{display:none}
 .service-story-image{
   display:block;width:min(100%,780px);height:auto;flex:0 1 auto;
@@ -423,8 +447,10 @@ footer::before{
   <div class="service-inner">
     <h2 class="service-title">Fai crescere la tua presenza online.<br><em>Mentre sei in pista</em></h2>
     <p class="service-intro">Il sito da solo non basta. Gli sponsor ti cercano sui social. Non è solo avere account: è coordinare. Integriamo sito, Instagram, TikTok, YouTube in una strategia unica. Una voce, tre canali, engagement costante e misurato.</p>
-    <div class="service-center">
-      <i class="fas fa-sync service-icon"></i>
+    <div class="service-center service-center-social">
+      <div class="service-social-frame">
+        <img class="service-social-image" src="images/ktm-garage-social.webp" alt="Meccanici al lavoro nel box KTM durante una gara" width="1920" height="1278" loading="lazy" decoding="async">
+      </div>
     </div>
     <div class="service-points">
       <div class="point">
