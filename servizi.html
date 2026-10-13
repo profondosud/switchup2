@@ -150,17 +150,23 @@ nav.s .nav-logo img{height:40px}
 .service-center-image::before,.service-center-gallery::before{display:none}
 .service-story-frame{
   position:relative;isolation:isolate;width:min(100%,780px);
-  padding:clamp(.55rem,1vw,.75rem);border-radius:1.3rem;
-  background:linear-gradient(135deg,#dfff58 0%,#ADDE00 42%,#86a900 100%);
-  box-shadow:0 26px 64px rgba(0,0,0,.48),0 0 0 1px rgba(173,222,0,.32),inset 0 1px rgba(255,255,255,.3);
-  transition:transform .3s,box-shadow .3s;
+  padding:0;border:0;border-radius:0;background:transparent;
+  box-shadow:none;transition:none;
 }
-.service-story-image{display:block;width:100%;height:auto;object-fit:contain;border-radius:.88rem}
-.service-center-image:hover .service-story-frame{
-  transform:translateY(-2px);box-shadow:0 30px 70px rgba(0,0,0,.52),0 0 0 1px rgba(173,222,0,.46),inset 0 1px rgba(255,255,255,.34);
+.service-story-frame::before{
+  content:'';position:absolute;inset:-7%;z-index:-1;pointer-events:none;
+  background:radial-gradient(ellipse at center,rgba(173,222,0,.22) 0%,rgba(173,222,0,.12) 38%,rgba(173,222,0,.035) 68%,transparent 82%);
+  filter:blur(30px);
 }
-@media(max-width:560px){.service-story-frame{padding:.38rem;border-radius:1rem}.service-story-image{border-radius:.7rem}}
-@media(prefers-reduced-motion:reduce){.service-story-frame{transition:none}}
+.service-story-image{
+  display:block;width:100%;height:auto;object-fit:contain;border-radius:0;
+  -webkit-mask-image:linear-gradient(to right,transparent 0%,#000 2.5%,#000 97.5%,transparent 100%),linear-gradient(to bottom,transparent 0%,#000 2.5%,#000 97.5%,transparent 100%);
+  -webkit-mask-composite:source-in;
+  mask-image:linear-gradient(to right,transparent 0%,#000 2.5%,#000 97.5%,transparent 100%),linear-gradient(to bottom,transparent 0%,#000 2.5%,#000 97.5%,transparent 100%);
+  mask-composite:intersect;
+}
+@media(max-width:560px){.service-story-frame::before{inset:-5%;filter:blur(22px)}}
+
 .service-image-gallery{
   position:relative;isolation:isolate;display:grid;width:min(100%,1100px);
   grid-template-columns:repeat(2,minmax(0,1fr));gap:0;overflow:hidden;
