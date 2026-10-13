@@ -150,12 +150,14 @@ nav.s .nav-logo img{height:40px}
 .service-center-image::before,.service-center-gallery::before{display:none}
 .service-story-image{
   display:block;width:min(100%,780px);height:auto;flex:0 1 auto;
-  border:1px solid rgba(173,222,0,.42);border-radius:1.15rem;
-  box-shadow:0 26px 70px rgba(0,0,0,.42),0 0 40px rgba(173,222,0,.12);
+  border:1px solid transparent;border-radius:1.15rem;
+  background:linear-gradient(#fff,#fff) padding-box,
+    linear-gradient(135deg,rgba(173,222,0,.72),rgba(173,222,0,.12) 30%,rgba(104,125,255,.22) 68%,rgba(173,222,0,.58)) border-box;
+  box-shadow:0 26px 70px rgba(0,0,0,.42),0 0 38px rgba(173,222,0,.11),18px -10px 54px rgba(104,125,255,.07);
   transition:transform .35s,box-shadow .35s;
 }
 .service-center-image:hover .service-story-image{
-  transform:translateY(-3px);box-shadow:0 30px 76px rgba(0,0,0,.5),0 0 48px rgba(173,222,0,.18);
+  transform:translateY(-3px);box-shadow:0 30px 76px rgba(0,0,0,.5),0 0 46px rgba(173,222,0,.16),18px -10px 60px rgba(104,125,255,.1);
 }
 .service-image-gallery{
   position:relative;isolation:isolate;display:grid;width:min(100%,1100px);
@@ -289,6 +291,8 @@ footer::before{
   max-width:390px;margin:0 0 1.25rem;
 }
 .f-tagline span{display:block;color:var(--p)}
+.footer-privacy-link{display:table;margin:-.65rem 0 1rem;color:var(--dim2);font-size:.78rem;transition:color .2s}
+.footer-privacy-link:hover{color:var(--p)}
 .f-brand p:not(.f-tagline){font-size:.9rem;color:var(--dim2);line-height:1.8;max-width:360px;margin:0}
 .f-col{padding-top:.3rem}
 .f-col h4{
@@ -521,7 +525,7 @@ footer::before{
 <footer>
   <div class="footer-inner">
     <div class="f-brand">
-      <p class="f-tagline">La tua storia merita <span>il palcoscenico giusto.</span></p>
+      <p class="f-tagline">La tua storia merita <span>il palcoscenico giusto.</span></p>\n      <a class="footer-privacy-link" href="#">Privacy Policy</a>
       <p>Una vetrina digitale pensata per trasformare il tuo talento in opportunità concrete con gli sponsor.</p>
     </div>
     <div class="f-col">
