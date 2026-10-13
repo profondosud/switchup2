@@ -135,10 +135,25 @@ nav.s .nav-logo img{height:40px}
 }
 .nav-cta:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(173,222,0,.4)}
 
+.nav-cta-mobile,.mobile-menu-toggle{display:none}
 @media(max-width:680px){
-  nav{padding:0 1.2rem}
-  .nav-links a:not(.nav-cta){display:none}
-  .nav-links{gap:.8rem}
+  nav{display:grid;grid-template-columns:minmax(0,1fr) auto auto;gap:.45rem;padding:.55rem .75rem}
+  nav.s{padding:.45rem .75rem}
+  .nav-logo{min-width:0}
+  .nav-logo img{height:28px;width:auto}
+  .nav-cta-mobile{display:inline-flex;justify-content:center;white-space:nowrap;padding:.48rem .62rem;font-size:.6rem;letter-spacing:.07em}
+  .mobile-menu-toggle{display:flex;width:36px;height:36px;flex-direction:column;align-items:center;justify-content:center;gap:4px;border:1px solid rgba(255,255,255,.2);border-radius:6px;background:rgba(255,255,255,.035);cursor:pointer}
+  .mobile-menu-toggle span{width:16px;height:2px;border-radius:2px;background:var(--snow);transition:transform .2s,opacity .2s}
+  .mobile-menu-toggle[aria-expanded="true"] span:first-child{transform:translateY(6px) rotate(45deg)}
+  .mobile-menu-toggle[aria-expanded="true"] span:nth-child(2){opacity:0}
+  .mobile-menu-toggle[aria-expanded="true"] span:last-child{transform:translateY(-6px) rotate(-45deg)}
+  .nav-links{display:none;position:absolute;top:calc(100% + 8px);left:.75rem;right:.75rem;z-index:1001;flex-direction:column;align-items:stretch;gap:.2rem;padding:.65rem;border:1px solid rgba(173,222,0,.22);border-radius:12px;background:rgba(7,8,12,.98);backdrop-filter:blur(18px);box-shadow:0 18px 48px rgba(0,0,0,.55)}
+  .nav-links.open{display:flex}
+  .nav-links a:not(.nav-cta){display:flex;padding:.72rem .8rem;border-radius:6px;font-size:.78rem}
+  .nav-links a:hover{background:rgba(255,255,255,.055)}
+  .nav-links .nav-cta-desktop{display:none}
+  .nav-links .lang-sw{margin:.35rem 0 0;padding:.55rem .75rem 0;border-top:1px solid rgba(255,255,255,.1);gap:.45rem}
+  .nav-links .lang-btn{min-width:40px;padding:.48rem .6rem}
 }
 
 /* ─── LANG SWITCHER ───────────────────────────── */
@@ -1127,17 +1142,19 @@ footer{padding:3.5rem 1.25rem 1.25rem}
   <a href="index.html" class="nav-logo">
     <img src="images/logo-switchup-full.webp" width="1200" height="317" alt="SWITCH UP">
   </a>
-  <div class="nav-links">
+  <button class="nav-cta nav-cta-mobile" data-i18n="nav_cta" onclick="document.getElementById('contact-modal').classList.add('open')">Parliamone</button>
+  <button class="mobile-menu-toggle" type="button" aria-label="Apri il menu" aria-expanded="false" aria-controls="primary-navigation"><span></span><span></span><span></span></button>
+  <div class="nav-links" id="primary-navigation">
     <a href="#why" data-i18n="nav_problem">Perché Noi</a>
     <a href="#projects" data-i18n="nav_projects">Progetti</a>
     <a href="#process" data-i18n="nav_process">Come Funziona</a>
     <a href="servizi.html" data-i18n="nav_service">Servizi</a>
-    <button class="nav-cta" data-i18n="nav_cta" onclick="document.getElementById('contact-modal').classList.add('open')">Parliamone</button>
-  </div>
-  <div class="lang-sw">
-    <button class="lang-btn active" data-lang="it">IT</button>
-    <button class="lang-btn" data-lang="es">ES</button>
-    <button class="lang-btn" data-lang="en">EN</button>
+    <button class="nav-cta nav-cta-desktop" data-i18n="nav_cta" onclick="document.getElementById('contact-modal').classList.add('open')">Parliamone</button>
+    <div class="lang-sw">
+      <button class="lang-btn active" data-lang="it">IT</button>
+      <button class="lang-btn" data-lang="es">ES</button>
+      <button class="lang-btn" data-lang="en">EN</button>
+    </div>
   </div>
 </nav>
 
@@ -1451,6 +1468,12 @@ setTimeout(()=>{intro.classList.add('out');setTimeout(()=>intro.style.display='n
 /* ── NAV ────────────────────────────────────── */
 const nav=document.getElementById('nav');
 window.addEventListener('scroll',()=>nav.classList.toggle('s',scrollY>80),{passive:true});
+const mobileMenuToggle=document.querySelector('.mobile-menu-toggle');
+const primaryNavigation=document.getElementById('primary-navigation');
+const closeMobileMenu=()=>{if(mobileMenuToggle&&primaryNavigation){mobileMenuToggle.setAttribute('aria-expanded','false');primaryNavigation.classList.remove('open')}};
+mobileMenuToggle?.addEventListener('click',()=>{const open=mobileMenuToggle.getAttribute('aria-expanded')!=='true';mobileMenuToggle.setAttribute('aria-expanded',String(open));primaryNavigation?.classList.toggle('open',open)});
+primaryNavigation?.querySelectorAll('a').forEach(link=>link.addEventListener('click',closeMobileMenu));
+document.addEventListener('click',event=>{if(!nav.contains(event.target))closeMobileMenu()});
 
 /* ── HERO PARALLAX ──────────────────────────── */
 const hpImg=document.getElementById('heroPhotoImg');
