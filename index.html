@@ -1606,12 +1606,12 @@ const EMAILJS_TEMPLATE_ID='YOUR_TEMPLATE_ID';
 function openModal(){modal.classList.add('open');contactForm.reset();formStatus.textContent=''}
 function closeModal(){modal.classList.remove('open');formStatus.textContent=''}
 
-document.querySelector('.nav-cta').addEventListener('click',e=>{e.preventDefault();openModal()});
-document.querySelectorAll('.btn-fire').forEach(btn=>{
-  const text=btn.textContent.toLowerCase();
-  if(text.includes('parliamone')||text.includes('inizia')||text.includes('hablemos')||text.includes('talk')){
-    btn.addEventListener('click',e=>{e.preventDefault();openModal()});
-  }
+// Open modal on nav CTA button
+document.querySelector('.nav-cta')?.addEventListener('click',e=>{e.preventDefault();openModal()});
+
+// Open modal on all .btn-fire with href="#service" (Parliamone, Inizia Ora)
+document.querySelectorAll('.btn-fire[href="#service"]').forEach(btn=>{
+  btn.addEventListener('click',e=>{e.preventDefault();openModal()});
 });
 
 closeBtn.addEventListener('click',closeModal);
