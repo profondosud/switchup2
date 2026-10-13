@@ -413,6 +413,10 @@ footer::before{
 @media(max-width:480px){.contact-modal-content{width:calc(100vw - 1rem);right:.5rem;bottom:.5rem;max-height:min(90svh,760px);border-radius:16px;padding:1.35rem}}
 @media(prefers-reduced-motion:reduce){.contact-modal-content,.contact-modal{transition:none}}
 
+@media(max-width:900px){
+  .service-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .service-grid>.serv-card:nth-child(n){grid-column:auto!important}
+}
 .nav-cta-mobile,.mobile-menu-toggle{display:none}
 @media(max-width:680px){
   nav{display:grid;grid-template-columns:minmax(0,1fr) auto auto;gap:.45rem;padding:.55rem .75rem}
