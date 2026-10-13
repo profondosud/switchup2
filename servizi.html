@@ -138,6 +138,53 @@ nav.s .nav-logo img{height:40px}
 .point h4{font-family:'Barlow Condensed',sans-serif;font-size:1.1rem;font-weight:800;text-transform:uppercase;color:var(--snow);margin-bottom:.8rem;line-height:1.2;transition:color .25s}
 .point:hover h4{color:#C5FF18}
 .point p{font-size:.9rem;color:var(--dim2);line-height:1.6}
+
+.press-feature{
+  display:grid;grid-template-columns:minmax(0,1.12fr) minmax(280px,.88fr);
+  margin-top:clamp(3rem,6vw,5rem);overflow:hidden;
+  border:1px solid rgba(255,255,255,.1);border-radius:1.1rem;
+  background:linear-gradient(130deg,rgba(173,222,0,.07),rgba(13,13,20,.96) 38%,#09090E);
+  box-shadow:0 24px 64px rgba(0,0,0,.3),0 0 36px rgba(173,222,0,.045);
+}
+.press-visual{min-width:0;margin:0;background:#f7f7f7}
+.press-visual>a{display:block;overflow:hidden}
+.press-visual img{
+  display:block;width:100%;height:auto;aspect-ratio:1.14;object-fit:cover;
+  transition:transform .55s cubic-bezier(.2,.75,.25,1);
+}
+.press-visual>a:hover img{transform:scale(1.018)}
+.press-caption{
+  display:flex;justify-content:space-between;gap:1rem;padding:.8rem 1rem;
+  color:#5D5B66;background:#fff;font-size:.7rem;font-weight:600;letter-spacing:.06em;
+  text-transform:uppercase;
+}
+.press-copy{
+  display:flex;flex-direction:column;justify-content:center;align-items:flex-start;
+  padding:clamp(1.6rem,4vw,3.5rem);border-left:1px solid rgba(255,255,255,.09);
+}
+.press-eyebrow{
+  display:inline-flex;align-items:center;gap:.55rem;margin-bottom:1.25rem;
+  color:var(--p);font-size:.65rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
+}
+.press-copy h3{
+  max-width:520px;margin:0 0 1rem;color:var(--snow);
+  font-family:'Barlow Condensed',sans-serif;font-size:clamp(1.8rem,3.2vw,3rem);
+  font-weight:800;line-height:.98;text-transform:uppercase;
+}
+.press-copy p{max-width:470px;margin:0 0 1.65rem;color:var(--dim2);font-size:.92rem;line-height:1.8}
+.press-article-link{
+  display:inline-flex;align-items:center;gap:.65rem;padding:.8rem 0;
+  border-bottom:1px solid rgba(173,222,0,.5);color:var(--snow);
+  font-size:.75rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+  transition:color .2s,border-color .2s,gap .2s;
+}
+.press-article-link i{color:var(--p);font-size:.72rem}
+.press-article-link:hover{gap:.85rem;color:var(--p);border-color:var(--p)}
+@media(max-width:760px){
+  .press-feature{grid-template-columns:1fr}
+  .press-copy{border-left:0;border-top:1px solid rgba(255,255,255,.09)}
+}
+@media(prefers-reduced-motion:reduce){.press-visual img,.press-article-link{transition:none}}
 @media(prefers-reduced-motion:reduce){.service-icon,.service-center::before,.service-icon::after,.point-icon,.point-icon::after{transition:none}}
 @media(max-width:560px){.service-center{margin:3rem 0}.service-icon{width:5.5rem;height:5.5rem;font-size:2.5rem}.point-icon{width:3.75rem;height:3.75rem;font-size:1.45rem}}
 .visual-case-study{margin:4rem 0;padding:clamp(1.25rem,3vw,3rem);background:linear-gradient(135deg,rgba(173,222,0,.055),rgba(173,222,0,.015));border-left:3px solid var(--p);border-radius:0 1rem 1rem 0}
@@ -285,6 +332,20 @@ footer::before{
         <p>Strategia di posizionamento. Diventi personaggio, non solo pilota.</p>
       </div>
     </div>
+    <article class="press-feature" aria-labelledby="press-feature-title">
+      <figure class="press-visual">
+        <a href="https://www.corsedimoto.com/in-pista/bis-di-alessandro-delbianco-campione-civ-superbike-2026" target="_blank" rel="noopener noreferrer" aria-label="Apri l'articolo originale su Corse di Moto">
+          <img src="images/delbianco-civ-article.webp" alt="Articolo di Corse di Moto: Bis di Alessandro Delbianco, Campione CIV Superbike 2026, con la foto del pilota in pista" width="1782" height="1560" loading="lazy" decoding="async">
+        </a>
+        <figcaption class="press-caption"><span>Corse di Moto</span><span>10 ottobre 2026</span></figcaption>
+      </figure>
+      <div class="press-copy">
+        <span class="press-eyebrow"><i class="fas fa-bolt" aria-hidden="true"></i> Rassegna stampa · CIV Superbike</span>
+        <h3 id="press-feature-title">Un risultato in pista diventa una storia da raccontare.</h3>
+        <p>Il bis tricolore di Alessandro Delbianco raccontato da Corse di Moto: una notizia concreta che dà spazio al percorso, al team e ai partner che lo sostengono.</p>
+        <a class="press-article-link" href="https://www.corsedimoto.com/in-pista/bis-di-alessandro-delbianco-campione-civ-superbike-2026" target="_blank" rel="noopener noreferrer">Leggi l’articolo originale <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+      </div>
+    </article>
   </div>
 </section>
 
