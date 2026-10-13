@@ -4,11 +4,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>SWITCH UP | I Tuoi Sforzi Meritano Una Vetrina Vera</title>
+<title>SWITCH UP | I tuoi risultati meritano una vetrina professionale</title>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,300;0,700;0,800;0,900;1,700;1,800;1,900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-<link rel="icon" href="images/logo-switchup.png">
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/index.min.js"></script>
+<link rel="icon" href="images/logo-switchup-mark.webp">
+
 <style>
 
 /* ─── TOKENS ──────────────────────────────────── */
@@ -942,36 +942,99 @@ nav.s .nav-logo img{height:40px}
 .end-hero h2 em{color:transparent;-webkit-text-stroke:var(--p-stroke) var(--p);font-style:italic;display:block}
 .cta-row{display:flex;gap:1rem;flex-wrap:wrap}
 
-/* ─── FOOTER ──────────────────────────────────── */
+/* FOOTER — layout condiviso con la pagina Servizi */
 footer{
-  padding:5rem 2.5rem 3rem;
-  border-top:1px solid var(--line);
-  background:#030306;
+  position:relative;overflow:hidden;
+  padding:clamp(3.5rem,7vw,6rem) 2.5rem 1.5rem;
+  border-top:1px solid rgba(173,222,0,.2);
+  background:radial-gradient(ellipse 42% 70% at 8% 0%,rgba(173,222,0,.09),transparent 72%),linear-gradient(180deg,#09090E 0%,#030306 100%);
+}
+footer::before{
+  content:'';position:absolute;inset:0 0 auto;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(173,222,0,.62) 18%,rgba(173,222,0,.12) 72%,transparent);
+  pointer-events:none;
 }
 .footer-inner{
-  max-width:1200px;margin:0 auto;
-  display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:4rem;margin-bottom:4rem;
+  position:relative;max-width:1200px;margin:0 auto;
+  display:grid;grid-template-columns:minmax(0,1.35fr) minmax(135px,.62fr) minmax(185px,.78fr) minmax(205px,.9fr);
+  gap:clamp(2rem,6vw,6rem);padding-bottom:3.5rem;
 }
 .f-brand{align-self:start}
-.f-brand-logo{display:none}
-.f-tagline{font-family:"Barlow Condensed",sans-serif;font-size:clamp(1.65rem,2.3vw,2.15rem);font-weight:800;line-height:1.02;letter-spacing:.01em;text-transform:uppercase;color:var(--snow);max-width:340px;margin:0 0 1rem}
-.f-tagline span{display:block;color:var(--p)}
-.f-brand p{font-size:.84rem;color:var(--dim);line-height:1.75;max-width:300px;margin:0}
-.f-col h4{font-size:.6rem;letter-spacing:.24em;text-transform:uppercase;color:var(--dim);margin-bottom:1.3rem;font-weight:600}
-.f-col a{display:block;font-size:.83rem;color:var(--dim2);margin-bottom:.65rem;transition:color .2s}
-.f-col a:hover{color:var(--p)}
-.partner-link{width:fit-content;min-width:190px;min-height:58px;padding:.7rem 1rem;border:1px solid var(--line);border-radius:12px;background:linear-gradient(135deg,rgba(255,255,255,.045),rgba(255,255,255,.012));display:flex!important;align-items:center;justify-content:flex-start;margin:0 0 .7rem!important;transition:border-color .2s,transform .2s,background .2s!important}
-.partner-link:hover{border-color:rgba(173,222,0,.55);transform:translateY(-2px);background:rgba(173,222,0,.055)}
-.partner-link img{display:block;max-width:150px;width:auto;height:auto;max-height:32px;object-fit:contain;object-position:left center}
-.partner-link img[alt="Adattivia"]{max-width:152px;max-height:30px}
-.partner-text-link{margin-top:.4rem!important}
-.footer-bottom{
-  max-width:1200px;margin:0 auto;
-  padding-top:2rem;border-top:1px solid var(--line);
-  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;
+.f-brand::before{
+  content:'SWITCH UP  /  DIGITAL PRESENCE';display:block;
+  margin-bottom:1.25rem;color:var(--p);
+  font-size:.62rem;font-weight:700;letter-spacing:.22em;
 }
-.f-copy{font-size:.73rem;color:var(--dim)}
-@media(max-width:768px){.footer-inner{grid-template-columns:1fr;gap:2.5rem;margin-bottom:3rem}.f-tagline{max-width:430px}.footer-bottom{flex-direction:column;text-align:center}}
+.f-tagline{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:clamp(2rem,3.2vw,3rem);font-weight:800;line-height:.98;
+  letter-spacing:.005em;text-transform:uppercase;color:var(--snow);
+  max-width:390px;margin:0 0 1.25rem;
+}
+.f-tagline span{display:block;color:var(--p)}
+.footer-privacy-link{display:table;margin:-.65rem 0 1rem;color:var(--dim2);font-size:.78rem;transition:color .2s}
+.footer-privacy-link:hover{color:var(--p)}
+.f-brand p:not(.f-tagline){font-size:.9rem;color:var(--dim2);line-height:1.8;max-width:360px;margin:0}
+.f-col{padding-top:.3rem}
+.f-col h4{
+  display:flex;align-items:center;gap:.65rem;
+  font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--snow);margin-bottom:1.35rem;font-weight:700;
+}
+.f-col h4::before{content:'';width:1.1rem;height:1px;background:var(--p)}
+.f-col>a:not(.partner-link){
+  display:table;width:fit-content;font-size:.88rem;color:var(--dim2);
+  margin-bottom:.8rem;transition:color .2s,transform .2s;
+}
+.f-col>a:not(.partner-link):hover{color:var(--p);transform:translateX(4px)}
+.partner-link{
+  width:min(100%,250px);min-height:72px;padding:1rem 1.2rem;
+  border:1px solid rgba(255,255,255,.1);border-radius:14px;
+  background:linear-gradient(135deg,rgba(255,255,255,.065),rgba(255,255,255,.018));
+  display:flex!important;align-items:center;justify-content:flex-start;
+  margin:0 0 .9rem!important;
+  transition:border-color .25s,transform .25s,background .25s,box-shadow .25s!important;
+}
+.partner-link:hover{
+  border-color:rgba(173,222,0,.55);transform:translateY(-3px);
+  background:linear-gradient(135deg,rgba(173,222,0,.1),rgba(255,255,255,.02));
+  box-shadow:0 12px 32px rgba(0,0,0,.24),0 0 28px rgba(173,222,0,.08);
+}
+.partner-link img{
+  display:block;max-width:185px;width:auto;height:auto;max-height:40px;
+  object-fit:contain;object-position:left center;
+}
+.partner-link img[alt="Adattivia"]{max-width:185px;max-height:38px}
+.partner-text-link{margin-top:.5rem!important}
+.footer-contact-list{display:grid;gap:.72rem}
+.footer-contact-list a{
+  display:flex!important;align-items:flex-start;gap:.65rem;width:auto!important;
+  margin:0!important;color:var(--dim2);font-size:.84rem;line-height:1.55;
+  overflow-wrap:anywhere;transition:color .2s,transform .2s;
+}
+.footer-contact-list a:hover{color:var(--p)!important;transform:translateX(3px)}
+.footer-contact-list i{width:1rem;flex:0 0 1rem;margin-top:.18rem;text-align:center;color:var(--p);font-size:.82rem}
+
+.footer-bottom{
+  position:relative;max-width:1200px;margin:0 auto;
+  padding:1.35rem 0 .25rem;border-top:1px solid rgba(255,255,255,.09);
+  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.75rem 1.5rem;
+}
+.f-copy{font-size:.74rem;color:var(--dim);line-height:1.6}
+.f-copy a{transition:color .2s}
+.f-copy a:hover{color:#fff!important}
+@media(max-width:900px){
+.footer-inner{grid-template-columns:minmax(0,1.3fr) minmax(145px,.7fr);gap:2.75rem 3rem;padding-bottom:2.75rem}
+  .f-brand{grid-column:1/-1}
+}
+@media(max-width:560px){
+footer{padding:3.5rem 1.25rem 1.25rem}
+  .footer-inner{grid-template-columns:1fr;gap:2rem;padding-bottom:2.25rem}
+  .f-brand{grid-column:auto}
+  .f-tagline{font-size:2.25rem}
+  .footer-bottom{flex-direction:column;align-items:flex-start;text-align:left}
+}
+
 
 /* ─── SCROLL REVEAL ───────────────────────────── */
 .r{opacity:0;transform:translateY(40px);transition:opacity .9s cubic-bezier(.16,1,.3,1),transform .9s cubic-bezier(.16,1,.3,1)}
@@ -1009,6 +1072,37 @@ footer{
 .form-status.success{color:#4ade80}
 .form-status.error{color:#f87171}
 @media(max-width:480px){.contact-modal-content{width:100%;max-width:100%;border-radius:16px 16px 0 0;padding:1.5rem}}
+
+/* Contact panel refinement */
+.contact-modal{background:rgba(4,5,10,0);backdrop-filter:blur(0);-webkit-backdrop-filter:blur(0)}
+.contact-modal.open{background:rgba(4,5,10,.68);backdrop-filter:blur(5px);-webkit-backdrop-filter:blur(5px)}
+.contact-modal-content{
+  width:min(440px,calc(100vw - 2rem));right:clamp(1rem,3vw,2rem);bottom:clamp(1rem,3vw,2rem);
+  max-height:min(88svh,800px);padding:clamp(1.4rem,4vw,2.1rem);
+  border:1px solid rgba(173,222,0,.24);border-radius:18px;
+  background:radial-gradient(ellipse 90% 35% at 0 0,rgba(173,222,0,.09),transparent 72%),linear-gradient(155deg,#11121a 0%,#08090e 78%);
+  box-shadow:0 28px 90px rgba(0,0,0,.65),0 0 38px rgba(173,222,0,.08),inset 0 1px rgba(255,255,255,.06);
+}
+.contact-modal-content::before{content:'';position:absolute;left:1.3rem;right:1.3rem;top:0;height:1px;background:linear-gradient(90deg,transparent,rgba(173,222,0,.8),rgba(104,125,255,.35),transparent)}
+.contact-modal-header{padding-right:2.2rem;margin-bottom:1.3rem}
+.contact-eyebrow{display:inline-block;margin-bottom:.55rem;color:var(--p);font-size:.62rem;font-weight:800;letter-spacing:.2em}
+.contact-modal-title{font-family:'Barlow Condensed',sans-serif;font-size:clamp(1.8rem,6vw,2.2rem);font-weight:900;line-height:1;text-transform:uppercase;color:var(--snow)}
+.contact-modal-desc{margin-top:.55rem;color:var(--dim2);font-size:.84rem;line-height:1.55}
+.contact-close{top:.9rem;right:.9rem;border:1px solid rgba(255,255,255,.09);border-radius:9px;background:rgba(255,255,255,.04);font-size:1.4rem;width:36px;height:36px}
+.contact-form{gap:.8rem;margin-top:0}
+.form-group input,.form-group textarea{border:1px solid rgba(255,255,255,.11);border-radius:9px;background:rgba(255,255,255,.045);padding:.82rem .95rem;font-size:.88rem}
+.form-group input:hover,.form-group textarea:hover{border-color:rgba(173,222,0,.25)}
+.form-group textarea{min-height:112px;resize:vertical}
+.form-group.checkbox{align-items:flex-start}
+.form-group.checkbox input{accent-color:var(--p);margin-top:.12rem;flex:0 0 18px}
+.form-group.checkbox label{font-size:.78rem;line-height:1.5}
+.form-group.checkbox label a{color:var(--p)}
+.btn-send{min-height:48px;border-radius:9px;background:linear-gradient(110deg,#aede00,#c8f527);box-shadow:0 8px 24px rgba(173,222,0,.18)}
+.btn-send:hover{box-shadow:0 10px 30px rgba(173,222,0,.32)}
+.contact-form-note{font-size:.7rem;color:var(--dim);line-height:1.45;text-align:center;margin-top:-.4rem}
+@media(max-width:480px){.contact-modal-content{width:calc(100vw - 1rem);right:.5rem;bottom:.5rem;max-height:min(90svh,760px);border-radius:16px;padding:1.35rem}}
+@media(prefers-reduced-motion:reduce){.contact-modal-content,.contact-modal{transition:none}}
+
 </style>
 </head>
 <body>
@@ -1019,7 +1113,7 @@ footer{
 <div id="intro" aria-hidden="true">
   <div class="intro-scan"></div>
   <div class="intro-logo-wrap">
-    <img src="images/logo-switchup.png" alt="">
+    <img src="images/logo-switchup-mark.webp" width="900" height="675" alt="">
   </div>
   <div class="intro-divider"></div>
   <div class="intro-payoff">
@@ -1031,7 +1125,7 @@ footer{
 <!-- ─── NAV ───────────────────────────────────── -->
 <nav id="nav">
   <a href="index.html" class="nav-logo">
-    <img src="images/logo-switchup-full.png" alt="SWITCH UP">
+    <img src="images/logo-switchup-full.webp" width="1200" height="317" alt="SWITCH UP">
   </a>
   <div class="nav-links">
     <a href="#why" data-i18n="nav_problem">Perché Noi</a>
@@ -1053,7 +1147,7 @@ footer{
   <div class="closing-ov"></div>
   <div class="closing-glow"></div>
   <div class="closing-content">
-    <div class="hero-badge" data-i18n="badge">I Tuoi Sforzi Meritano Una Vetrina Vera</div>
+    <div class="hero-badge" data-i18n="badge">I tuoi risultati meritano una vetrina professionale</div>
     <h1 class="hero-h1">
       <span class="line" data-i18n="h1_1">Noi creiamo</span>
       <span class="line" data-i18n="h1_2">la tua <em>vetrina</em>,</span>
@@ -1074,7 +1168,7 @@ footer{
 <!-- ─── CHI SIAMO ─────────────────────────────── -->
 <section class="pilots-strip" id="about">
   <div class="pilots-img">
-    <img src="images/chi-siamo.png" alt="Andrea Bettin e Marco Paonessa, fondatori di Switch Up" loading="lazy">
+    <img src="images/chi-siamo.webp" width="1024" height="1536" alt="Andrea Bettin e Marco Paonessa, piloti e fondatori di Switch Up" loading="lazy">
   </div>
   <div class="pilots-text">
     <div class="s-tag r" data-i18n="stmt_tag">Chi siamo</div>
@@ -1082,11 +1176,11 @@ footer{
       <span data-i18n="stmt_h1">Viviamo lo sport.</span>
       <em data-i18n="stmt_h2">Lo conosciamo da dentro.</em>
     </h2>
-    <p class="r d1" data-i18n="pilots_p1">Siamo Andrea Bettin e Marco Paonessa, piloti. Conosciamo la vita in pista e sappiamo quanto sia impegnativo trovare sponsor e raccontare il proprio percorso. Con Switch Up aiutiamo gli atleti a presentarsi in modo curato e a dare spazio al lavoro che c’è dietro ogni risultato.</p>
+    <p class="r d1" data-i18n="pilots_p1">Siamo Andrea Bettin e Marco Paonessa, piloti di campionati internazionali. Conosciamo la vita in pista e le sfide che comporta raccontare il proprio percorso e cercare sponsor. Con Switch Up aiutiamo gli atleti a presentarsi con chiarezza e a valorizzare il lavoro che porta a ogni risultato.</p>
     <div class="mini-pillars">
-      <div class="mp r"><div class="pn">01</div><div><h3 data-i18n="pl1_h">Conosciamo il paddock</h3><p data-i18n="pl1_p">Siamo piloti di campionati internazionali: sappiamo quanto impegno richiede una stagione e quanto conta il supporto giusto per continuare a correre.</p></div></div>
-      <div class="mp r d1"><div class="pn">02</div><div><h3 data-i18n="pl2_h">Abbiamo iniziato da noi</h3><p data-i18n="pl2_p">Con ab39.it abbiamo messo in pratica le stesse idee: raccontare un percorso, mettere in evidenza i risultati e presentarsi bene agli sponsor.</p></div></div>
-      <div class="mp r d2"><div class="pn">03</div><div><h3 data-i18n="pl3_h">Lavoriamo insieme, passo dopo passo</h3><p data-i18n="pl3_p">Partiamo dai tuoi obiettivi, prepariamo i contenuti e curiamo il sito fino alla pubblicazione. Ogni progetto prende forma intorno all’atleta e al suo sport.</p></div></div>
+      <div class="mp r"><div class="pn">01</div><div><h3 data-i18n="pl1_h">Conosciamo il paddock</h3><p data-i18n="pl1_p">L’esperienza nelle competizioni internazionali ci ha insegnato quanto lavoro richieda una stagione e quanto sia importante costruire relazioni solide con i partner.</p></div></div>
+      <div class="mp r d1"><div class="pn">02</div><div><h3 data-i18n="pl2_h">Abbiamo iniziato da noi</h3><p data-i18n="pl2_p">Con ab39.it abbiamo applicato lo stesso metodo: raccontare un percorso sportivo, mettere in evidenza i risultati e presentare il progetto ai partner.</p></div></div>
+      <div class="mp r d2"><div class="pn">03</div><div><h3 data-i18n="pl3_h">Lavoriamo insieme, passo dopo passo</h3><p data-i18n="pl3_p">Partiamo dai tuoi obiettivi, definiamo i contenuti e seguiamo il sito fino alla pubblicazione. Ogni progetto è costruito intorno all’atleta e alla sua disciplina.</p></div></div>
     </div>
   </div>
 </section>
@@ -1108,7 +1202,7 @@ footer{
           <span class="step-icon" aria-hidden="true"><i class="fas fa-comments"></i></span>
         </div>
         <h3 data-i18n="service_01_h">Ci conosciamo</h3>
-        <p data-i18n="service_01_p">Partiamo da una call di 30 minuti. Ci racconti il tuo percorso, i tuoi obiettivi e gli sponsor che vorresti raggiungere. Poi definiamo insieme le priorità.</p>
+        <p data-i18n="service_01_p">Partiamo da una call di 30 minuti. Ci racconti il tuo percorso, i tuoi obiettivi e gli sponsor che vorresti raggiungere. Poi individuiamo insieme le priorità.</p>
       </article>
       <article class="step">
         <div class="step-top">
@@ -1149,7 +1243,7 @@ footer{
       <div class="value r"><span class="v-n">01</span><i class="fas fa-shield-halved"></i><h3 data-i18n="v1_h">Credibilità</h3><p data-i18n="v1_p">Un sito professionale dimostra che sei un partner serio e affidabile, pronto a rappresentare un brand.</p></div>
       <div class="value r d1"><span class="v-n">02</span><i class="fas fa-star"></i><h3 data-i18n="v2_h">Immagine</h3><p data-i18n="v2_p">Il logo dello sponsor accanto al tuo nome. Una vetrina curata fa brillare entrambi.</p></div>
       <div class="value r d2"><span class="v-n">03</span><i class="fas fa-eye"></i><h3 data-i18n="v3_h">Visibilità</h3><p data-i18n="v3_p">Google, social e media kit in un unico sistema. Lo sponsor vede dove e quanto il suo marchio viene visto.</p></div>
-      <div class="value r d3"><span class="v-n">04</span><i class="fas fa-chart-line"></i><h3 data-i18n="v4_h">Ritorno</h3><p data-i18n="v4_p">Numeri chiari e contenuti misurabili. Lo sponsor capisce cosa ottiene, e rinnova.</p></div>
+      <div class="value r d3"><span class="v-n">04</span><i class="fas fa-chart-line"></i><h3 data-i18n="v4_h">Ritorno</h3><p data-i18n="v4_p">Numeri chiari e contenuti misurabili. Lo sponsor può valutare con chiarezza i risultati della partnership.</p></div>
     </div>
     <p class="why-close r" data-i18n="why_close">Una vetrina sportiva professionale <span>gli dà tutto questo.</span></p>
   </div>
@@ -1168,9 +1262,9 @@ footer{
     <div class="projects-top">
       <div>
         <div class="s-tag r" data-i18n="proj_tag">Portfolio</div>
-        <h2 class="r" data-i18n="proj_h">Team Vincenti</h2>
+        <h2 class="r" data-i18n="proj_h">Progetti realizzati</h2>
       </div>
-      <p class="r d1 quote" data-i18n="proj_sub">"Piloti, atleti, scuole e professionisti dello sport che hanno scelto di essere trovati dagli sponsor giusti."</p>
+      <p class="r d1 quote" data-i18n="proj_sub">"Progetti digitali per atleti, team, scuole e professionisti dello sport."</p>
     </div>
 
     <a class="proj-row r" href="https://ab39.it" target="_blank" rel="noopener">
@@ -1181,7 +1275,7 @@ footer{
         <p class="proj-desc">Pilota CIV. Sito costruito per attrarre sponsor nazionali con media kit integrato e risultati live.</p>
       </div>
       <div class="proj-thumb">
-        <img src="images/ab39-screenshot.png" alt="Andrea Bettin" loading="lazy">
+        <img src="images/ab39-screenshot.webp" width="1400" height="680" alt="Andrea Bettin" loading="lazy">
         <div class="proj-thumb-link"><span>Visita <i class="fas fa-arrow-right"></i></span></div>
       </div>
     </a>
@@ -1191,10 +1285,10 @@ footer{
       <div class="proj-info">
         <div class="proj-cat">Pilota · Moto2</div>
         <div class="proj-name">Rubén Romero<br>Nº 71</div>
-        <p class="proj-desc">Moto2 europeo. Sito per presentare il progetto ai sponsor: calendario, carriera, media kit e contatti.</p>
+        <p class="proj-desc">Moto2 europeo. Sito per presentare il progetto agli sponsor, con calendario, carriera, media kit e contatti.</p>
       </div>
       <div class="proj-thumb">
-        <img src="images/rubenromero-screenshot.png" alt="Rubén Romero #71" loading="lazy">
+        <img src="images/rubenromero-screenshot.webp" width="1400" height="706" alt="Rubén Romero #71" loading="lazy">
         <div class="proj-thumb-link"><span>Visita <i class="fas fa-arrow-right"></i></span></div>
       </div>
     </a>
@@ -1217,17 +1311,17 @@ footer{
       <div class="proj-info">
         <div class="proj-cat">Fotografo Motorsport</div>
         <div class="proj-name">Paolo Marletto</div>
-        <p class="proj-desc">Fotografo motorsport. Portfolio con gallerie dinamiche, SEO ottimizzato per commissioni editoriali.</p>
+        <p class="proj-desc">Fotografo motorsport. Portfolio con gallerie dinamiche, ottimizzato per la ricerca e per le richieste editoriali.</p>
       </div>
       <div class="proj-thumb">
-        <img src="images/paolomarletto-screenshot.png" alt="Paolo Marletto" loading="lazy">
+        <img src="images/paolomarletto-screenshot.webp" width="1400" height="648" alt="Paolo Marletto" loading="lazy">
         <div class="proj-thumb-link"><span>Visita <i class="fas fa-arrow-right"></i></span></div>
       </div>
     </a>
 
     <div class="proj-row add r d4">
       <div class="add-text">La Tua Vetrina Potrebbe Essere La Prossima →</div>
-      <a href="#service" class="btn-fire" onclick="document.getElementById('contact-modal').classList.add('open');return false"><i class="fas fa-bolt"></i> Inizia Ora</a>
+      <a href="#" class="btn-fire" data-open-contact><i class="fas fa-bolt"></i> Inizia Ora</a>
     </div>
   </div>
 </section>
@@ -1236,7 +1330,7 @@ footer{
 <div class="logo-section">
   <div class="logo-bg-text" aria-hidden="true">I TUOI SFORZI MERITANO UNA VETRINA VERA</div>
   <div class="logo-section-card r">
-    <img src="images/logo-switchup.png" alt="SWITCH UP" loading="lazy">
+    <img src="images/logo-switchup-mark.webp" width="900" height="675" alt="SWITCH UP" loading="lazy">
   </div>
   <div class="logo-payoff r d1">Sport · Visibility · <span>Growth</span></div>
 </div>
@@ -1244,11 +1338,11 @@ footer{
 <!-- ─── BUSINESS CARD ──────────────────────────── -->
 <div class="card-section">
   <div class="card-img">
-    <img src="images/switchup-business-card.png" alt="Switch Up Business Card" class="r" loading="lazy">
+    <img src="images/switchup-business-card.webp" width="1000" height="750" alt="Switch Up Business Card" class="r" loading="lazy">
   </div>
   <div class="card-text">
     <h2 class="r">La Tua<br><span>Identità</span></h2>
-    <p class="r d1">Un biglietto da visita che porta al tuo sito. Un sito che porta agli sponsor. Una strategia che porta ai contratti.</p>
+    <p class="r d1">Una presenza online chiara aiuta sponsor e partner a conoscere il tuo percorso, i tuoi risultati e le opportunità di collaborazione.</p>
     <p class="r d2"><strong>SWITCH UP non è solo un sito web.</strong> È il tuo strumento di acquisizione sponsor, costruito con la mentalità di chi ha corso e sa cosa cercano davvero i brand.</p>
 
   </div>
@@ -1257,7 +1351,7 @@ footer{
 <!-- ─── CLOSING (testo e foto) ───────────────── -->
 <section class="hero end-hero">
   <div class="hero-content">
-    <span class="closing-tag r" data-i18n="closing_tag">Il Tuo Avversario È Già Online.</span>
+    <span class="closing-tag r" data-i18n="closing_tag">Dai forma al tuo prossimo passo.</span>
     <h2 class="r">
       <span data-i18n="closing_h1">I Tuoi Sforzi</span><br>
       <span data-i18n="closing_h2">Meritano</span>
@@ -1275,7 +1369,11 @@ footer{
 <div id="contact-modal" class="contact-modal">
   <div class="contact-modal-content">
     <button class="contact-close" aria-label="Chiudi">&times;</button>
-    <h3 style="font-family:'Barlow Condensed',sans-serif;font-size:1.4rem;font-weight:800;text-transform:uppercase;margin-bottom:1rem;color:var(--snow)">Parliamone</h3>
+    <div class="contact-modal-header">
+      <span class="contact-eyebrow">SWITCH UP · CONTATTI</span>
+      <h3 class="contact-modal-title">Parliamone</h3>
+      <p class="contact-modal-desc">Raccontaci il tuo progetto. Ti ricontatteremo per capire insieme da dove partire.</p>
+    </div>
     <form id="contact-form" class="contact-form">
       <div class="form-group">
         <input type="text" id="name" name="name" placeholder="Nome" required>
@@ -1284,16 +1382,20 @@ footer{
         <input type="email" id="email" name="email" placeholder="Email" required>
       </div>
       <div class="form-group">
-        <input type="text" id="sport" name="sport" placeholder="Sport / Disciplina">
+        <input type="tel" id="phone" name="phone" placeholder="Telefono (facoltativo)" autocomplete="tel">
+      </div>
+      <div class="form-group">
+        <input type="text" id="sport" name="sport" placeholder="Sport / disciplina">
       </div>
       <div class="form-group">
         <textarea id="message" name="message" placeholder="Messaggio" rows="4"></textarea>
       </div>
       <div class="form-group checkbox">
         <input type="checkbox" id="privacy" name="privacy" required>
-        <label for="privacy">Ho letto e accetto la <a href="#" style="color:var(--p);text-decoration:underline">privacy policy</a></label>
+        <label for="privacy">Ho letto e accetto la <a href="#" style="color:var(--p);text-decoration:underline">informativa sulla privacy</a></label>
       </div>
-      <button type="submit" class="btn-send"><i class="fas fa-paper-plane"></i> Invia</button>
+      <button type="submit" class="btn-send"><i class="fas fa-paper-plane" aria-hidden="true"></i> Apri la mail pronta</button>
+      <p class="contact-form-note">Si aprirà il tuo programma email per completare l’invio.</p>
       <div id="form-status" class="form-status"></div>
     </form>
   </div>
@@ -1304,27 +1406,34 @@ footer{
   <div class="footer-inner">
     <div class="f-brand">
       <p class="f-tagline">La tua storia merita <span>il palcoscenico giusto.</span></p>
+      <a class="footer-privacy-link" href="#">Privacy Policy</a>
       <p>Una vetrina digitale pensata per trasformare il tuo talento in opportunità concrete con gli sponsor.</p>
     </div>
     <div class="f-col">
       <h4>Navigazione</h4>
-      <a href="#why">Perché Noi</a>
+      <a href="#why">Perché funziona</a>
       <a href="#projects">Progetti</a>
-      <a href="#process" data-i18n="nav_process">Cosa Offriamo</a>
-      <a href="#service">Servizi</a>
+      <a href="servizi.html">Servizi</a>
     </div>
     <div class="f-col">
       <h4>Partner</h4>
       <a class="partner-link" href="https://www.adattivia.it" target="_blank" rel="noopener noreferrer" aria-label="Visita il sito Adattivia">
         <img src="images/adattivia.png" alt="Adattivia" loading="lazy">
       </a>
-            <a class="partner-text-link" href="https://ab39.it" target="_blank" rel="noopener noreferrer">Andrea Bettin · 39</a>
-      <a href="#">Privacy Policy</a>
+    </div>
+    <div class="f-col">
+      <h4>Contatti</h4>
+      <div class="footer-contact-list">
+        <a href="tel:+393802192386"><i class="fas fa-phone" aria-hidden="true"></i><span>+39 380 219 2386</span></a>
+        <a href="tel:+34625273257"><i class="fas fa-phone" aria-hidden="true"></i><span>+34 625 273 257</span></a>
+        <a href="tel:+393519508771"><i class="fas fa-phone" aria-hidden="true"></i><span>+39 351 950 8771</span></a>
+        <a href="mailto:switchup.gass@gmail.com"><i class="fas fa-envelope" aria-hidden="true"></i><span>switchup.gass@gmail.com</span></a>
+      </div>
     </div>
   </div>
   <div class="footer-bottom">
     <span class="f-copy">© 2026 SWITCH UP. Your sport. Your brand. Your next level.</span>
-    <span class="f-copy">Powered by <a href="https://www.adattivia.it" target="_blank" rel="noopener" style="color:var(--p)">Adattivia</a></span>
+    <span class="f-copy">Powered by <a href="https://www.adattivia.it" target="_blank" rel="noopener noreferrer" style="color:var(--p)">Adattivia</a></span>
   </div>
 </footer>
 
@@ -1391,19 +1500,19 @@ const T={
     nav_problem:'Perché Noi',nav_projects:'Progetti',nav_process:'Cosa Offriamo',
     nav_service:'Servizi',nav_cta:'Parliamone',
     pilots_h:'Da chi<br>ha gareggiato.<br>',pilots_em:'Per chi compete.',
-    pilots_p1:'Siamo Andrea Bettin e Marco Paonessa, piloti. Conosciamo la vita in pista e sappiamo quanto sia impegnativo trovare sponsor e raccontare il proprio percorso. Con Switch Up aiutiamo gli atleti a presentarsi in modo curato e a dare spazio al lavoro che c’è dietro ogni risultato.',
+    pilots_p1:'Siamo Andrea Bettin e Marco Paonessa, piloti di campionati internazionali. Conosciamo la vita in pista e le sfide che comporta raccontare il proprio percorso e cercare sponsor. Con Switch Up aiutiamo gli atleti a presentarsi con chiarezza e a valorizzare il lavoro che porta a ogni risultato.',
     pilots_p2:'Per questo <strong>SWITCH UP funziona</strong>: non è teoria. Facciamo siti per team di qualsiasi sport (moto, auto, calcio, ciclismo, arti marziali) con la mentalità di chi ha vissuto la competizione dall\'interno.',
-    proj_tag:'Portfolio',proj_h:'Team Vincenti',
-    proj_sub:'"Piloti, atleti, scuole e professionisti dello sport che hanno scelto di essere trovati dagli sponsor giusti."',
+    proj_tag:'Portfolio',proj_h:'Progetti realizzati',
+    proj_sub:'"Progetti digitali per atleti, team, scuole e professionisti dello sport."',
     serv_tag:'Il Servizio',serv_h:'Tutto quello<br>che ti serve.',
-    serv_lead:'I Tuoi Sforzi Meritano Una Vetrina Vera. Non parole: un sistema completo che trasforma la tua presenza online in uno strumento di acquisizione sponsorship per qualsiasi sport.',
-    closing_tag:'Il Tuo Avversario È Già Online.',
+    serv_lead:'I tuoi risultati meritano una vetrina professionale. Non parole: un sistema completo che trasforma la tua presenza online in uno strumento di acquisizione sponsorship per qualsiasi sport.',
+    closing_tag:'Dai forma al tuo prossimo passo.',
     closing_h1:'I Tuoi Sforzi',closing_h2:'Meritano',closing_h3:'Una Vetrina Vera',
     btn_demo:'Parliamone',btn_proj:'Vedi i Progetti',
-    badge:'I Tuoi Sforzi Meritano Una Vetrina Vera',
+    badge:'I tuoi risultati meritano una vetrina professionale',
     process_tag:'Come lavoriamo',process_h:'Dal primo confronto al sito online',
     process_intro:'Tre passaggi chiari, costruiti intorno al tuo progetto.',
-    service_01_h:'Ci conosciamo',service_01_p:'Partiamo da una call di 30 minuti. Ci racconti il tuo percorso, i tuoi obiettivi e gli sponsor che vorresti raggiungere. Poi definiamo insieme le priorità.',
+    service_01_h:'Ci conosciamo',service_01_p:'Partiamo da una call di 30 minuti. Ci racconti il tuo percorso, i tuoi obiettivi e gli sponsor che vorresti raggiungere. Poi individuiamo insieme le priorità.',
     service_02_h:'Progettiamo la tua vetrina',service_02_p:'Costruiamo la struttura del sito e scegliamo contenuti e stile insieme a te. Prima di iniziare, avrai chiaro cosa realizzeremo e come.',
     service_03_h:'La pubblichiamo insieme',service_03_p:'Quando tutto è pronto, mettiamo il sito online e ti mostriamo come aggiornarlo. Ti affianchiamo nel primo mese; poi potrai gestirlo in autonomia.',
     h1_1:'Noi creiamo',
@@ -1429,7 +1538,7 @@ const T={
     v3_h:'Visibilità',
     v3_p:'Google, social e media kit in un unico sistema. Lo sponsor vede dove e quanto il suo marchio viene visto.',
     v4_h:'Ritorno',
-    v4_p:'Numeri chiari e contenuti misurabili. Lo sponsor capisce cosa ottiene, e rinnova.',
+    v4_p:'Numeri chiari e contenuti misurabili. Lo sponsor può valutare con chiarezza i risultati della partnership.',
     why_close:'Una vetrina sportiva professionale <span>gli dà tutto questo.</span>',
     social_tag:'Social Media Management',social_h:'Fai crescere la tua presenza online',
     social_lead:'Il sito da solo non basta. Gli sponsor ti cercano sui social. Integriamo la tua vetrina web con una strategia social coordinata: coerenza, visibilità, engagement costante.',
@@ -1441,11 +1550,11 @@ const T={
     stmt_h1:'Viviamo lo sport.',
     stmt_h2:'Lo conosciamo da dentro.',
     pl1_h:'Conosciamo il paddock',
-    pl1_p:'Siamo piloti di campionati internazionali: sappiamo quanto impegno richiede una stagione e quanto conta il supporto giusto per continuare a correre.',
+    pl1_p:'L’esperienza nelle competizioni internazionali ci ha insegnato quanto lavoro richieda una stagione e quanto sia importante costruire relazioni solide con i partner.',
     pl2_h:'Abbiamo iniziato da noi',
-    pl2_p:'Con ab39.it abbiamo messo in pratica le stesse idee: raccontare un percorso, mettere in evidenza i risultati e presentarsi bene agli sponsor.',
+    pl2_p:'Con ab39.it abbiamo applicato lo stesso metodo: raccontare un percorso sportivo, mettere in evidenza i risultati e presentare il progetto ai partner.',
     pl3_h:'Lavoriamo insieme, passo dopo passo',
-    pl3_p:'Partiamo dai tuoi obiettivi, prepariamo i contenuti e curiamo il sito fino alla pubblicazione. Ogni progetto prende forma intorno all’atleta e al suo sport.',
+    pl3_p:'Partiamo dai tuoi obiettivi, definiamo i contenuti e seguiamo il sito fino alla pubblicazione. Ogni progetto è costruito intorno all’atleta e alla sua disciplina.',
     intro_payoff:'I Tuoi Sforzi Meritano',intro_payoff2:'Una Vetrina Vera',
   },
   es:{
@@ -1595,49 +1704,37 @@ const contactForm=document.getElementById('contact-form');
 const formStatus=document.getElementById('form-status');
 const closeBtn=document.querySelector('.contact-close');
 
-// EmailJS initialization
-if(typeof emailjs!=='undefined'){emailjs.init('YOUR_PUBLIC_KEY')}
-
-const EMAILJS_SERVICE_ID='YOUR_SERVICE_ID';
-const EMAILJS_TEMPLATE_ID='YOUR_TEMPLATE_ID';
-
 function openModal(){if(modal&&contactForm&&formStatus){modal.classList.add('open');contactForm.reset();formStatus.textContent=''}}
 function closeModal(){if(modal&&formStatus){modal.classList.remove('open');formStatus.textContent=''}}
 
-// Aggiungi onclick direttamente ai bottoni
-window.addEventListener('DOMContentLoaded',()=>{
-  // Nav CTA
-  const navCta=document.querySelector('.nav-cta');
-  if(navCta)navCta.onclick=e=>{e.preventDefault();openModal();return false};
-
-  // Tutti i .btn-fire[href="#service"]
-  document.querySelectorAll('.btn-fire[href="#service"]').forEach(btn=>{
-    btn.onclick=e=>{e.preventDefault();openModal();return false};
-  });
+document.querySelectorAll('[data-open-contact]').forEach(button=>{
+  button.addEventListener('click',event=>{event.preventDefault();openModal()});
 });
-
 if(closeBtn)closeBtn.onclick=closeModal;
 if(modal)modal.onclick=e=>{if(e.target===modal)closeModal()};
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal()});
 
-contactForm.addEventListener('submit',async e=>{
+contactForm.addEventListener('submit',e=>{
   e.preventDefault();
-  const name=document.getElementById('name').value;
-  const email=document.getElementById('email').value;
-  const sport=document.getElementById('sport').value;
-  const message=document.getElementById('message').value;
-  const privacy=document.getElementById('privacy').checked;
-
-  if(!privacy){formStatus.textContent='Accetta la privacy policy';formStatus.classList.add('error');return}
-
-  formStatus.textContent='Invio in corso...';
+  const formData=new FormData(contactForm);
+  const name=String(formData.get('name')||'').trim();
+  const email=String(formData.get('email')||'').trim();
+  const phone=String(formData.get('phone')||'').trim();
+  const sport=String(formData.get('sport')||'').trim();
+  const message=String(formData.get('message')||'').trim();
+  if(!document.getElementById('privacy').checked){
+    formStatus.textContent='Per continuare, accetta l’informativa sulla privacy.';
+    formStatus.classList.add('error');return;
+  }
+  const subject=encodeURIComponent('Richiesta informazioni — SWITCH UP');
+  const body=encodeURIComponent(
+    'Nome: '+name+'\\nEmail: '+email+'\\nTelefono: '+(phone||'Non indicato')+
+    '\\nSport / disciplina: '+(sport||'Non indicato')+'\\n\\nMessaggio:\\n'+(message||'')
+  );
   formStatus.classList.remove('success','error');
-
-  try{
-    const response=await emailjs.send(EMAILJS_SERVICE_ID,EMAILJS_TEMPLATE_ID,{name:name,email:email,sport:sport,message:message,reply_to:email});
-    if(response.status===200){formStatus.textContent='✓ Messaggio inviato! Ti contatteremo presto.';formStatus.classList.add('success');contactForm.reset();setTimeout(closeModal,2500)}
-  }catch(err){console.error('EmailJS error:',err);formStatus.textContent='✗ Errore nell\'invio. Riprova.';formStatus.classList.add('error')}
-});
-</script>
+  formStatus.textContent='Si aprirà il tuo programma email con il messaggio già compilato.';
+  window.location.href='mailto:switchup.gass@gmail.com?subject='+subject+'&body='+body;
+});</script>
 </body>
 </html>
 

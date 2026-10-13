@@ -6,7 +6,7 @@
 <title>Servizi | SWITCH UP</title>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,300;0,700;0,800;0,900;1,700;1,800;1,900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-<link rel="icon" href="images/logo-switchup.png">
+<link rel="icon" href="images/logo-switchup-mark.webp">
 <style>
 :root{
   --p:#ADDE00;--p-lo:rgba(173,222,0,.08);--p-stroke:.022em;
@@ -357,6 +357,62 @@ footer::before{
   nav{padding:0 1.2rem}
   .nav-links a:not(.nav-cta){display:none}
 }
+
+/* MODULO CONTATTI */
+.contact-modal{position:fixed;inset:0;z-index:9999;pointer-events:none;opacity:0;transition:opacity .35s;background:rgba(0,0,0,0)}
+.contact-modal.open{pointer-events:auto;opacity:1;background:rgba(0,0,0,.4)}
+.contact-modal.open .contact-modal-content{transform:translateY(0)}
+.contact-modal-content{position:fixed;bottom:0;right:0;background:var(--ink2);border:1px solid var(--line);border-radius:12px 12px 0 0;padding:2rem;width:360px;max-height:85vh;overflow-y:auto;box-shadow:0 -20px 60px rgba(0,0,0,.5);transform:translateY(100%);transition:transform .35s cubic-bezier(.16,1,.3,1);z-index:10000}
+.contact-close{position:absolute;top:1rem;right:1rem;background:none;border:none;color:var(--dim2);font-size:1.8rem;cursor:pointer;transition:color .2s;padding:0;width:32px;height:32px;display:flex;align-items:center;justify-content:center}
+.contact-close:hover{color:var(--p)}
+.contact-form{display:flex;flex-direction:column;gap:1rem;margin-top:1.2rem}
+.form-group{display:flex;flex-direction:column}
+.form-group input,.form-group textarea{background:rgba(255,255,255,.08);border:1px solid var(--line);border-radius:6px;padding:.7rem .9rem;color:var(--snow);font-family:inherit;font-size:.9rem;transition:border-color .25s,background .25s}
+.form-group input::placeholder,.form-group textarea::placeholder{color:var(--dim)}
+.form-group input:focus,.form-group textarea:focus{outline:none;border-color:var(--p);background:rgba(173,222,0,.06)}
+.form-group.checkbox{flex-direction:row;align-items:center;gap:.6rem;margin-top:.3rem}
+.form-group.checkbox input{margin:0;width:18px;height:18px;cursor:pointer}
+.form-group.checkbox label{font-size:.85rem;color:var(--dim2);cursor:pointer;margin:0}
+.form-group.checkbox label a{color:var(--p);text-decoration:underline}
+.btn-send{padding:.8rem 1.4rem;background:var(--p);color:#0a0a0a;border:none;border-radius:6px;font-weight:800;font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;transition:transform .25s,box-shadow .25s;box-shadow:0 4px 16px rgba(173,222,0,.2);margin-top:.5rem;display:flex;align-items:center;justify-content:center;gap:.5rem}
+.btn-send:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(173,222,0,.35)}
+.btn-send:active{transform:translateY(0)}
+.form-status{font-size:.8rem;text-align:center;margin-top:.6rem;min-height:20px;color:var(--dim);transition:color .3s}
+.form-status.success{color:#4ade80}
+.form-status.error{color:#f87171}
+@media(max-width:480px){.contact-modal-content{width:100%;max-width:100%;border-radius:16px 16px 0 0;padding:1.5rem}}
+
+
+/* Contact panel refinement */
+.contact-modal{background:rgba(4,5,10,0);backdrop-filter:blur(0);-webkit-backdrop-filter:blur(0)}
+.contact-modal.open{background:rgba(4,5,10,.68);backdrop-filter:blur(5px);-webkit-backdrop-filter:blur(5px)}
+.contact-modal-content{
+  width:min(440px,calc(100vw - 2rem));right:clamp(1rem,3vw,2rem);bottom:clamp(1rem,3vw,2rem);
+  max-height:min(88svh,800px);padding:clamp(1.4rem,4vw,2.1rem);
+  border:1px solid rgba(173,222,0,.24);border-radius:18px;
+  background:radial-gradient(ellipse 90% 35% at 0 0,rgba(173,222,0,.09),transparent 72%),linear-gradient(155deg,#11121a 0%,#08090e 78%);
+  box-shadow:0 28px 90px rgba(0,0,0,.65),0 0 38px rgba(173,222,0,.08),inset 0 1px rgba(255,255,255,.06);
+}
+.contact-modal-content::before{content:'';position:absolute;left:1.3rem;right:1.3rem;top:0;height:1px;background:linear-gradient(90deg,transparent,rgba(173,222,0,.8),rgba(104,125,255,.35),transparent)}
+.contact-modal-header{padding-right:2.2rem;margin-bottom:1.3rem}
+.contact-eyebrow{display:inline-block;margin-bottom:.55rem;color:var(--p);font-size:.62rem;font-weight:800;letter-spacing:.2em}
+.contact-modal-title{font-family:'Barlow Condensed',sans-serif;font-size:clamp(1.8rem,6vw,2.2rem);font-weight:900;line-height:1;text-transform:uppercase;color:var(--snow)}
+.contact-modal-desc{margin-top:.55rem;color:var(--dim2);font-size:.84rem;line-height:1.55}
+.contact-close{top:.9rem;right:.9rem;border:1px solid rgba(255,255,255,.09);border-radius:9px;background:rgba(255,255,255,.04);font-size:1.4rem;width:36px;height:36px}
+.contact-form{gap:.8rem;margin-top:0}
+.form-group input,.form-group textarea{border:1px solid rgba(255,255,255,.11);border-radius:9px;background:rgba(255,255,255,.045);padding:.82rem .95rem;font-size:.88rem}
+.form-group input:hover,.form-group textarea:hover{border-color:rgba(173,222,0,.25)}
+.form-group textarea{min-height:112px;resize:vertical}
+.form-group.checkbox{align-items:flex-start}
+.form-group.checkbox input{accent-color:var(--p);margin-top:.12rem;flex:0 0 18px}
+.form-group.checkbox label{font-size:.78rem;line-height:1.5}
+.form-group.checkbox label a{color:var(--p)}
+.btn-send{min-height:48px;border-radius:9px;background:linear-gradient(110deg,#aede00,#c8f527);box-shadow:0 8px 24px rgba(173,222,0,.18)}
+.btn-send:hover{box-shadow:0 10px 30px rgba(173,222,0,.32)}
+.contact-form-note{font-size:.7rem;color:var(--dim);line-height:1.45;text-align:center;margin-top:-.4rem}
+@media(max-width:480px){.contact-modal-content{width:calc(100vw - 1rem);right:.5rem;bottom:.5rem;max-height:min(90svh,760px);border-radius:16px;padding:1.35rem}}
+@media(prefers-reduced-motion:reduce){.contact-modal-content,.contact-modal{transition:none}}
+
 </style>
 </head>
 <body>
@@ -364,13 +420,13 @@ footer::before{
 <!-- NAV -->
 <nav id="nav">
   <a href="index.html" class="nav-logo">
-    <img src="images/logo-switchup-full.png" alt="SWITCH UP">
+    <img src="images/logo-switchup-full.webp" width="1200" height="317" alt="SWITCH UP">
   </a>
   <div class="nav-links">
     <a href="index.html">Home</a>
     <a href="index.html#projects">Progetti</a>
     <a href="servizi.html" style="color:var(--p)">Servizi</a>
-    <button class="nav-cta" onclick="window.location.href='index.html#service'">Parliamone</button>
+    <button class="nav-cta" type="button" data-open-contact>Parliamone</button>
   </div>
 </nav>
 
@@ -378,26 +434,26 @@ footer::before{
 <section class="service-section">
   <div class="service-inner">
     <h2 class="service-title">Creiamo interesse intorno a te.<br><em>Siamo noi a creare la notizia</em></h2>
-    <p class="service-intro">Non è il tuo nome sui giornali che attira gli sponsor. È la storia dietro quel nome. Costruiamo narrativa credibile intorno a te: da semplice pilota a figura mediatica rilevante.</p>
+    <p class="service-intro">Per attirare l’attenzione di uno sponsor conta anche il percorso che c’è dietro ogni risultato. Ti aiutiamo a raccontarlo con contenuti chiari, credibili e adatti ai media.</p>
     <div class="service-center service-center-image">
-      <img class="service-story-image" src="images/delbianco-civ-article.webp" alt="Articolo Corse di Moto: Bis di Alessandro Delbianco, campione CIV Superbike 2026" width="1744" height="1496" loading="lazy" decoding="async">
+      <img class="service-story-image" src="images/delbianco-civ-article.webp" alt="Articolo di Corse di Moto sul titolo di Alessandro Delbianco nel CIV Superbike 2026" width="1744" height="1496" loading="lazy" decoding="async">
     </div>
     <div class="service-points">
       <div class="point">
         <div class="point-icon" aria-hidden="true"><i class="fas fa-id-card"></i></div>
-        <p>Dossier completo con foto, cv, statistiche. Pronto da mandare a media e sponsor.</p>
+        <p>Un profilo aggiornato con biografia, fotografie e risultati, pronto da condividere con redazioni e potenziali partner.</p>
       </div>
       <div class="point">
         <div class="point-icon" aria-hidden="true"><i class="fas fa-bullhorn"></i></div>
-        <p>Annunci coordinati di vittorie, stage, partnership. Visibilità costante sui media.</p>
+        <p>Comunicati per risultati, nuovi accordi e tappe importanti della stagione, preparati per i media di settore.</p>
       </div>
       <div class="point">
         <div class="point-icon" aria-hidden="true"><i class="fas fa-microphone-lines"></i></div>
-        <p>Contatti con giornalisti motorsport. Porte aperte con media e testate online.</p>
+        <p>Contenuti pensati per presentare il tuo progetto a giornalisti e testate specializzate.</p>
       </div>
       <div class="point">
         <div class="point-icon" aria-hidden="true"><i class="fas fa-user-tie"></i></div>
-        <p>Strategia di posizionamento. Diventi personaggio, non solo pilota.</p>
+        <p>Un posizionamento coerente che valorizza la tua identità sportiva, dentro e fuori dalla pista.</p>
       </div>
     </div>
     
@@ -408,7 +464,7 @@ footer::before{
 <section class="service-section">
   <div class="service-inner">
     <h2 class="service-title">Creiamo la presentazione giusta<br><em>Per ogni sponsor</em></h2>
-    <p class="service-intro">Ogni sponsor è diverso. Chi cerca visibilità, chi experience, chi ROI. Noi creiamo presentazioni, brochure e materiali ad hoc: su misura alle sue esigenze, nel suo linguaggio, con i numeri che lo convincono.</p>
+    <p class="service-intro">Ogni partnership parte da obiettivi diversi: visibilità, esperienze o risultati misurabili. Prepariamo presentazioni e materiali su misura, con dati pertinenti e un linguaggio adatto al partner.</p>
     <div class="service-center service-center-gallery">
       <div class="service-image-gallery">
         <div class="service-image-frame"><img src="images/civ-superbike-2027.webp" alt="Presentazione CIV Superbike con piloti, case costruttrici e opportunità per i partner" width="1762" height="747" loading="lazy" decoding="async"></div>
@@ -418,19 +474,19 @@ footer::before{
     <div class="service-points">
       <div class="point">
         <div class="point-icon" aria-hidden="true"><i class="fas fa-person-chalkboard"></i></div>
-        <p>Deck professionale ad hoc per ogni sponsor. Numeri, dati, visione. Strutturata per convincere esattamente lui.</p>
+        <p>Una presentazione costruita sul progetto e sugli obiettivi del partner, con informazioni e dati organizzati in modo chiaro.</p>
       </div>
       <div class="point">
         <div class="point-icon" aria-hidden="true"><i class="fas fa-book-open"></i></div>
-        <p>Materiali fisici e digitali: brochure, one-pager, media kit integrato. Strumenti che lasciano impressione.</p>
+        <p>Brochure, schede sintetiche e media kit, in formato digitale o stampato, con una grafica coordinata.</p>
       </div>
       <div class="point">
         <div class="point-icon" aria-hidden="true"><i class="fas fa-handshake"></i></div>
-        <p>Proposte di sponsorship studiate sulle esigenze specifiche. Non template: ogni proposta è custom.</p>
+        <p>Proposte di partnership preparate in base agli obiettivi e alle esigenze di ciascuna azienda.</p>
       </div>
       <div class="point">
         <div class="point-icon" aria-hidden="true"><i class="fas fa-chart-pie"></i></div>
-        <p>Follow-up design: infografiche, case studies, report. Tutto ciò che serve dopo la firma per mantenerlo felice.</p>
+        <p>Report, infografiche e casi di progetto aiutano a documentare le attività e a condividere i risultati della partnership.</p>
       </div>
     </div>
     
@@ -440,23 +496,23 @@ footer::before{
 <!-- COMUNICAZIONE VISIVA -->
 <section class="service-section" style="background:linear-gradient(180deg,var(--ink2) 0%,var(--ink) 100%)">
   <div class="service-inner">
-    <h2 class="service-title">L'estetica è una scienza.<br><em>Ogni pixel racconta</em></h2>
-    <p class="service-intro">Non è bello solo perché piace. È bello perché funziona. Colori, layout, font: tutto comunica chi sei. Lo sponsor ti giudica prima di leggere una parola. La visiva vende.</p>
+    <h2 class="service-title">L’immagine comunica prima delle parole.<br><em>Progettiamola con cura</em></h2>
+    <p class="service-intro">Immagini, colori e impaginazione contribuiscono a raccontare la tua identità. Progettiamo una comunicazione visiva coerente con lo sport, il team e i partner a cui ti rivolgi.</p>
     
     <div class="visual-case-study">
       <div class="visual-comparison" role="group" aria-label="Confronto tra comunicazione visiva non professionale e strategia efficace">
         <figure class="visual-example visual-example-before">
-          <figcaption class="visual-example-label"><span class="visual-example-index">01</span><span>Comunicazione da migliorare</span></figcaption>
-          <img class="visual-example-image" src="images/visual-before.png" alt="Post social in un telefono con timbro rosso NON VA BENE">
+          <figcaption class="visual-example-label"><span class="visual-example-index">01</span><span>Esempio da rivedere</span></figcaption>
+          <img class="visual-example-image" src="images/visual-before.webp" width="930" height="1691" alt="Post social in un telefono con timbro rosso NON VA BENE">
         </figure>
         <figure class="visual-example visual-example-after">
-          <figcaption class="visual-example-label"><span class="visual-example-index">02</span><span>Strategia efficace</span></figcaption>
-          <img class="visual-example-image" src="images/strategy-effective-instagram.jpg" alt="Post Instagram di Diogo Moreira con timbro verde STRATEGIA EFFICACE">
+          <figcaption class="visual-example-label"><span class="visual-example-index">02</span><span>Esempio di comunicazione coordinata</span></figcaption>
+          <img class="visual-example-image" src="images/strategy-effective-instagram.webp" width="640" height="1115" alt="Post Instagram di Diogo Moreira con timbro verde STRATEGIA EFFICACE">
         </figure>
       </div>
       <div class="visual-case-copy">
-        <p class="visual-case-lead"><strong>Togliere uno sfondo non è comunicazione visiva.</strong></p>
-        <p>Lo sponsor paga per credibilità e serietà. Una foto ritagliata male o senza contesto comunica amatorialità. La vera comunicazione visiva è strategia integrata: colori coerenti, composizione deliberata, gerarchia visiva, atmosfera controllata, editing professionale. Ogni elemento lavora per un unico scopo: posizionare te e il tuo team come professionisti seri a cui vale la pena di associarsi.</p>
+        <p class="visual-case-lead"><strong>La qualità visiva nasce da scelte coerenti, non da un singolo effetto.</strong></p>
+        <p>Un’immagine ben scelta e impaginata valorizza il contenuto e rende riconoscibile il progetto. Cura di luce, composizione, colori e leggibilità aiuta a mantenere un’identità coerente tra sito, social e materiali per i partner.</p>
       </div>
     </div>
     <div class="service-points">
@@ -466,15 +522,15 @@ footer::before{
       </div>
       <div class="point">
         <div class="point-icon" aria-hidden="true"><i class="fas fa-pen-nib"></i></div>
-        <p>Poster, social card, infografiche, sponsor kit. Visuale professionista, non amatrice.</p>
+        <p>Poster, social card, infografiche, sponsor kit. Grafica coerente con l’identità del progetto.</p>
       </div>
       <div class="point">
         <div class="point-icon" aria-hidden="true"><i class="fas fa-film"></i></div>
-        <p>Clip, intro, highlights. Contenuto motion per social che cattura attenzione in 3 secondi.</p>
+        <p>Clip, intro, highlights. Video brevi e contenuti dinamici pensati per i canali social.</p>
       </div>
       <div class="point">
         <div class="point-icon" aria-hidden="true"><i class="fas fa-camera"></i></div>
-        <p>Scatti professionali in pista e off. Fotografie che raccontano la storia, non semplici foto.</p>
+        <p>Scatti professionali in pista e off. Fotografie che documentano persone, preparazione e momenti di gara.</p>
       </div>
     </div>
   </div>
@@ -484,28 +540,28 @@ footer::before{
 <section class="service-section" style="background:linear-gradient(180deg,var(--ink) 0%,var(--ink2) 100%)">
   <div class="service-inner">
     <h2 class="service-title">Fai crescere la tua presenza online.<br><em>Mentre sei in pista</em></h2>
-    <p class="service-intro">Il sito da solo non basta. Gli sponsor ti cercano sui social. Non è solo avere account: è coordinare. Integriamo sito, Instagram, TikTok, YouTube in una strategia unica. Una voce, tre canali, engagement costante e misurato.</p>
+    <p class="service-intro">Sito e social possono lavorare insieme per raccontare il progetto con continuità. Coordiniamo Instagram, TikTok e YouTube con contenuti adatti a ogni canale e uno stile riconoscibile.</p>
     <div class="service-center service-center-social">
       <div class="service-social-frame">
-        <img class="service-social-image" src="images/ktm-garage-social.webp" alt="Meccanici al lavoro nel box KTM durante una gara" width="1600" height="1065" loading="lazy" decoding="async">
+        <img class="service-social-image" src="images/ktm-garage-social-optimized.webp" alt="Il team KTM al lavoro nel box durante una gara" width="1600" height="1065" loading="lazy" decoding="async">
       </div>
     </div>
     <div class="service-points">
       <div class="point">
         <div class="point-icon" aria-hidden="true"><i class="fas fa-share-nodes"></i></div>
-        <p>Website + Instagram + TikTok + YouTube sincronizzati. Uno parla dell'altro. Lo sponsor ti vede ovunque, coerente, professionale.</p>
+        <p>Sito e profili social coordinati, con contenuti e informazioni coerenti tra i diversi canali.</p>
       </div>
       <div class="point">
         <div class="point-icon" aria-hidden="true"><i class="fas fa-comments"></i></div>
-        <p>Post studiati e pianificati, interazioni frequenti, community building. Non è spam: è relazione autentica con chi potrebbe sponsorizzarti.</p>
+        <p>Un piano editoriale realistico aiuta a pubblicare con regolarità e a coltivare relazioni con pubblico e potenziali partner.</p>
       </div>
       <div class="point">
         <div class="point-icon" aria-hidden="true"><i class="fas fa-calendar-check"></i></div>
-        <p>Dal circuito all'albergo, dalla gara al raduno: tutti i momenti narrati. Frequenza e coerenza che mantiene visibilità e engagement alto.</p>
+        <p>Raccontiamo gare, allenamenti e vita di squadra con una frequenza sostenibile e uno stile coerente.</p>
       </div>
       <div class="point">
         <div class="point-icon" aria-hidden="true"><i class="fas fa-chart-line"></i></div>
-        <p>Dashboard integrato: followers, engagement rate, reach reale, analytics per piattaforma. Lo sponsor vede esattamente quanto marchio viene visto.</p>
+        <p>Report con dati disponibili su copertura, interazioni e andamento dei contenuti, organizzati per piattaforma.</p>
       </div>
     </div>
   </div>
@@ -515,22 +571,58 @@ footer::before{
 <section class="services-cta">
   <div class="services-cta-inner">
     <span class="services-cta-kicker">Il prossimo passo</span>
-    <h2>Pronto a fare il salto?<em>Facciamo il tuo switch.</em></h2>
-    <p>Raccontaci dove vuoi arrivare. Costruiamo insieme la strada per far emergere il tuo potenziale.</p>
-    <a class="services-cta-button" href="mailto:switchup.gass@gmail.com"><i class="fas fa-envelope" aria-hidden="true"></i> Contattaci!</a>
+    <h2>Pronto a far crescere il tuo progetto?<em>Parliamone insieme.</em></h2>
+    <p>Parlaci dei tuoi obiettivi: valutiamo insieme come presentare al meglio il tuo progetto sportivo.</p>
+    <button class="services-cta-button" type="button" data-open-contact><i class="fas fa-envelope" aria-hidden="true"></i> Contattaci!</button>
   </div>
 </section>
+
+<div id="contact-modal" class="contact-modal">
+  <div class="contact-modal-content">
+    <button class="contact-close" aria-label="Chiudi">&times;</button>
+    <div class="contact-modal-header">
+      <span class="contact-eyebrow">SWITCH UP · CONTATTI</span>
+      <h3 class="contact-modal-title">Parliamone</h3>
+      <p class="contact-modal-desc">Raccontaci il tuo progetto. Ti ricontatteremo per capire insieme da dove partire.</p>
+    </div>
+    <form id="contact-form" class="contact-form">
+      <div class="form-group">
+        <input type="text" id="name" name="name" placeholder="Nome" required>
+      </div>
+      <div class="form-group">
+        <input type="email" id="email" name="email" placeholder="Email" required>
+      </div>
+      <div class="form-group">
+        <input type="tel" id="phone" name="phone" placeholder="Telefono (facoltativo)" autocomplete="tel">
+      </div>
+      <div class="form-group">
+        <input type="text" id="sport" name="sport" placeholder="Sport / disciplina">
+      </div>
+      <div class="form-group">
+        <textarea id="message" name="message" placeholder="Messaggio" rows="4"></textarea>
+      </div>
+      <div class="form-group checkbox">
+        <input type="checkbox" id="privacy" name="privacy" required>
+        <label for="privacy">Ho letto e accetto la <a href="#" style="color:var(--p);text-decoration:underline">informativa sulla privacy</a></label>
+      </div>
+      <button type="submit" class="btn-send"><i class="fas fa-paper-plane" aria-hidden="true"></i> Apri la mail pronta</button>
+      <p class="contact-form-note">Si aprirà il tuo programma email per completare l’invio.</p>
+      <div id="form-status" class="form-status"></div>
+    </form>
+  </div>
+
 
 <!-- FOOTER -->
 <footer>
   <div class="footer-inner">
     <div class="f-brand">
-      <p class="f-tagline">La tua storia merita <span>il palcoscenico giusto.</span></p>\n      <a class="footer-privacy-link" href="#">Privacy Policy</a>
+      <p class="f-tagline">La tua storia merita <span>il palcoscenico giusto.</span></p>
+      <a class="footer-privacy-link" href="#">Privacy Policy</a>
       <p>Una vetrina digitale pensata per trasformare il tuo talento in opportunità concrete con gli sponsor.</p>
     </div>
     <div class="f-col">
       <h4>Navigazione</h4>
-      <a href="index.html#why">Perché Noi</a>
+      <a href="index.html#why">Perché funziona</a>
       <a href="index.html#projects">Progetti</a>
       <a href="servizi.html">Servizi</a>
     </div>
@@ -539,7 +631,6 @@ footer::before{
       <a class="partner-link" href="https://www.adattivia.it" target="_blank" rel="noopener noreferrer" aria-label="Visita il sito Adattivia">
         <img src="images/adattivia.png" alt="Adattivia" loading="lazy">
       </a>
-      <a href="#">Privacy Policy</a>
     </div>
     <div class="f-col">
       <h4>Contatti</h4>
@@ -560,6 +651,30 @@ footer::before{
 <script>
 const nav=document.getElementById('nav');
 window.addEventListener('scroll',()=>nav.classList.toggle('s',scrollY>80),{passive:true});
+</script>
+<script>
+(()=> {
+  const modal=document.getElementById('contact-modal');
+  const form=document.getElementById('contact-form');
+  if(!modal||!form)return;
+  const status=document.getElementById('form-status');
+  const open=()=>{modal.classList.add('open');form.reset();status.textContent='';document.getElementById('name').focus()};
+  const close=()=>modal.classList.remove('open');
+  document.querySelectorAll('[data-open-contact]').forEach(button=>button.addEventListener('click',open));
+  modal.querySelector('.contact-close').addEventListener('click',close);
+  modal.addEventListener('click',event=>{if(event.target===modal)close()});
+  document.addEventListener('keydown',event=>{if(event.key==='Escape')close()});
+  form.addEventListener('submit',event=>{
+    event.preventDefault();
+    if(!document.getElementById('privacy').checked){status.textContent='Per continuare, accetta l’informativa sulla privacy.';status.classList.add('error');return}
+    const data=new FormData(form);
+    const subject=encodeURIComponent('Richiesta informazioni — SWITCH UP');
+    const body=encodeURIComponent('Nome: '+data.get('name')+'\\nEmail: '+data.get('email')+'\\nTelefono: '+(data.get('phone')||'Non indicato')+'\\nSport / disciplina: '+(data.get('sport')||'Non indicato')+'\\n\\nMessaggio:\\n'+(data.get('message')||''));
+    status.classList.remove('error','success');
+    status.textContent='Si aprirà il tuo programma email con il messaggio già compilato.';
+    window.location.href='mailto:switchup.gass@gmail.com?subject='+subject+'&body='+body;
+  });
+})();
 </script>
 </body>
 </html>
