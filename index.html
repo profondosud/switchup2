@@ -1038,7 +1038,7 @@ footer{
     <a href="#projects" data-i18n="nav_projects">Progetti</a>
     <a href="#process" data-i18n="nav_process">Come Funziona</a>
     <a href="servizi.html" data-i18n="nav_service">Servizi</a>
-    <button class="nav-cta" data-i18n="nav_cta">Parliamone</button>
+    <button class="nav-cta" data-i18n="nav_cta" onclick="document.getElementById('contact-modal').classList.add('open')">Parliamone</button>
   </div>
   <div class="lang-sw">
     <button class="lang-btn active" data-lang="it">IT</button>
@@ -1227,7 +1227,7 @@ footer{
 
     <div class="proj-row add r d4">
       <div class="add-text">La Tua Vetrina Potrebbe Essere La Prossima →</div>
-      <a href="#service" class="btn-fire"><i class="fas fa-bolt"></i> Inizia Ora</a>
+      <a href="#service" class="btn-fire" onclick="document.getElementById('contact-modal').classList.add('open');return false"><i class="fas fa-bolt"></i> Inizia Ora</a>
     </div>
   </div>
 </section>
@@ -1251,7 +1251,7 @@ footer{
     <p class="r d1">Un biglietto da visita che porta al tuo sito. Un sito che porta agli sponsor. Una strategia che porta ai contratti.</p>
     <p class="r d2"><strong>SWITCH UP non è solo un sito web.</strong> È il tuo strumento di acquisizione sponsor, costruito con la mentalità di chi ha corso e sa cosa cercano davvero i brand.</p>
     <div class="r d3" style="margin-top:2.2rem">
-      <a href="#service" class="btn-fire" style="display:inline-flex"><i class="fas fa-bolt"></i> Inizia Ora</a>
+      <a href="#service" class="btn-fire" style="display:inline-flex" onclick="document.getElementById('contact-modal').classList.add('open');return false"><i class="fas fa-bolt"></i> Inizia Ora</a>
     </div>
   </div>
 </div>
@@ -1266,7 +1266,7 @@ footer{
       <em data-i18n="closing_h3">Una Vetrina Vera</em>
     </h2>
     <div class="cta-row r d1">
-      <a href="#service" class="btn-fire"><i class="fas fa-bolt"></i> <span data-i18n="btn_demo">Parliamone</span></a>
+      <a href="#service" class="btn-fire" onclick="document.getElementById('contact-modal').classList.add('open');return false"><i class="fas fa-bolt"></i> <span data-i18n="btn_demo">Parliamone</span></a>
       <a href="#projects" class="btn-line" data-i18n="btn_proj">Vedi i Progetti</a>
     </div>
   </div>
