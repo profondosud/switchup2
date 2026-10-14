@@ -1134,6 +1134,23 @@ footer{padding:3.5rem 1.25rem 1.25rem}
 @media(max-width:480px){.contact-modal-content{width:calc(100vw - 1rem);right:.5rem;bottom:.5rem;max-height:min(90svh,760px);border-radius:16px;padding:1.35rem}}
 @media(prefers-reduced-motion:reduce){.contact-modal-content,.contact-modal{transition:none}}
 
+@media(max-width:560px){
+  .top-hero .closing-bg{
+    background-size:100% auto;
+    background-position:center top;
+    background-repeat:no-repeat;
+  }
+  .top-hero .closing-ov{
+    background:linear-gradient(180deg,rgba(6,6,10,.48) 0%,rgba(6,6,10,.62) 45vw,rgba(6,6,10,.92) 88vw,var(--ink) 118vw);
+  }
+  .end-hero{
+    background-image:linear-gradient(180deg,rgba(6,6,10,.38) 0%,rgba(6,6,10,.78) 50vw,var(--ink) 112vw),url('images/foto-end-hero.webp');
+    background-size:cover,100% auto;
+    background-position:center,center top;
+    background-repeat:no-repeat,no-repeat;
+    background-color:var(--ink);
+  }
+}
 </style>
 </head>
 <body>
