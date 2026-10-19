@@ -351,7 +351,7 @@ footer::before{
 }
 @media(max-width:560px){
   .service-points{grid-template-columns:1fr}
-  footer{padding:3.5rem 1.25rem 1.25rem}
+  footer{padding:3.5rem 1.25rem 6.5rem}
   .footer-inner{grid-template-columns:1fr;gap:2rem;padding-bottom:2.25rem}
   .f-brand{grid-column:auto}
   .f-tagline{font-size:2.25rem}
@@ -455,6 +455,8 @@ footer::before{
 .whatsapp-float:hover{transform:translateY(-3px);box-shadow:0 12px 30px rgba(0,0,0,.45),0 0 0 2px rgba(255,255,255,.24)}
 .whatsapp-float:focus-visible{outline:3px solid #fff;outline-offset:4px}
 @media(max-width:560px){.whatsapp-float{right:16px;bottom:calc(18px + env(safe-area-inset-bottom));width:56px;height:56px;font-size:1.9rem}}
+.team-hero{border-top:1px solid rgba(173,222,0,.18)}
+.team-hero .services-cta-kicker{display:block;margin-bottom:1rem}
 </style>
 </head>
 <body>
@@ -479,11 +481,11 @@ footer::before{
 <!-- UFFICIO STAMPA -->
 <section class="service-section">
   <div class="service-inner">
-    <h2 class="service-title">Creiamo interesse intorno a te.<br><em>Siamo noi a creare la notizia</em></h2>
+    <h2 class="service-title">Creiamo interesse intorno a te<br><em>Siamo noi a creare la notizia</em></h2>
     <p class="service-intro">Per attirare l’attenzione di uno sponsor conta anche il percorso che c’è dietro ogni risultato. Ti aiutiamo a raccontarlo con contenuti chiari, credibili e adatti ai media.</p>
     <div class="service-center service-center-image">
       <div class="service-story-frame">
-        <img class="service-story-image" src="images/delbianco-civ-article.webp" alt="Articolo di Corse di Moto sul titolo di Alessandro Delbianco nel CIV Superbike 2026" width="1744" height="1496" loading="lazy" decoding="async">
+        <img class="service-story-image" src="images/press-example.jpg" alt="Esempio di articolo stampa sul titolo Superbike di un pilota" width="1744" height="1496" loading="lazy" decoding="async">
       </div>
     </div>
     <div class="service-points">
@@ -515,8 +517,8 @@ footer::before{
     <p class="service-intro">Ogni partnership parte da obiettivi diversi: visibilità, esperienze o risultati misurabili. Prepariamo presentazioni e materiali su misura, con dati pertinenti e un linguaggio adatto al partner.</p>
     <div class="service-center service-center-gallery">
       <div class="service-image-gallery">
-        <div class="service-image-frame"><img src="images/civ-superbike-2027.webp" alt="Presentazione CIV Superbike con piloti, case costruttrici e opportunità per i partner" width="1762" height="747" loading="lazy" decoding="async"></div>
-        <div class="service-image-frame"><img src="images/civ-sponsorship-impact.webp" alt="Presentazione del valore per gli sponsor del Dunlop CIV con dati di audience e copertura media" width="1762" height="631" loading="lazy" decoding="async"></div>
+        <div class="service-image-frame"><img src="images/slide-civ-superbike.jpg" alt="Presentazione CIV Superbike con piloti, case costruttrici e opportunità per i partner" width="1762" height="748" loading="lazy" decoding="async"></div>
+        <div class="service-image-frame"><img src="images/slide-valore-sponsor.jpg" alt="Presentazione del valore per gli sponsor del Dunlop CIV con dati di audience e copertura media" width="1762" height="748" loading="lazy" decoding="async"></div>
       </div>
     </div>
     <div class="service-points">
@@ -544,18 +546,18 @@ footer::before{
 <!-- COMUNICAZIONE VISIVA -->
 <section class="service-section" style="background:linear-gradient(180deg,var(--ink2) 0%,var(--ink) 100%)">
   <div class="service-inner">
-    <h2 class="service-title">L’immagine comunica prima delle parole.<br><em>Progettiamola con cura</em></h2>
+    <h2 class="service-title">L’immagine comunica prima delle parole<br><em>Progettiamola con cura</em></h2>
     <p class="service-intro">Immagini, colori e impaginazione contribuiscono a raccontare la tua identità. Progettiamo una comunicazione visiva coerente con lo sport, il team e i partner a cui ti rivolgi.</p>
     
     <div class="visual-case-study">
       <div class="visual-comparison" role="group" aria-label="Confronto tra comunicazione visiva non professionale e strategia efficace">
         <figure class="visual-example visual-example-before">
           <figcaption class="visual-example-label"><span class="visual-example-index">01</span><span>Esempio da rivedere</span></figcaption>
-          <img class="visual-example-image" src="images/visual-before.webp" width="930" height="1691" alt="Post social in un telefono con timbro rosso NON VA BENE">
+          <img class="visual-example-image" src="images/post-da-rivedere.jpg" width="930" height="1690" alt="Annuncio di un nuovo pilota in un post poco curato: NON VA BENE">
         </figure>
         <figure class="visual-example visual-example-after">
           <figcaption class="visual-example-label"><span class="visual-example-index">02</span><span>Esempio di comunicazione coordinata</span></figcaption>
-          <img class="visual-example-image" src="images/strategy-effective-instagram.webp" width="640" height="1115" alt="Post Instagram di Diogo Moreira con timbro verde STRATEGIA EFFICACE">
+          <img class="visual-example-image" src="images/post-efficace.jpg" width="930" height="1690" alt="Annuncio di un nuovo pilota con grafica coordinata stile figurina: STRATEGIA EFFICACE">
         </figure>
       </div>
       <div class="visual-case-copy">
@@ -587,11 +589,11 @@ footer::before{
 <!-- SOCIAL MEDIA COORDINATION -->
 <section class="service-section" style="background:linear-gradient(180deg,var(--ink) 0%,var(--ink2) 100%)">
   <div class="service-inner">
-    <h2 class="service-title">Fai crescere la tua presenza online.<br><em>Mentre sei in pista</em></h2>
+    <h2 class="service-title">Fai crescere la tua presenza online<br><em>Mentre sei in pista</em></h2>
     <p class="service-intro">Sito e social possono lavorare insieme per raccontare il progetto con continuità. Coordiniamo Instagram, TikTok e YouTube con contenuti adatti a ogni canale e uno stile riconoscibile.</p>
     <div class="service-center service-center-social">
       <div class="service-social-frame">
-        <img class="service-social-image" src="images/ktm-garage-social-optimized.webp" alt="Il team KTM al lavoro nel box durante una gara" width="1600" height="1065" loading="lazy" decoding="async">
+        <img class="service-social-image" src="images/social-canali.jpg" alt="Profilo di un pilota coordinato su Instagram, YouTube e TikTok" width="1600" height="1066" loading="lazy" decoding="async">
       </div>
     </div>
     <div class="service-points">
@@ -615,11 +617,145 @@ footer::before{
   </div>
 </section>
 
+<!-- SERVIZI PER I TEAM -->
+<section class="service-section team-hero">
+  <div class="service-inner">
+    <span class="services-cta-kicker">Per i team</span>
+    <h2 class="service-title">Servizi per i team<br><em>Un'unica vetrina per tutta la squadra</em></h2>
+    <p class="service-intro team-lead">Lavoriamo con il team principal per presentare la squadra, i suoi piloti e i suoi partner con un'immagine coordinata. Dal sito alle presentazioni sponsor, fino ai contenuti realizzati con l'intelligenza artificiale.</p>
+  </div>
+</section>
+
+<section class="service-section">
+  <div class="service-inner">
+    <h2 class="service-title">Il sito del team<br><em>La casa di tutto il progetto</em></h2>
+    <p class="service-intro">Un sito che racconta storia, struttura e obiettivi del team, con uno spazio dedicato ai partner.</p>
+    <div class="service-points">
+      <div class="point">
+        <div class="point-icon" aria-hidden="true"><i class="fas fa-flag-checkered"></i></div>
+        <p>Storia del team, staff tecnico, moto e campionati in cui corre.</p>
+      </div>
+      <div class="point">
+        <div class="point-icon" aria-hidden="true"><i class="fas fa-users"></i></div>
+        <p>Schede dei piloti con risultati, calendario e collegamento ai loro siti personali.</p>
+      </div>
+      <div class="point">
+        <div class="point-icon" aria-hidden="true"><i class="fas fa-handshake"></i></div>
+        <p>Area partner con loghi, livelli di sponsorizzazione e visibilità offerta.</p>
+      </div>
+      <div class="point">
+        <div class="point-icon" aria-hidden="true"><i class="fas fa-newspaper"></i></div>
+        <p>News, risultati e comunicati di ogni weekend di gara, pronti da condividere.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="service-section" style="background:linear-gradient(180deg,var(--ink2) 0%,var(--ink) 100%)">
+  <div class="service-inner">
+    <h2 class="service-title">Presentazioni sponsor<br><em>Per il team e per ogni pilota</em></h2>
+    <p class="service-intro">Prepariamo la presentazione sponsor del team e quelle personali dei piloti, con dati e proposte adatte a ogni azienda.</p>
+    <div class="service-points">
+      <div class="point">
+        <div class="point-icon" aria-hidden="true"><i class="fas fa-person-chalkboard"></i></div>
+        <p>Presentazione del team con numeri del campionato, pubblico e pacchetti di partnership.</p>
+      </div>
+      <div class="point">
+        <div class="point-icon" aria-hidden="true"><i class="fas fa-id-badge"></i></div>
+        <p>Presentazioni personali per ogni pilota, coordinate con lo stile del team.</p>
+      </div>
+      <div class="point">
+        <div class="point-icon" aria-hidden="true"><i class="fas fa-layer-group"></i></div>
+        <p>Versioni su misura per settore e obiettivo dello sponsor, in digitale e in stampa.</p>
+      </div>
+      <div class="point">
+        <div class="point-icon" aria-hidden="true"><i class="fas fa-chart-pie"></i></div>
+        <p>Report di fine stagione per mostrare ai partner i risultati della collaborazione.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="service-section">
+  <div class="service-inner">
+    <h2 class="service-title">I siti dei piloti<br><em>Realizzati per conto del team</em></h2>
+    <p class="service-intro">Ogni pilota del team può avere il suo sito personale, gestito da noi per conto del team e coordinato con l'immagine della squadra.</p>
+    <div class="service-points">
+      <div class="point">
+        <div class="point-icon" aria-hidden="true"><i class="fas fa-display"></i></div>
+        <p>Un sito per ogni pilota con biografia, risultati, foto e media kit.</p>
+      </div>
+      <div class="point">
+        <div class="point-icon" aria-hidden="true"><i class="fas fa-palette"></i></div>
+        <p>Stile coordinato con il sito del team, con colori e partner comuni.</p>
+      </div>
+      <div class="point">
+        <div class="point-icon" aria-hidden="true"><i class="fas fa-link"></i></div>
+        <p>Collegamenti incrociati tra team e piloti, per far crescere entrambi.</p>
+      </div>
+      <div class="point">
+        <div class="point-icon" aria-hidden="true"><i class="fas fa-rotate"></i></div>
+        <p>Aggiornamenti durante la stagione seguiti da noi.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="service-section" style="background:linear-gradient(180deg,var(--ink) 0%,var(--ink2) 100%)">
+  <div class="service-inner">
+    <h2 class="service-title">Contenuti con l'intelligenza artificiale<br><em>Per presentare il team come non mai</em></h2>
+    <p class="service-intro">Usiamo l'IA per creare immagini e video che aiutano a presentare il progetto prima ancora che sia in pista.</p>
+    <div class="service-points">
+      <div class="point">
+        <div class="point-icon" aria-hidden="true"><i class="fas fa-cube"></i></div>
+        <p>Rendering IA del team: moto, livree, box e divise con i colori degli sponsor.</p>
+      </div>
+      <div class="point">
+        <div class="point-icon" aria-hidden="true"><i class="fas fa-video"></i></div>
+        <p>Video IA di presentazione del team principal, per raccontare visione e obiettivi.</p>
+      </div>
+      <div class="point">
+        <div class="point-icon" aria-hidden="true"><i class="fas fa-wand-magic-sparkles"></i></div>
+        <p>Anteprime delle livree con i loghi di un potenziale sponsor, da mostrare in trattativa.</p>
+      </div>
+      <div class="point">
+        <div class="point-icon" aria-hidden="true"><i class="fas fa-images"></i></div>
+        <p>Contenuti pronti per sito, social e presentazioni.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="service-section">
+  <div class="service-inner">
+    <h2 class="service-title">Trovare nuovi piloti<br><em>Una presentazione che convince</em></h2>
+    <p class="service-intro">Prepariamo la presentazione del team per i piloti che vogliono entrare a far parte del progetto.</p>
+    <div class="service-points">
+      <div class="point">
+        <div class="point-icon" aria-hidden="true"><i class="fas fa-route"></i></div>
+        <p>Programma della stagione, campionati e obiettivi sportivi.</p>
+      </div>
+      <div class="point">
+        <div class="point-icon" aria-hidden="true"><i class="fas fa-screwdriver-wrench"></i></div>
+        <p>Supporto tecnico, staff e servizi offerti al pilota.</p>
+      </div>
+      <div class="point">
+        <div class="point-icon" aria-hidden="true"><i class="fas fa-bullhorn"></i></div>
+        <p>Visibilità e strumenti di comunicazione inclusi per il pilota.</p>
+      </div>
+      <div class="point">
+        <div class="point-icon" aria-hidden="true"><i class="fas fa-file-signature"></i></div>
+        <p>Un documento chiaro da inviare ai piloti e alle loro famiglie.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- CTA FINALE -->
 <section class="services-cta">
   <div class="services-cta-inner">
     <span class="services-cta-kicker">Il prossimo passo</span>
-    <h2>Pronto a far crescere il tuo progetto?<em>Parliamone insieme.</em></h2>
+    <h2>Pilota o team, pronto a crescere?<em>Parliamone insieme</em></h2>
     <p>Parlaci dei tuoi obiettivi: valutiamo insieme come presentare al meglio il tuo progetto sportivo.</p>
     <button class="services-cta-button" type="button" data-open-contact><i class="fas fa-envelope" aria-hidden="true"></i> Contattaci!</button>
   </div>
@@ -664,7 +800,7 @@ footer::before{
 <footer>
   <div class="footer-inner">
     <div class="f-brand">
-      <p class="f-tagline">La tua storia merita <span>il palcoscenico giusto.</span></p>
+      <p class="f-tagline">La tua storia merita <span>il palcoscenico giusto</span></p>
       <a class="footer-privacy-link" href="#">Privacy Policy</a>
       <p>Una vetrina digitale pensata per trasformare il tuo talento in opportunità concrete con gli sponsor.</p>
     </div>
@@ -730,6 +866,43 @@ window.addEventListener('scroll',()=>nav.classList.toggle('s',scrollY>80),{passi
   });
 })();
 </script>
-<a class="whatsapp-float" href="https://wa.me/393802192386" target="_blank" rel="noopener noreferrer" aria-label="Contattaci su WhatsApp" title="Contattaci su WhatsApp"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></a>
+<a class="whatsapp-float" aria-haspopup="true" href="https://wa.me/393802192386" target="_blank" rel="noopener noreferrer" aria-label="Contattaci su WhatsApp" title="Contattaci su WhatsApp"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></a>
+<div class="wa-pick" id="wa-pick" hidden>
+  <p class="wa-pick-q"></p>
+  <a class="wa-pick-opt" data-wa="393802192386" target="_blank" rel="noopener noreferrer"></a>
+  <a class="wa-pick-opt" data-wa="34655277853" target="_blank" rel="noopener noreferrer"></a>
+</div>
+<style>
+.wa-pick{position:fixed;right:24px;bottom:96px;z-index:1001;width:min(290px,calc(100vw - 32px));padding:16px;border-radius:16px;background:#0b0d12;border:1px solid rgba(173,222,0,.45);box-shadow:0 20px 50px rgba(0,0,0,.6);font-family:Inter,sans-serif}
+.wa-pick[hidden]{display:none}
+.wa-pick-q{margin:0 0 12px;color:#fff;font-weight:700;font-size:.95rem}
+.wa-pick-opt{display:flex;align-items:center;gap:10px;margin-top:8px;padding:11px 14px;border-radius:10px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);color:#fff;text-decoration:none;font-size:.9rem;transition:border-color .2s,background .2s}
+.wa-pick-opt:hover,.wa-pick-opt:focus-visible{border-color:#25d366;background:rgba(37,211,102,.12)}
+.wa-pick-opt::before{content:'';width:9px;height:9px;border-radius:50%;background:#25d366;flex:none}
+.wa-pick-opt small{color:#9aa0ab;margin-left:auto}
+@media(max-width:560px){.wa-pick{right:16px;bottom:calc(86px + env(safe-area-inset-bottom))}}
+</style>
+<script>
+(()=>{
+  // Nomi da mostrare accanto ai numeri (lascia '' per mostrare solo il numero)
+  const NAMES={'393802192386':'Marco','34655277853':'Andrea'};
+  const NUMS={'393802192386':'+39 380 219 2386','34655277853':'+34 655 277 853'};
+  const Q={it:'Con chi hai parlato?',es:'¿Con quién has hablado?',en:'Who have you been talking to?'};
+  const btn=document.querySelector('.whatsapp-float'),box=document.getElementById('wa-pick');
+  if(!btn||!box)return;
+  const fill=()=>{
+    const l=(document.documentElement.lang||'it').slice(0,2);
+    box.querySelector('.wa-pick-q').textContent=Q[l]||Q.it;
+    box.querySelectorAll('.wa-pick-opt').forEach(a=>{
+      const n=a.dataset.wa;a.href='https://wa.me/'+n;
+      a.innerHTML=NAMES[n]?NAMES[n]+'<small>'+NUMS[n]+'</small>':NUMS[n];
+    });
+  };
+  btn.addEventListener('click',e=>{e.preventDefault();fill();box.hidden=!box.hidden;});
+  box.addEventListener('click',e=>{if(e.target.closest('.wa-pick-opt'))box.hidden=true;});
+  document.addEventListener('click',e=>{if(!box.hidden&&!box.contains(e.target)&&!btn.contains(e.target))box.hidden=true;});
+  document.addEventListener('keydown',e=>{if(e.key==='Escape')box.hidden=true;});
+})();
+</script>
 </body>
 </html>
